@@ -256,7 +256,7 @@ const PortadaIsak = () => {
                             <img className="image-switch" data-dark="assets/images/item/vector-user_dark.svg" width="32" height="227" src="/assets/images/item/vector-user.svg" alt="Image" />
                         </div>
                         <p className="avaiable-dot vertical text-body-3 text-black-72 fw-medium">
-                            <span className="text-vertical">Available for Work</span>
+                            <span className="text-vertical">Disponible para trabajar</span>
                             <span className="dot"></span>
                         </p>
                     </div>
@@ -280,19 +280,19 @@ const PortadaIsak = () => {
                 <div className="user-info">
                     <p className="avaiable-dot text-body-3 fw-medium d-sm-none">
                         <span className="dot"></span>
-                        <span>Available for Work</span>
+                        <span>Disponible para trabajar</span>
                     </p>
                     <h5 className="greeting letter-space--2 text-white animationtext clip">
-                        Hey, I’m
+                        Hola, soy
                         <span className="cd-words-wrapper">
-                            <span className="item-text is-visible">Isak</span>
-                            <span className="item-text is-hidden">Designer</span>
-                            <span className="item-text is-hidden">Developer</span>
+                            <span className="item-text is-visible">Andrés</span>
+                            <span className="item-text is-hidden">Full-Stack</span>
+                            <span className="item-text is-hidden">Dev con IA</span>
                         </span>
                     </h5>
                     <p className="introduce text-white-56 letter-space--05 text-body-3">
-                        I help startups grow with smart design and
-                        no-code development, based in Cupertino, CA.
+                        Automatizo procesos, construyo agentes con IA y
+                        desarrollo software a medida. Desde Medellín, Colombia.
                     </p>
                     <div className="br-line"></div>
                     <div className="action-group">
@@ -301,7 +301,7 @@ const PortadaIsak = () => {
                                 <i className="icon icon-arrow-right-top"></i>
                             </span>
                             <span className="text text-body-3 letter-space--05 fw-medium">
-                                Let’s talk
+                                Hablemos
                             </span>
                             <span className="ic-wrap">
                                 <i className="icon icon-arrow-right-top"></i>
@@ -310,7 +310,7 @@ const PortadaIsak = () => {
                         <a href="#" className="action-down">
                             <i className="icon icon-download"></i>
                             <span className="text-body-3">
-                                Download CV
+                                Descargar CV
                             </span>
                         </a>
                     </div>
@@ -331,16 +331,16 @@ const PortadaIsak = () => {
                                         <img loading="lazy" width="23" height="31" src="/assets/images/avatar/avatar-boy.png" alt="Image" />
                                     </div>
                                     <div className="author-info letter-space--05">
-                                        <p className="info_name text-black">Alexander Isak</p>
-                                        <p className="info_duty text-black-50 text-body-3">UI Designer & No-Code Developer
+                                        <p className="info_name text-black">Andrés Contreras</p>
+                                        <p className="info_duty text-black-50 text-body-3">Desarrollador Full-Stack · IA aplicada
                                         </p>
                                     </div>
                                 </div>
                                 <h1 className="intro-title letter-space--2 split-text effect-blur-fade">
-                                    I’m building
-                                    <span className="">websites</span><br />
-                                    <span className="type-2">& brands</span>
-                                    that people remember
+                                    Construyo el
+                                    <span className="">software</span><br />
+                                    <span className="type-2">y los agentes</span>
+                                    que tu negocio necesita
                                 </h1>
                                 <div className="intro-item">
                                     <div className="scribble-wrap">
@@ -372,27 +372,26 @@ const PortadaIsak = () => {
                                 <div className="box-counter effectFade fadeUp no-div">
                                     <div className="wg-counter">
                                         <p className="counter h1 d-flex font-2 letter-space--2">
-                                            <span className="number" data-speed="1000" data-to="10">0</span>
+                                            <span className="number" data-speed="1000" data-to="5">0</span>
                                             +
                                         </p>
                                         <p className="text text-black-56 text-body-3">
-                                            Year of experience
+                                            Años construyendo software
                                         </p>
                                     </div>
                                     <div className="wg-counter">
                                         <p className="counter h1 d-flex font-2 letter-space--2">
-                                            <span className="number" data-speed="1000" data-to="6">0</span>
-                                            x
+                                            <span className="number" data-speed="1000" data-to="4">0</span>
                                         </p>
                                         <p className="text text-black-56 text-body-3">
-                                            Industry Awards
+                                            Proyectos en producción
                                         </p>
                                     </div>
                                 </div>
 
                                 <p className="intro-client letter-space--05 text-body-3">
                                     <i className="icon icon-global-elip"></i>
-                                    Our clients (2015-25©)
+                                    Donde he trabajado
                                 </p>
 
                                 <div className="infiniteSlide-brand">
@@ -445,81 +444,69 @@ const PortadaIsak = () => {
                             <div id="about" className="section-about flat-spacing">
                                 <div className="sect-tag text-caption fw-medium effectFade fadeUp no-div">
                                     <i className="icon icon-user-circle"></i>
-                                    About
+                                    Sobre mí
                                 </div>
                                 <h4 className="s-title letter-space--2 text-black-72 split-text effect-blur-fade">
-                                    Designing brands and <br className="d-none d-lg-block" />
-                                    websites with clarity, creativity, <br className="d-none d-lg-block" />
-                                    and no-code speed
+                                    Automatizo procesos, construyo <br className="d-none d-lg-block" />
+                                    agentes con IA y desarrollo el <br className="d-none d-lg-block" />
+                                    software que un negocio necesita
                                 </h4>
                                 <p className="s-desc text-black-56 scrolling-effect effectTop">
-                                    I combine web design, brand identity, and no-code development to help<br className="d-none d-lg-block" />
-                                    businesses move faster while staying true to their personality. <br />
+                                    Soy de Lorica, Córdoba, y hoy trabajo desde Medellín. Empecé haciendo<br className="d-none d-lg-block" />
+                                    sitios web a mano en Barranquilla y terminé construyendo plataformas<br className="d-none d-lg-block" />
+                                    completas, integraciones entre sistemas y agentes con IA. <br />
                                     <br />
-                                    Every project is approached with both strategy and style—making sure <br className="d-none d-lg-block" />
-                                    design isn’t just good-looking, but also
-                                    purposeful and effective.
+                                    No llego preguntando qué tecnología quiero usar. Llego preguntando qué<br className="d-none d-lg-block" />
+                                    problema hay que resolver, y después elijo con qué. Cada proyecto de<br className="d-none d-lg-block" />
+                                    esta lista está en producción, con usuarios reales usándolo.
                                 </p>
                                 <ul className="award-list">
                                     <li className="award-item hover-cursor-img">
                                         <div className="left">
-                                            <h6 className="award_name letter-space--2 text-black-72">Website of the Day</h6>
-                                            <p className="award_desc text-black-56">CSSDA</p>
+                                            <h6 className="award_name letter-space--2 text-black-72">Uniremington</h6>
+                                            <p className="award_desc text-black-56">Migración de WordPress a un stack propio</p>
                                         </div>
                                         <h6 className="award_year text-black-72">
-                                            2019
+                                            Node.js
                                         </h6>
                                         <div className="award_img hover-image">
-                                            <img loading="lazy" width="158" height="224" src="/assets/images/section/award-1.jpg" alt="Image" />
+                                            <img loading="lazy" width="158" height="224" src="/assets/images/section/award-1.jpg" alt="Uniremington" />
                                         </div>
                                     </li>
                                     <li className="award-item hover-cursor-img">
                                         <div className="left">
-                                            <h6 className="award_name letter-space--2 text-black-72">Public Awards - UI</h6>
-                                            <p className="award_desc text-black-56">CSSDA</p>
+                                            <h6 className="award_name letter-space--2 text-black-72">Scentual Bliss</h6>
+                                            <p className="award_desc text-black-56">Tienda en línea con más de 150 fragancias</p>
                                         </div>
                                         <h6 className="award_year text-black-72">
-                                            2019
+                                            E-commerce
                                         </h6>
                                         <div className="award_img hover-image">
-                                            <img loading="lazy" width="158" height="224" src="/assets/images/section/award-2.jpg" alt="Image" />
+                                            <img loading="lazy" width="158" height="224" src="/assets/images/section/award-2.jpg" alt="Scentual Bliss" />
                                         </div>
                                     </li>
                                     <li className="award-item hover-cursor-img">
                                         <div className="left">
-                                            <h6 className="award_name letter-space--2 text-black-72">Public Awards - INN
-                                            </h6>
-                                            <p className="award_desc text-black-56">CSSDA</p>
+                                            <h6 className="award_name letter-space--2 text-black-72">RemiTransfer</h6>
+                                            <p className="award_desc text-black-56">Transferencia de archivos sin límite de tamaño</p>
                                         </div>
                                         <h6 className="award_year text-black-72">
-                                            2019
+                                            Interno
                                         </h6>
                                         <div className="award_img hover-image">
-                                            <img loading="lazy" width="158" height="224" src="/assets/images/section/award-3.jpg" alt="Image" />
+                                            <img loading="lazy" width="158" height="224" src="/assets/images/section/award-3.jpg" alt="RemiTransfer" />
                                         </div>
                                     </li>
                                     <li className="award-item hover-cursor-img">
                                         <div className="left">
-                                            <h6 className="award_name letter-space--2 text-black-72">Site of the Month</h6>
-                                            <p className="award_desc text-black-56">Awwwards</p>
+                                            <h6 className="award_name letter-space--2 text-black-72">Remi</h6>
+                                            <p className="award_desc text-black-56">Asistente de orientación para estudiantes</p>
                                         </div>
                                         <h6 className="award_year text-black-72">
-                                            2018
+                                            Claude API
                                         </h6>
                                         <div className="award_img hover-image">
-                                            <img loading="lazy" width="158" height="224" src="/assets/images/section/award-4.jpg" alt="Image" />
-                                        </div>
-                                    </li>
-                                    <li className="award-item hover-cursor-img">
-                                        <div className="left">
-                                            <h6 className="award_name letter-space--2 text-black-72">Site of the Day</h6>
-                                            <p className="award_desc text-black-56">Awwwards</p>
-                                        </div>
-                                        <h6 className="award_year text-black-72">
-                                            2017
-                                        </h6>
-                                        <div className="award_img hover-image">
-                                            <img loading="lazy" width="158" height="224" src="/assets/images/section/award-5.jpg" alt="Image" />
+                                            <img loading="lazy" width="158" height="224" src="/assets/images/section/award-4.jpg" alt="Remi" />
                                         </div>
                                     </li>
                                 </ul>
@@ -530,7 +517,7 @@ const PortadaIsak = () => {
                             <div id="education" className="section-education-experience flat-spacing">
                                 <div className="sect-tag text-caption fw-medium effectFade fadeUp no-div">
                                     <i className="icon icon-edu"></i>
-                                    Education & Experience
+                                    Formación y experiencia
                                 </div>
                                 <div className="timeline scroll-down">
                                     <div className="timeline-line">
@@ -538,52 +525,52 @@ const PortadaIsak = () => {
                                     </div>
                                     {/* Item 1 */}
                                     <div className="timeline-item effectFade fadeUp no-div">
-                                        <p className="timeline-date text-black-56">2023 - Now</p>
+                                        <p className="timeline-date text-black-56">2026 - Hoy</p>
                                         <div className="timeline-dot"></div>
                                         <div className="timeline-content">
                                             <div className="icon">
                                                 <img className="image-switch" data-dark="assets/images/logo/logo-4.svg" loading="lazy" width="32" height="32" src="/assets/images/logo/logo-3.svg" alt="Image" />
                                             </div>
-                                            <p className="timeline-role fw-medium text-black-72">Independent Designer &
-                                                No-Code Developer</p>
+                                            <p className="timeline-role fw-medium text-black-72">Desarrollador Full-Stack en
+                                                Uniremington</p>
                                             <p className="timeline-desc text-body-3 text-black-56">
-                                                Helping startups and creative teams launch websites, scale their brand
-                                                identity,
-                                                and build powerful no-code products with Framer.
+                                                Migré el sitio de WordPress a un stack propio en Node.js sin perder
+                                                contenido ni SEO, y construí herramientas internas para los equipos:
+                                                transferencia de archivos y un asistente con la API de Claude.
                                             </p>
                                         </div>
                                     </div>
                                     {/* Item 2 */}
                                     <div className="timeline-item effectFade fadeUp no-div">
-                                        <p className="timeline-date text-black-56">2021 - 2023</p>
+                                        <p className="timeline-date text-black-56">2025 - 2026</p>
                                         <div className="timeline-dot"></div>
                                         <div className="timeline-content">
                                             <div className="icon">
                                                 <img className="image-switch" data-dark="assets/images/item/edu-2_dark.svg" width="29" height="32" src="/assets/images/item/edu-2.svg" alt="Image" />
                                             </div>
-                                            <p className="timeline-role fw-medium text-black-72">Web & Brand Designer at
-                                                Creative Studio</p>
+                                            <p className="timeline-role fw-medium text-black-72">Desarrollador independiente
+                                                </p>
                                             <p className="timeline-desc text-body-3 text-black-56">
-                                                Led projects across branding and digital design, delivering interfaces
-                                                and websites that balanced
-                                                usability with striking visual impact.
+                                                Trabajé por mi cuenta para agencias de Bogotá y clientes propios:
+                                                tiendas en línea a medida, integraciones y automatizaciones. De ahí
+                                                salió Scentual Bliss, con más de 150 fragancias en producción.
                                             </p>
                                         </div>
                                     </div>
                                     {/* Item 3 */}
                                     <div className="timeline-item effectFade fadeUp no-div">
-                                        <p className="timeline-date text-black-56">2019 - 2021</p>
+                                        <p className="timeline-date text-black-56">2018 - 2023</p>
                                         <div className="timeline-dot"></div>
                                         <div className="timeline-content">
                                             <div className="icon">
                                                 <img className="image-switch" data-dark="assets/images/item/edu-3_dark.svg" width="120" height="32" src="/assets/images/item/edu-3.svg" alt="Image" />
                                             </div>
-                                            <p className="timeline-role fw-medium text-black-72">Junior Designer at Design
-                                                Academy</p>
+                                            <p className="timeline-role fw-medium text-black-72">Ingeniería de Sistemas,
+                                                Universidad de Córdoba</p>
                                             <p className="timeline-desc text-body-3 text-black-56">
-                                                Gained hands-on experience in brand systems and interface design while
-                                                working closely with mentors to
-                                                sharpen creative direction.
+                                                En paralelo hice mis primeros dos años como diseñador y desarrollador
+                                                web en Barranquilla, construyendo sitios a mano, sin asistencia de IA.
+                                                Ahí aprendí a resolver con lo que hubiera a la mano.
                                             </p>
                                         </div>
                                     </div>
@@ -860,7 +847,7 @@ const PortadaIsak = () => {
                                 <div className="" id="accordion-service">
                                     <div className="service-accordion_item scrolling-effect effectBottom" role="presentation">
                                         <div className="accordion-action" data-bs-target="#service-1" role="button" data-bs-toggle="collapse" aria-controls="service-1" aria-expanded="true">
-                                            <h4 className="text letter-space--2 text-black-72">Web Design</h4>
+                                            <h4 className="text letter-space--2 text-black-72">Automatización de procesos</h4>
                                             <div className="ic-wrap">
                                                 <span className="ic-accordion-custom"></span>
                                             </div>
@@ -881,19 +868,19 @@ const PortadaIsak = () => {
                                                 </div>
                                                 <div className="service-tag">
                                                     <a href="#" className="tag-item text-body-3 fw-medium text-black-72 link">
-                                                        Visual Design
+                                                        Integraciones por API
                                                     </a>
                                                     <a href="#" className="tag-item text-body-3 fw-medium text-black-72 link">
-                                                        Interaction Design
+                                                        Sincronización de datos
                                                     </a>
                                                     <a href="#" className="tag-item text-body-3 fw-medium text-black-72 link">
-                                                        Responsive Layouts
+                                                        Tareas programadas
                                                     </a>
                                                 </div>
                                                 <p className="service-desc text-black-56">
-                                                    I design modern, responsive websites that balance creativity with
-                                                    usability, making sure your
-                                                    digital presence feels seamless and memorable.
+                                                    Conecto por API los sistemas que hoy no se hablan y le quito a tu
+                                                    equipo el trabajo repetitivo: sincronizar datos entre plataformas,
+                                                    generar reportes y disparar tareas sin que nadie se acuerde.
                                                 </p>
                                             </div>
                                         </div>
@@ -901,7 +888,7 @@ const PortadaIsak = () => {
                                     <div className="br-line scrolling-effect effectBottom"></div>
                                     <div className="service-accordion_item scrolling-effect effectBottom" role="presentation">
                                         <div className="accordion-action collapsed" data-bs-target="#service-2" role="button" data-bs-toggle="collapse" aria-controls="service-2" aria-expanded="true">
-                                            <h4 className="text letter-space--2 text-black-72">No-Code Development</h4>
+                                            <h4 className="text letter-space--2 text-black-72">Agentes con IA</h4>
                                             <div className="ic-wrap">
                                                 <span className="ic-accordion-custom"></span>
                                             </div>
@@ -922,7 +909,7 @@ const PortadaIsak = () => {
                                                 </div>
                                                 <div className="service-tag">
                                                     <a href="#" className="tag-item text-body-3 fw-medium text-black-72 link">
-                                                        Framer Builds
+                                                        API de Claude
                                                     </a>
                                                     <a href="#" className="tag-item text-body-3 fw-medium text-black-72 link">
                                                         Webflow Sites
@@ -932,9 +919,9 @@ const PortadaIsak = () => {
                                                     </a>
                                                 </div>
                                                 <p className="service-desc text-black-56">
-                                                    Build fast, scalable websites using tools like Framer and
-                                                    Webflow—helping you launch quickly with
-                                                    designs that are easy to edit and maintain.
+                                                    Agentes que leen tus datos, deciden y actúan sobre tus propios
+                                                    sistemas con herramientas que les construyo. No un chatbot de
+                                                    vitrina: algo que ejecuta tareas de punta a punta.
                                                 </p>
                                             </div>
                                         </div>
@@ -942,7 +929,7 @@ const PortadaIsak = () => {
                                     <div className="br-line scrolling-effect effectBottom"></div>
                                     <div className="service-accordion_item scrolling-effect effectBottom" role="presentation">
                                         <div className="accordion-action collapsed" data-bs-target="#service-3" role="button" data-bs-toggle="collapse" aria-controls="service-3" aria-expanded="true">
-                                            <h4 className="text letter-space--2 text-black-72">Brand Identity</h4>
+                                            <h4 className="text letter-space--2 text-black-72">Software a medida</h4>
                                             <div className="ic-wrap">
                                                 <span className="ic-accordion-custom"></span>
                                             </div>
@@ -963,7 +950,7 @@ const PortadaIsak = () => {
                                                 </div>
                                                 <div className="service-tag">
                                                     <a href="#" className="tag-item text-body-3 fw-medium text-black-72 link">
-                                                        Logo Design
+                                                        Plataformas internas
                                                     </a>
                                                     <a href="#" className="tag-item text-body-3 fw-medium text-black-72 link">
                                                         Visual Systems
@@ -973,9 +960,9 @@ const PortadaIsak = () => {
                                                     </a>
                                                 </div>
                                                 <p className="service-desc text-black-56">
-                                                    I craft cohesive brand systems with logos, colors, and typography
-                                                    that reflect your values—making
-                                                    your business recognizable and trusted.
+                                                    Plataformas completas desde cero: paneles de gestión, aplicaciones
+                                                    internas, tiendas en línea y migraciones desde sistemas legados.
+                                                    Sobre el stack que le convenga al proyecto, no al que yo prefiera.
                                                 </p>
                                             </div>
                                         </div>
@@ -988,11 +975,11 @@ const PortadaIsak = () => {
                             <div id="tech" className="section-tech-stack flat-spacing">
                                 <div className="sect-tag text-caption fw-medium effectFade fadeUp no-div">
                                     <i className="icon icon-tech-stack"></i>
-                                    Tech Stack
+                                    Stack
                                 </div>
                                 <h4 className="s-title letter-space--2 text-black-72 split-text effect-blur-fade">
-                                    See how my expertise with these <br className="d-none d-sm-block" />
-                                    tools drives better results
+                                    Las herramientas con las que <br className="d-none d-sm-block" />
+                                    trabajo todos los días
                                 </h4>
                                 <ul className="tech-list">
                                     <li className="wg-tech">
@@ -1001,8 +988,8 @@ const PortadaIsak = () => {
                                                 <img loading="lazy" width="19" height="28" src="/assets/images/section/tech-1.svg" alt="Image" />
                                             </div>
                                             <div className="tech_info">
-                                                <p className="info__name fw-medium text-black-72">Figma</p>
-                                                <p className="info__duty text-black-56 text-body-3">Leading design tool</p>
+                                                <p className="info__name fw-medium text-black-72">React · Next.js</p>
+                                                <p className="info__duty text-black-56 text-body-3">Interfaces y aplicaciones web</p>
                                             </div>
                                         </div>
                                         <div className="tech-progress">
@@ -1023,8 +1010,8 @@ const PortadaIsak = () => {
                                                 <img className="image-switch" data-dark="assets/images/section/tech-2_dark.svg" width="18" height="28" src="/assets/images/section/tech-2.svg" alt="Image" />
                                             </div>
                                             <div className="tech_info">
-                                                <p className="info__name fw-medium text-black-72">Framer</p>
-                                                <p className="info__duty text-black-56 text-body-3">No-code website builder
+                                                <p className="info__name fw-medium text-black-72">Node.js · PHP · Python</p>
+                                                <p className="info__duty text-black-56 text-body-3">Servidor, APIs e integraciones
                                                 </p>
                                             </div>
                                         </div>
@@ -1046,7 +1033,7 @@ const PortadaIsak = () => {
                                                 <img loading="lazy" width="29" height="28" src="/assets/images/section/tech-3.svg" alt="Image" />
                                             </div>
                                             <div className="tech_info">
-                                                <p className="info__name fw-medium text-black-72">Adobe Photoshop</p>
+                                                <p className="info__name fw-medium text-black-72">Supabase · API de Claude</p>
                                                 <p className="info__duty text-black-56 text-body-3">Raster graphics editor
                                                 </p>
                                             </div>
@@ -1066,176 +1053,42 @@ const PortadaIsak = () => {
                             </div>
                             {/* /Tech Stack */}
 
-                            {/* Testimonial */}
-                            <div id="testimonial" className="section-testimonial flat-spacing">
-                                <div className="sect-tag text-caption fw-medium effectFade fadeUp no-div">
-                                    <i className="icon icon-tes"></i>
-                                    Testimonials
-                                </div>
-                                <div className="heading overflow-hidden">
-                                    <div className="head-left">
-                                        <h4 className="s-title letter-space--2 text-black-72 split-text effect-blur-fade">
-                                            Here's what <br className="d-none d-lg-block" />
-                                            people are saying
-                                        </h4>
-                                        <div className="box-counter effectFade fadeUp no-div">
-                                            <div className="wg-counter">
-                                                <p className="counter h1 d-flex font-2 letter-space--2 text-black-72">
-                                                    <span className="number" data-speed="1000" data-to="26">0</span>
-                                                    +
-                                                </p>
-                                                <p className="text text-black-56">
-                                                    Finalized projects
-                                                </p>
-                                            </div>
-                                            <div className="wg-counter">
-                                                <p className="counter h1 d-flex font-2 letter-space--2 text-black-72">
-                                                    <span className="number" data-speed="1000" data-to="98">0</span>
-                                                    %
-                                                </p>
-                                                <p className="text text-black-56">
-                                                    Client satisfaction
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div dir="ltr" className="swiper sw-main-image effectFade fadeRight no-div">
-                                        <div className="swiper-wrapper">
-                                            {/* item 1 */}
-                                            <div className="swiper-slide">
-                                                <div className="head-image">
-                                                    <div className="wrap-image">
-                                                        <img loading="lazy" width="236" height="297" src="/assets/images/section/tes-1.jpg" alt="Image" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            {/* item 2 */}
-                                            <div className="swiper-slide">
-                                                <div className="head-image">
-                                                    <div className="wrap-image">
-                                                        <img loading="lazy" width="236" height="297" src="/assets/images/section/tes-2.jpg" alt="Image" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            {/* item 3 */}
-                                            <div className="swiper-slide">
-                                                <div className="head-image">
-                                                    <div className="wrap-image">
-                                                        <img loading="lazy" width="236" height="297" src="/assets/images/section/tes-3.jpg" alt="Image" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div className="swiper-testimonial_wrap effectFade fadeUp no-div">
-                                    <div dir="ltr" className="swiper tf-swiper swiper-testimonial">
-                                        <div className="swiper-wrapper">
-                                            {/* item 1 */}
-                                            <div className="swiper-slide">
-                                                <div className="testimonial-v01">
-                                                    <div className="tes-icon">
-                                                        <i className="icon icon-quote"></i>
-                                                    </div>
-                                                    <h5 className="tes-text letter-space--2 text-black-72">
-                                                        Working with Isak was seamless. The website came out fast,
-                                                        modern, and easy to update—exactly
-                                                        what
-                                                        our team needed.
-                                                    </h5>
-                                                    <div className="tes-author">
-                                                        <p className="author_name fw-medium text-black-72">Daniel Ruiz</p>
-                                                        <p className="text-body-3 text-black-56">Head of Product, Tempo App
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            {/* item 2 */}
-                                            <div className="swiper-slide">
-                                                <div className="testimonial-v01">
-                                                    <div className="tes-icon">
-                                                        <i className="icon icon-quote"></i>
-                                                    </div>
-                                                    <h5 className="tes-text letter-space--2 text-black-72">
-                                                        Isak shaped our vision into a strong brand. The process was
-                                                        clear, fast, and the result gave
-                                                        our startup the professional edge we needed.
-                                                    </h5>
-                                                    <div className="tes-author">
-                                                        <p className="author_name fw-medium text-black-72">Sophia Lee</p>
-                                                        <p className="text-body-3 text-black-56">Co-Founder, Horizon Finance
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            {/* item 3 */}
-                                            <div className="swiper-slide">
-                                                <div className="testimonial-v01">
-                                                    <div className="tes-icon">
-                                                        <i className="icon icon-quote"></i>
-                                                    </div>
-                                                    <h5 className="tes-text letter-space--2 text-black-72">
-                                                        Despite a tight launch schedule, Isak delivered a clean,
-                                                        flexible site in Framer. It’s modern,
-                                                        easy to manage, and fits our needs perfectly.
-                                                    </h5>
-                                                    <div className="tes-author">
-                                                        <p className="author_name fw-medium text-black-72">Michael Anders
-                                                        </p>
-                                                        <p className="text-body-3 text-black-56">Marketing Director, Flowly
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="number-pagination"></div>
-                                    <div className="group-btn">
-                                        <div className="sw-nav sw-nav-prev link">
-                                            <i className="icon icon-arrow-caret-left"></i>
-                                        </div>
-                                        <div className="sw-nav sw-nav-next link">
-                                            <i className="icon icon-arrow-caret-right"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            {/* /Testimonial */}
+                            {/* Seccion de testimonios retirada: la plantilla traia citas de
+                                personas inventadas. Se repondra cuando haya recomendaciones reales. */}
 
                             {/* Contact */}
                             <div id="contact" className="section-contact flat-spacing">
                                 <div className="sect-tag text-caption fw-medium effectFade fadeUp no-div">
                                     <i className="icon icon-send"></i>
-                                    Contact
+                                    Contacto
                                 </div>
                                 <h4 className="s-title letter-space--2 split-text effect-blur-fade">
-                                    If you have a general or project <br className="d-none d-lg-block" />
-                                    enquiry, please drop me an email <br className="d-none d-lg-block" />
-                                    or fill the form - available now
+                                    Cuéntame qué tienes hoy, qué <br className="d-none d-lg-block" />
+                                    quieres lograr y para cuándo. <br className="d-none d-lg-block" />
+                                    Entre más contexto, mejor te respondo
                                 </h4>
                                 <form className="form-contact" id="contactform" action="./assets/contact/contact-process.php" method="post" noValidate>
                                     <div className="form-content effectFade fadeUp no-div">
                                         <fieldset className="field-ip">
-                                            <input type="text" name="name" id="name" placeholder="Your Name *" required />
+                                            <input type="text" name="name" id="name" placeholder="Tu nombre *" required />
                                         </fieldset>
                                         <fieldset className="field-ip">
-                                            <input type="email" name="email" id="email" placeholder="Email Address *" required />
+                                            <input type="email" name="email" id="email" placeholder="Tu correo *" required />
                                         </fieldset>
                                         <fieldset className="field-ip">
-                                            <input type="text" name="message" id="message" placeholder="Project Description" />
+                                            <input type="text" name="message" id="message" placeholder="De qué se trata el proyecto" />
                                         </fieldset>
                                     </div>
                                     <div className="form-action effectFade fadeUp no-div">
                                         <div className="send-wrap">
                                             <button type="submit" className="tf-btn animate-btn animate-dark">
                                                 <span className="text-body-3">
-                                                    Send Message
+                                                    Enviar
                                                 </span>
                                             </button>
                                         </div>
-                                        <a href="#" className="text-body-1 link letter-space--2 text-black-72">
-                                            hello@isak.design
+                                        <a href="mailto:hola@contreras.dev" className="text-body-1 link letter-space--2 text-black-72">
+                                            hola@contreras.dev
                                         </a>
                                     </div>
                                 </form>
@@ -1247,23 +1100,17 @@ const PortadaIsak = () => {
                                 <div className="block-quote effectFade fadeUp no-div">
                                     <h5 className="quote-text font-3 fw-normal text-black-72">
                                         <span className="text-black-56">“</span>
-                                        Design is not just what it looks like and feels like. Design is how it works.
+                                        Cuando un negocio me cuenta su problema, no pienso primero en qué
+                                        tecnología quiero usar. Pienso en cómo sacarlo adelante.
                                         <span className="text-black-56">“</span>
                                     </h5>
                                     <p className="quote-author font-3 text-black-56 h6 text-end ">
-                                        Steve Jobs
+                                        Andrés Contreras
                                     </p>
                                 </div>
                                 <div className="br-line"></div>
                                 <div className="foot-inner">
-                                    <div className="isak effectFade fadeUp no-div">
-                                        <svg viewBox="0 0 354 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M0 157.225V6.93641H19.4068V157.225H0Z" fill="black" fillOpacity="0.72" />
-                                            <path d="M85.0002 160C57.2763 160 36.9454 144.277 35.0971 123.006L55.428 117.457C56.3521 131.329 69.29 142.428 85.9243 142.428C98.8622 142.428 109.028 135.491 109.028 125.78C109.028 99.8844 40.6419 110.058 40.6419 71.2139C40.6419 52.2543 57.2763 38.8439 81.3037 38.8439C105.331 38.8439 123.121 52.0231 125.662 70.289L106.255 75.3757C105.793 64.0462 95.6277 55.9538 81.7658 55.9538C69.29 55.9538 60.5107 62.4277 60.5107 71.2139C60.5107 96.185 129.359 86.0116 129.359 125.78C129.359 145.665 110.876 160 85.0002 160Z" fill="black" fillOpacity="0.72" />
-                                            <path d="M175.578 160C152.705 160 137.688 146.821 137.688 126.705C137.688 110.751 150.395 97.8035 170.033 94.3353L205.612 87.8613C209.54 87.1676 212.543 84.1618 212.543 80.4624C212.543 65.896 202.609 55.4913 188.516 55.4913C173.729 55.4913 162.64 66.1272 161.716 82.3121L141.385 80C143.695 55.9538 162.871 38.8439 187.591 38.8439C213.005 38.8439 231.026 56.6474 231.026 81.3873V134.104L231.488 157.225H216.702L213.467 139.653C206.305 152.139 192.443 160 175.578 160ZM158.019 125.78C158.019 135.491 166.336 141.965 179.274 141.965C198.681 141.965 212.543 128.555 212.543 110.058V101.965C210.464 102.428 207.922 103.121 205.15 103.584L174.654 109.133C164.488 110.983 158.019 117.457 158.019 125.78Z" fill="black" fillOpacity="0.72" />
-                                            <path d="M330.897 157.225L292.083 104.277L271.752 126.243V157.225H253.27V0H271.752V101.04L324.428 41.6185H349.379L304.559 90.6358L354 157.225H330.897Z" fill="black" fillOpacity="0.72" />
-                                        </svg>
-                                    </div>
+                                    <p className="h1 font-2 letter-space--2 text-black-72 effectFade fadeUp no-div">contreras.dev</p>
                                     <a href="#" className="f-logo effectFade fadeZoom">
                                         <div className="logo">
                                             <img className="image-switch" data-light="assets/images/logo/logo.svg" data-dark="assets/images/logo/logo-2.svg" loading="lazy" width="32" height="32" src="/assets/images/logo/logo.svg" alt="Image" />
@@ -1272,14 +1119,10 @@ const PortadaIsak = () => {
                                 </div>
                                 <div className="foot-bottom">
                                     <p className="text-nocopy text-black-56 effectFade fadeUp no-div">
-                                        All rights reserved <br />
-                                        © 2025 Isak Portfolio
+                                        Todos los derechos reservados <br />
+                                        © 2026 Andrés Contreras
                                     </p>
-                                    <div className="isak effectFade fadeUp no-div">
-                                        <svg viewBox="0 0 428 162" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M267.304 41.4092C233.789 41.4092 209.924 66.4273 209.924 101.454C209.924 136.481 233.789 161.5 267.304 161.5C300.819 161.5 324.683 136.481 324.683 101.454C324.682 66.4274 300.819 41.4094 267.304 41.4092ZM57.8799 41.4092C24.3648 41.4092 0.500204 66.4273 0.5 101.454C0.5 136.481 24.3647 161.5 57.8799 161.5C91.395 161.5 115.259 136.481 115.259 101.454C115.259 66.4274 91.3948 41.4093 57.8799 41.4092ZM326.392 10.0459V29.2275H407.389V76.8633H334.582V96.0459H407.389V158.772H427.5V10.0459H326.392ZM174.328 3.22754V158.772H193.529V3.22754H174.328ZM131.553 44.1367V158.772H150.754V44.1367H131.553ZM267.304 60.1367C289.049 60.1369 304.571 77.3623 304.571 101.454C304.571 125.313 289.054 142.318 267.304 142.318C245.553 142.318 230.035 125.313 230.035 101.454C230.035 77.3622 245.558 60.1367 267.304 60.1367ZM57.8799 60.1367C79.6252 60.1368 95.1473 77.3623 95.1475 101.454C95.1475 125.313 79.6305 142.318 57.8799 142.318C36.1291 142.318 20.6113 125.313 20.6113 101.454C20.6115 77.3622 36.1344 60.1367 57.8799 60.1367ZM141.153 0.5C132.671 0.5 126.547 6.87608 126.547 15.5459C126.547 24.2155 132.671 30.5908 141.153 30.5908C149.635 30.5907 155.76 24.2154 155.76 15.5459C155.76 6.87613 149.635 0.500076 141.153 0.5Z" stroke="black" strokeOpacity="0.56" />
-                                        </svg>
-                                    </div>
+                                    <p className="h1 font-2 letter-space--2 text-black-72 effectFade fadeUp no-div">contreras.dev</p>
                                 </div>
                             </div>
                             {/* /Footer */}
