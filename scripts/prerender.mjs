@@ -95,7 +95,25 @@ const routes = [
 ];
 
 const server = await serveDist();
-const browser = await chromium.launch();
+
+let browser;
+try {
+  browser = await chromium.launch();
+} catch (error) {
+  // Sin navegador no hay prerenderizado, pero el sitio funciona igual: se
+  // pierde el HTML para los rastreadores que no ejecutan JavaScript, no el
+  // despliegue. Romper el build por esto sería mucho peor.
+  server.close();
+  console.warn("");
+  console.warn("[prerender] OMITIDO: no se pudo abrir el navegador.");
+  console.warn(`[prerender] ${String(error.message).split("\n")[0]}`);
+  console.warn("[prerender] El sitio se publica sin prerenderizar: los buscadores");
+  console.warn("[prerender] que ejecutan JavaScript lo verán bien, GPTBot y");
+  console.warn("[prerender] similares no. Revisa la instalación de Playwright.");
+  console.warn("");
+  process.exit(0);
+}
+
 const page = await browser.newPage();
 
 let ok = 0;
