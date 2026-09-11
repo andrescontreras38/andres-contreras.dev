@@ -117,12 +117,33 @@ try {
 const page = await browser.newPage();
 
 let ok = 0;
+let appNoArranco = false;
+
 for (const route of routes) {
   try {
     await page.goto(`http://localhost:${PORT}${route}`, { waitUntil: "networkidle", timeout: 30000 });
     // Esperar a que haya contenido real, no solo el contenedor vacío.
     await page.waitForFunction(() => document.querySelector("#root")?.children.length > 0, { timeout: 15000 });
     await page.waitForTimeout(400);
+
+    // La comprobación de arriba solo dice que #root tiene hijos, y la pantalla
+    // de error de main.tsx también los tiene. Sin este segundo filtro, un build
+    // al que le falten las variables de entorno congelaría el mensaje de error
+    // como HTML estático de todas las rutas: los rastreadores que no ejecutan
+    // JavaScript verían una página de error en lugar del sitio, y el HTML
+    // anterior (bueno) quedaría sobrescrito. Mejor no escribir nada.
+    const estado = await page.evaluate(() => ({
+      error: document.body.innerText.includes("El sitio no pudo iniciarse"),
+      titulos: document.querySelectorAll("h1, h2").length,
+    }));
+
+    if (estado.error) {
+      appNoArranco = true;
+      throw new Error("la aplicación no arrancó en el navegador");
+    }
+    if (estado.titulos === 0) {
+      throw new Error("la página se renderizó sin ningún encabezado, algo salió mal");
+    }
 
     const html = await page.evaluate(() => `<!doctype html>\n${document.documentElement.outerHTML}`);
 
@@ -141,4 +162,21 @@ for (const route of routes) {
 await browser.close();
 server.close();
 console.log(`[prerender] ${ok}/${routes.length} rutas generadas.`);
-if (ok < routes.length) process.exitCode = 1;
+
+if (appNoArranco) {
+  // Que la aplicación no arranque es un problema del entorno del build, no del
+  // prerenderizado, y ya se nota solo: el sitio desplegado no funciona. Tumbar
+  // aquí el despliegue añadiría un fallo encima del fallo sin aportar nada.
+  console.warn("");
+  console.warn("[prerender] OMITIDO: la aplicación no arrancó en el navegador.");
+  console.warn("[prerender] Causa habitual: faltan VITE_SUPABASE_URL y");
+  console.warn("[prerender] VITE_SUPABASE_PUBLISHABLE_KEY en las variables de");
+  console.warn("[prerender] entorno del proyecto en Vercel. Defínelas y vuelve");
+  console.warn("[prerender] a desplegar.");
+  console.warn("[prerender] No se ha escrito nada: es preferible publicar la");
+  console.warn("[prerender] SPA sin prerenderizar que congelar una pantalla de");
+  console.warn("[prerender] error como HTML de todas las páginas.");
+  console.warn("");
+} else if (ok < routes.length) {
+  process.exitCode = 1;
+}
