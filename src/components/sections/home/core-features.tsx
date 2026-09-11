@@ -1,12 +1,10 @@
-import settlements from "@/assets/lottie/settled.json";
 import Container from "@/components/container";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 import { StaggerContainer } from "@/components/ui/motion/stagger";
-import Lottie from "lottie-react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Bot, GitBranch, ShieldCheck } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const CoreFeatures = () => {
@@ -23,7 +21,7 @@ const CoreFeatures = () => {
               className="md:mb-4 mb-1.5"
             >
               <Badge>
-                Core Features
+                Servicios
               </Badge>
             </AnimateOnView>
 
@@ -33,7 +31,7 @@ const CoreFeatures = () => {
               delay={0.2}
               className="h2 md:mb-6 mb-3"
             >
-              Take full control of your payments with smarter.
+              Todo lo que tu proyecto necesita, de principio a fin.
             </AnimateOnView>
 
             <AnimateOnView
@@ -41,7 +39,7 @@ const CoreFeatures = () => {
               delay={0.3}
               className="text-lg"
             >
-              From payment requests to settlements—manage it all securely and in real time.
+              Desde migrar un sitio sin romper nada hasta lanzar una tienda o integrar IA: un único punto de contacto para diseño, desarrollo, IA y despliegue.
             </AnimateOnView>
           </div>
 
@@ -51,7 +49,7 @@ const CoreFeatures = () => {
           >
             <Button asChild>
               <Link to="/contact">
-                Get Started for Free
+                Cuéntame tu proyecto
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </Button>
@@ -64,7 +62,7 @@ const CoreFeatures = () => {
             once
             y={40}
             delay={0.5}
-            className="rounded-2xl md:rounded-4xl p-6 md:p-12 lg:p-16 mb-4 overflow-hidden bg-[url('/images/homepage/core-feature.webp')] bg-cover bg-center md:min-h-[597px] relative grid"
+            className="rounded-2xl md:rounded-4xl p-6 md:p-12 lg:p-16 mb-4 overflow-hidden bg-[#0d0d0f] md:min-h-[597px] relative grid"
           >
             <div className="flex flex-col justify-between items-start h-full max-w-[427px]">
               <StaggerContainer>
@@ -74,7 +72,7 @@ const CoreFeatures = () => {
                   delay={0.3}
                 >
                   <h4 className="h4 text-white mb-3 max-w-[400px]">
-                    Seamless scheduling Made Simple.
+                    Migraciones sin downtime.
                   </h4>
                 </AnimateOnView>
                 <AnimateOnView
@@ -83,7 +81,7 @@ const CoreFeatures = () => {
                   blur
                 >
                   <p className="text-muted mb-8 leading-relaxed">
-                    Stay on top of your bills and installments with automated reminders, clear tracking, and a simple overview.
+                    Saco tu sitio de plataformas legadas (WordPress, sistemas a medida) hacia un stack propio, rescatando cada pieza de contenido en el camino.
                   </p>
                 </AnimateOnView>
               </StaggerContainer>
@@ -92,8 +90,8 @@ const CoreFeatures = () => {
                 delay={0.5}
               >
                 <Button asChild>
-                  <Link to="/download">
-                    Download app
+                  <Link to="/contact">
+                    Cuéntame tu proyecto
                     <ArrowRight className="w-5 h-5" />
                   </Link>
                 </Button>
@@ -102,13 +100,11 @@ const CoreFeatures = () => {
             <AnimateOnView
               once
               delay={0.6}
-              className="max-w-[300px] md:max-w-[414px] w-full aspect-[414/309] md:absolute right-10 bottom-10 mt-10 md:mt-0">
-              <img
-                src="/images/homepage/core-feature-stat.webp"
-                alt="Schedule"
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
+              className="max-w-[300px] md:max-w-[414px] w-full md:absolute right-10 bottom-10 mt-10 md:mt-0 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-5 font-mono text-xs text-white/70 space-y-1.5"
+            >
+              <p className="flex items-center gap-2 text-white"><GitBranch className="w-4 h-4 text-[#2563EB]" /> migración-wordpress → node</p>
+              <p className="text-white/40">scraping de contenido con Python</p>
+              <p className="flex items-center gap-2 text-[#4ec9b0]"><ShieldCheck className="w-4 h-4" /> 0 páginas perdidas</p>
             </AnimateOnView>
           </AnimateOnView>
 
@@ -123,18 +119,28 @@ const CoreFeatures = () => {
             >
               <Card className="h-full">
                 <CardHeader className="flex justify-center items-center md:py-16 py-4 md:px-8 px-4">
-                  <img
-                    src="/images/homepage/core-feature-control.webp"
-                    alt="Schedule"
-                    className="w-full h-full object-cover max-w-[298px]"
-                    loading="lazy" />
+                  <div className="w-full max-w-[298px] rounded-xl border border-border bg-card p-5 space-y-3">
+                    {[
+                      { label: "Carrito & checkout", active: false },
+                      { label: "Quiz de recomendación", active: true },
+                      { label: "Pasarela de pago", active: false },
+                    ].map((row) => (
+                      <div
+                        key={row.label}
+                        className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm ${row.active ? "bg-[#2563EB]/10 border border-[#2563EB]/30 text-foreground" : "text-muted-foreground"}`}
+                      >
+                        <span className={`w-2 h-2 rounded-full ${row.active ? "bg-[#2563EB]" : "bg-muted"}`} />
+                        {row.label}
+                      </div>
+                    ))}
+                  </div>
                 </CardHeader>
                 <CardContent className="mt-6 p-2 max-w-[420px]">
                   <h3 className="h5 mb-2">
-                    Smart Money Controls
+                    E-commerce que vende
                   </h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    Manage requests, transfers, top-ups, and bills with smart, secure, and real-time money control features.
+                    Tiendas en línea con checkout claro, catálogos grandes y experiencias como quizzes de recomendación que convierten mejor.
                   </p>
                 </CardContent>
               </Card>
@@ -147,21 +153,18 @@ const CoreFeatures = () => {
               className="lg:col-span-5 col-span-1"
             >
               <Card className="h-full p-0">
-                <CardHeader className="flex justify-center items-center">
-                  <div aria-hidden="true">
-                    <Lottie
-                      animationData={settlements}
-                      loop={true}
-                    />
+                <CardHeader className="flex justify-center items-center md:py-16 py-10">
+                  <div aria-hidden="true" className="w-28 h-28 rounded-full bg-[#2563EB]/10 flex items-center justify-center">
+                    <Bot className="w-12 h-12 text-[#2563EB]" strokeWidth={1.5} />
                   </div>
                 </CardHeader>
                 <CardContent className="pt-6 pb-10 px-6 max-w-[420px]">
                   <h3 className="h5 mb-2">
-                    Seamless Settlements
+                    IA aplicada
                   </h3>
 
                   <p className="text-muted-foreground leading-relaxed">
-                    Faster, reliable, and automated settlements with real-time tracking, global support.
+                    Automatizaciones y asistentes con Claude API para resolver tareas reales de tu negocio, no demos bonitas.
                   </p>
                 </CardContent>
               </Card>

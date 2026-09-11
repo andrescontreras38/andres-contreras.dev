@@ -5,6 +5,8 @@ import MoreBlogs from "@/components/sections/blog/more-blogs";
 import SEO from "@/components/seo";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useBlogPost } from "@/hooks/use-blog";
+import { coverFor } from "@/lib/blog-covers";
+import { excerptFromHtml } from "@/lib/utils";
 import { appConfig } from "@/utils/app-config";
 import { Navigate, useParams } from "react-router-dom";
 
@@ -35,26 +37,49 @@ const BlogDetails = () => {
     return <Navigate to="/blog" replace />;
   }
 
+  const excerpt = excerptFromHtml(post.content || "");
+  const url = `${appConfig.url}/blog/${post.slug}`;
+  const cover = coverFor(post.image, post.category);
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: post.title,
+    description: excerpt,
     author: {
       "@type": "Person",
       name: post.author,
+      url: appConfig.url,
+    },
+    publisher: {
+      "@type": "Person",
+      name: appConfig.name,
     },
     datePublished: post.date,
-    image: post.image,
-    url: `${appConfig.url}/blog/${post.slug}`,
+    dateModified: post.updated_at || post.date,
+    articleSection: post.category,
+    inLanguage: "es",
+    image: `${appConfig.url}${cover}`,
+    url,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": url,
+    },
   };
 
+  // El BreadcrumbList lo emite <BlogBreadcrumbs>, derivado de las migas
+  // visibles. Duplicarlo aquí generaba dos bloques del mismo tipo.
   return (
     <>
       <SEO
         title={`${post.title} | ${appConfig.name}`}
-        description={`Read ${post.title} by ${post.author} on ${appConfig.name} blog.`}
+        description={excerpt}
         canonicalUrl={`/blog/${post.slug}`}
         ogType="article"
+        ogImage={cover}
+        publishedTime={post.date}
+        modifiedTime={post.updated_at || post.date}
+        section={post.category}
         jsonLd={jsonLd}
       />
       <Layout>

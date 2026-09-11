@@ -37,13 +37,13 @@ const Blog = () => {
               delay={0.1}
             >
               <h2 className="h2">
-                Our articles for startups & peoples
+                Notas sobre desarrollo, migraciones e IA
               </h2>
             </AnimateOnView>
           </StaggerContainer>
           <Link to="/blog">
             <Button variant="secondary">
-              All Blogs
+              Ver todos
               <ArrowRight className="w-4 h-4" />
             </Button>
           </Link>

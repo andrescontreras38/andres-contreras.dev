@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { FileText, Home, PenSquare, User } from "lucide-react";
+import { FileText, Home, Package, PenSquare, User, Users } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -25,6 +25,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import { useAuth } from "@/hooks/use-auth";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import Logo from "@/components/logo";
 
 export interface Crumb {
   label: string;
@@ -36,23 +37,27 @@ interface BlogLayoutProps {
   breadcrumbs?: Crumb[];
 }
 
-const menuItems = [
+const menuGroups = [
   {
-    title: "All Posts",
-    url: "/dashboard/blog",
-    icon: FileText,
+    label: "Blog",
+    items: [
+      { title: "Artículos", url: "/dashboard/blog", icon: FileText },
+      { title: "Escribir", url: "/dashboard/blog/new", icon: PenSquare },
+    ],
   },
   {
-    title: "Create Post",
-    url: "/dashboard/blog/new",
-    icon: PenSquare,
+    label: "Comunidad",
+    items: [
+      { title: "Recursos", url: "/dashboard/recursos", icon: Package },
+      { title: "Contactos", url: "/dashboard/contactos", icon: Users },
+    ],
   },
 ];
 
 const BlogLayout = ({ children, breadcrumbs }: BlogLayoutProps) => {
   const location = useLocation();
   const { user, profile } = useAuth();
-  const crumbs: Crumb[] = breadcrumbs?.length ? breadcrumbs : [{ label: "Dashboard", to: "/dashboard/blog" }];
+  const crumbs: Crumb[] = breadcrumbs?.length ? breadcrumbs : [{ label: "Panel", to: "/dashboard/blog" }];
 
   const getInitials = () => {
     const first = profile?.first_name || "";
@@ -76,18 +81,19 @@ const BlogLayout = ({ children, breadcrumbs }: BlogLayoutProps) => {
         <Sidebar collapsible="icon">
           <SidebarHeader>
             <Link to="/" className="flex items-center gap-2 px-2">
-              <img src="/images/common/logo.svg" alt="Revio" className="h-5" />
+              <Logo size="sm" />
             </Link>
           </SidebarHeader>
 
           <SidebarSeparator />
 
           <SidebarContent>
-            <SidebarGroup>
-              <SidebarGroupLabel>Blog Management</SidebarGroupLabel>
+            {menuGroups.map((group) => (
+            <SidebarGroup key={group.label}>
+              <SidebarGroupLabel>{group.label}</SidebarGroupLabel>
               <SidebarGroupContent>
                 <SidebarMenu>
-                  {menuItems.map((item) => (
+                  {group.items.map((item) => (
                     <SidebarMenuItem key={item.title}>
                       <SidebarMenuButton
                         asChild
@@ -103,11 +109,12 @@ const BlogLayout = ({ children, breadcrumbs }: BlogLayoutProps) => {
                 </SidebarMenu>
               </SidebarGroupContent>
             </SidebarGroup>
+            ))}
 
             <SidebarSeparator />
 
             <SidebarGroup>
-              <SidebarGroupLabel>Account</SidebarGroupLabel>
+              <SidebarGroupLabel>Cuenta</SidebarGroupLabel>
               <SidebarGroupContent>
                 <SidebarMenu>
                   <SidebarMenuItem>
@@ -117,7 +124,7 @@ const BlogLayout = ({ children, breadcrumbs }: BlogLayoutProps) => {
                     >
                       <Link to="/dashboard/profile">
                         <User className="h-4 w-4" />
-                        <span>Profile</span>
+                        <span>Perfil</span>
                       </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
@@ -125,7 +132,7 @@ const BlogLayout = ({ children, breadcrumbs }: BlogLayoutProps) => {
                     <SidebarMenuButton asChild>
                       <Link to="/">
                         <Home className="h-4 w-4" />
-                        <span>Back to Site</span>
+                        <span>Volver al sitio</span>
                       </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>

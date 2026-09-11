@@ -11,6 +11,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
+import { createLead } from "@/lib/services/leads-service";
 import { cn } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowRight } from "lucide-react";
@@ -18,21 +19,19 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 
-const phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
+// Permisiva a propósito: acepta indicativos, espacios, guiones y paréntesis.
+const phoneRegex = /^\+?[\d\s().-]{7,20}$/;
 
 const contactFormSchema = z.object({
-  firstName: z.string().min(2, "First name must be at least 2 characters"),
-  lastName: z.string().min(2, "Last name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email address"),
+  firstName: z.string().min(2, "Escribe tu nombre"),
+  lastName: z.string().min(2, "Escribe tu apellido"),
+  email: z.string().email("Revisa el correo, no parece válido"),
   phone: z
     .string()
     .optional()
-    .refine(
-      (val) => !val || phoneRegex.test(val),
-      "Please enter a valid phone number"
-    ),
-  subject: z.string().min(3, "Subject must be at least 3 characters"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
+    .refine((val) => !val || phoneRegex.test(val), "Revisa el teléfono"),
+  subject: z.string().min(3, "Cuéntame en pocas palabras de qué se trata"),
+  message: z.string().min(10, "Un poco más de contexto me ayuda a responderte mejor"),
 });
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
@@ -54,14 +53,18 @@ const ContactForm = () => {
 
   const onSubmit = async (data: ContactFormValues) => {
     try {
+      await createLead({
+        email: data.email,
+        name: [data.firstName, data.lastName].filter(Boolean).join(" "),
+        phone: data.phone || null,
+        subject: data.subject,
+        message: data.message,
+        source: "contacto",
+      });
 
-      // Simulate API call delay
-      await new Promise((resolve) => setTimeout(resolve, 500));
-
-      // Show success toast
       toast({
-        title: "Message sent successfully!",
-        description: "We'll get back to you as soon as possible.",
+        title: "Mensaje enviado",
+        description: "Te respondo lo antes posible al correo que dejaste.",
         variant: "default",
       });
 
@@ -79,15 +82,14 @@ const ContactForm = () => {
       // Clear any previous errors
       setError(null);
     } catch (error) {
-      // Show error toast
+      console.error("Error al guardar el contacto:", error);
       toast({
-        title: "Failed to send message",
-        description: "Please try again later or contact us directly.",
+        title: "No se pudo enviar",
+        description: "Inténtalo de nuevo o escríbeme directo a hola@contreras.dev.",
         variant: "destructive",
       });
-      
-      // Show error state
-      setError("Failed to send message. Please try again later.");
+
+      setError("No se pudo enviar el mensaje. Escríbeme a hola@contreras.dev si sigue fallando.");
       
       // Reset error state after 5 seconds
       setTimeout(() => {
@@ -101,13 +103,12 @@ const ContactForm = () => {
       <Container className="md:space-y-10 xl:space-y-2xl space-y-8">
         {/* Header Section */}
         <div className="text-center max-w-[612px] mx-auto">
-          <h1 className="h2 mb-4">
-            Connect with our support team
-          </h1>
+          <h2 className="h2 mb-4">
+            Escríbeme
+          </h2>
           <p className="">
-            At Revio, we value clear communication and prompt support. Whether
-            you have questions about our platform, need assistance with your
-            integration.
+            Entre más contexto me des sobre el proyecto, mejor te puedo
+            responder: qué tienes hoy, qué quieres lograr y para cuándo.
           </p>
         </div>
 
@@ -121,10 +122,10 @@ const ContactForm = () => {
                 name="firstName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>First Name</FormLabel>
+                    <FormLabel>Nombre</FormLabel>
                     <FormControl>
                       <Input
-                        placeholder="First Name"
+                        placeholder="Tu nombre"
                         {...field}
                         className="bg-card border-muted focus:border-primary"
                       />
@@ -138,10 +139,10 @@ const ContactForm = () => {
                 name="lastName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Last Name</FormLabel>
+                    <FormLabel>Apellido</FormLabel>
                     <FormControl>
                       <Input
-                        placeholder="Last Name"
+                        placeholder="Tu apellido"
                         {...field}
                         className="bg-card border-muted focus:border-primary"
                       />
@@ -159,11 +160,11 @@ const ContactForm = () => {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel>Correo</FormLabel>
                     <FormControl>
                       <Input
                         type="email"
-                        placeholder="Your Email"
+                        placeholder="tucorreo@empresa.com"
                         {...field}
                         className="bg-card border-muted focus:border-primary"
                       />
@@ -177,11 +178,11 @@ const ContactForm = () => {
                 name="phone"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Phone</FormLabel>
+                    <FormLabel>Teléfono (opcional)</FormLabel>
                     <FormControl>
                       <Input
                         type="tel"
-                        placeholder="Phone"
+                        placeholder="Tu teléfono"
                         {...field}
                         className="bg-card border-muted focus:border-primary"
                       />
@@ -198,10 +199,10 @@ const ContactForm = () => {
               name="subject"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Subject</FormLabel>
+                  <FormLabel>Asunto</FormLabel>
                   <FormControl>
                     <Input
-                      placeholder="Subject"
+                      placeholder="Migración, tienda en línea, automatización con IA..."
                       {...field}
                       className="bg-card border-muted focus:border-primary"
                     />
@@ -217,10 +218,10 @@ const ContactForm = () => {
               name="message"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Message</FormLabel>
+                  <FormLabel>Mensaje</FormLabel>
                   <FormControl>
                     <Textarea
-                      placeholder="Type Message"
+                      placeholder="Cuéntame qué tienes hoy y qué quieres lograr"
                       className="min-h-[120px] bg-card border-muted focus:border-primary"
                       {...field}
                     />
@@ -237,7 +238,7 @@ const ContactForm = () => {
                 className="bg-primary text-white hover:bg-primary/90 w-full"
                 disabled={form.formState.isSubmitting}
               >
-                Send a Message
+                Enviar mensaje
                 <ArrowRight className="h-4 w-4" />
               </Button>
               <p 

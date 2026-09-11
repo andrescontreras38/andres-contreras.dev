@@ -10,30 +10,74 @@ import { Link } from "react-router-dom";
 
 const features = [
   {
-    id: "api-integration",
-    title: "Easy API & Integration",
-    description: "Connect Revio with your existing apps, e-commerce stores, and platforms using our developer-friendly API and pre-built integrations.",
-    image: "/images/features/tab-1.webp",
+    id: "uniremington",
+    title: "Uniremington",
+    tag: "Proyecto para cliente",
+    description:
+      "De WordPress + WPBakery a un stack propio en Node.js, rescatando el contenido con scraping en Python.",
+    problem:
+      "El sitio corría en WordPress con WPBakery Page Builder, un constructor visual que limitaba seriamente el diseño. WPBakery guarda el contenido de cada página como shortcodes en la base de datos, un formato que solo tiene sentido renderizado por WordPress y ese plugin específico.",
+    solution:
+      "Para rescatar el contenido real hubo que hacer scraping de las páginas ya renderizadas, no del export de WordPress, con un script en Python. El sitio se reconstruyó en Express + EJS, con el contenido migrado a SQLite, un CMS propio con panel protegido con 2FA (TOTP), procesamiento de imágenes con Sharp, y «Remi», un asistente de orientación para aspirantes construido sobre la API de Claude.",
+    stack: ["Node.js", "Express", "EJS", "SQLite", "Claude API", "Python"],
+    role: "Reconstrucción completa, scraping y asistente con IA",
   },
   {
-    id: "multi-currency",
-    title: "Multi-Currency & Cross-Border",
-    description: "Expand your business globally by accepting payments in over 100 currencies, with built-in real-time conversion. Revio makes international transactions simple, transparent, and seamless—helping you reach more consumers without the complexity of managing cross-border payments.",
-    image: "/images/features/tab-2.webp",
+    id: "scentual-bliss",
+    title: "Scentual Bliss",
+    tag: "En producción",
+    description:
+      "Tienda en línea de perfumes: más de 150 fragancias, checkout y un quiz olfativo.",
+    problem:
+      "Una marca de perfumes nueva necesitaba una tienda propia, no solo un catálogo, sino carrito, pagos, cuentas, correos transaccionales y visibilidad real de qué falla en producción.",
+    solution:
+      "Construí la tienda completa en Next.js 15 con Supabase como base de datos y autenticación, checkout con pagos en línea, correos transaccionales con Resend, notificaciones push y Sentry monitoreando errores en cliente, servidor y edge. El catálogo (más de 150 fragancias de 28 marcas) se importa desde Excel/CSV. Incluye un quiz de 5 preguntas para recomendar la fragancia ideal.",
+    stack: ["Next.js", "React", "Supabase", "Stripe", "Sentry", "Resend"],
+    role: "Desarrollo full-stack completo, de la base de datos al checkout",
   },
   {
-    id: "subscription-billing",
-    title: "Subscription & Recurring Billing",
-    description: "Simplify revenue management with automated billing cycles and flexible subscription options tailored to your business model. Revio helps reduce missed payments with intelligent retry logic.",
-    image: "/images/features/tab-3.webp",
-  },
-  {
-    id: "dispute-chargeback",
-    title: "Dispute & Chargeback Management",
-    description: "Managing disputes doesn't have to be complicated. Revio provides an all-in-one chargeback management system that helps businesses resolve conflicts quickly and transparently.",
-    image: "/images/features/tab-4.webp",
+    id: "remitransfer",
+    title: "RemiTransfer",
+    tag: "Proyecto personal",
+    description: "Alternativa a WeTransfer sin límites de tamaño ni cuentas.",
+    problem:
+      "Compartir archivos grandes normalmente implica límites de tamaño, crear una cuenta, o pagar un plan premium en herramientas como WeTransfer.",
+    solution:
+      "RemiTransfer sube cada archivo en fragmentos de 8MB desde el navegador, con reintentos automáticos y hasta 3 conexiones en paralelo: el tamaño total deja de depender de los límites de PHP y pasa a depender solo del disco del servidor. Las subidas son reanudables si se corta la conexión, las descargas se sirven en streaming con soporte de rangos, y cada transferencia puede autodestruirse entre 1 y 30 días o nunca.",
+    stack: ["PHP", "MySQL", "JavaScript"],
+    role: "Diseño y desarrollo completo: backend, subida por fragmentos y panel",
   },
 ];
+
+type Case = (typeof features)[number];
+
+const CaseDetail = ({ item }: { item: Case }) => (
+  <div className="rounded-2xl border border-border bg-card p-6 md:p-8 space-y-6">
+    <div>
+      <p className="text-sm font-medium text-[#2563EB] mb-2">El problema</p>
+      <p className="text-muted-foreground leading-relaxed">{item.problem}</p>
+    </div>
+    <div>
+      <p className="text-sm font-medium text-[#2563EB] mb-2">La solución</p>
+      <p className="text-muted-foreground leading-relaxed">{item.solution}</p>
+    </div>
+    <div className="border-t border-border pt-6">
+      <div className="flex flex-wrap gap-2 mb-4">
+        {item.stack.map((tech) => (
+          <span
+            key={tech}
+            className="font-mono text-xs px-2.5 py-1 rounded-md bg-foreground/5 text-foreground/70"
+          >
+            {tech}
+          </span>
+        ))}
+      </div>
+      <p className="text-sm text-muted-foreground">
+        <span className="text-foreground font-medium">Rol:</span> {item.role}
+      </p>
+    </div>
+  </div>
+);
 
 const CoreFeatures = () => {
   const [activeFeature, setActiveFeature] = useState(0);
@@ -118,12 +162,12 @@ const CoreFeatures = () => {
         <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between md:gap-8 gap-4">
           <div className="flex-1 max-w-[683px]">
             <AnimateOnView once blur className="md:mb-4 mb-1.5">
-              <Badge variant="default">Core Features</Badge>
+              <Badge variant="default">Casos</Badge>
             </AnimateOnView>
 
             <AnimateOnView once blur delay={0.2}>
               <h2 className="h2">
-                Smarter payments stronger growth tools.
+                Cómo resolví cada uno
               </h2>
             </AnimateOnView>
           </div>
@@ -131,7 +175,7 @@ const CoreFeatures = () => {
           <AnimateOnView once delay={0.4}>
             <Button asChild>
               <Link to="/contact">
-                Get Started for Free
+                Cuéntame tu proyecto
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </Button>
@@ -211,17 +255,12 @@ const CoreFeatures = () => {
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.3, ease: "easeOut" }}
                 >
+                  <Badge variant="secondary" className="mb-3">{features[activeFeature].tag}</Badge>
                   <h3 className="h6 mb-3">{features[activeFeature].title}</h3>
                   <p className="mb-6 text-muted-foreground">
                     {features[activeFeature].description}
                   </p>
-                  <div className="rounded-2xl w-full overflow-hidden bg-muted aspect-[717/400] md:aspect-auto">
-                    <img
-                      src={features[activeFeature].image}
-                      alt={features[activeFeature].title}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+                  <CaseDetail item={features[activeFeature]} />
                 </motion.div>
               </AnimatePresence>
             ) : (
@@ -237,6 +276,7 @@ const CoreFeatures = () => {
                 >
                   <div className="w-full">
                     <AnimateOnView once blur className="mb-4">
+                      <Badge variant="secondary" className="mb-3">{feature.tag}</Badge>
                       <h3 className="h6 mb-4">{feature.title}</h3>
                     </AnimateOnView>
 
@@ -247,12 +287,8 @@ const CoreFeatures = () => {
                     </AnimateOnView>
 
                     <AnimateOnView once delay={0.3}>
-                      <div className="rounded-2xl w-full max-w-[717px] overflow-hidden">
-                        <img
-                          src={feature.image}
-                          alt={feature.title}
-                          className="w-full h-full object-cover"
-                        />
+                      <div className="w-full max-w-[717px]">
+                        <CaseDetail item={feature} />
                       </div>
                     </AnimateOnView>
                   </div>

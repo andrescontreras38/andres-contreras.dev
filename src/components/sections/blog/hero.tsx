@@ -10,19 +10,19 @@ const BlogHero = () => {
       <Container className="relative z-10">
         <BlogBreadcrumbs
           className="mb-8 flex justify-center"
-          items={[{ label: "Home", to: "/" }, { label: "Blog", to: "/blog" }]}
+          items={[{ label: "Inicio", to: "/" }, { label: "Blog", to: "/blog" }]}
         />
 
         {/* Trust badges */}
         <StaggerContainer className="flex flex-wrap items-center justify-center gap-1 sm:gap-2 md:gap-4 xl:gap-6 mb-4 md:mb-8">
           <AnimateOnView blur>
             <Badge variant="color" className="gap-2">
-              One seamless payment at a time.
+              Construir en público
             </Badge>
           </AnimateOnView>
           <AnimateOnView blur delay={0.1}>
             <Badge variant="color" className="gap-2">
-              <span>Use over <span className="text-white">12K+</span> businesses worldwide.</span>
+              <span>El proceso real, <span className="text-white">con errores incluidos</span></span>
             </Badge>
           </AnimateOnView>
         </StaggerContainer>
@@ -30,7 +30,7 @@ const BlogHero = () => {
         {/* Main headline */}
         <AnimateOnView blur className="text-center max-w-3xl mx-auto lg:mb-10 md:mb-8 mb-4" delay={0.2}>
           <h1 className="h1 text-white">
-            Stay ahead with insights on payments & fintech
+            Lo que aprendo construyendo
           </h1>
         </AnimateOnView>
       </Container>

@@ -11,7 +11,7 @@
     --card: 244 244 244;
     --card-foreground: 50 50 50;
 
-    --primary: 97 66 255;
+    --primary: 37 99 235;
     --primary-foreground: 255 255 255;
 
     --secondary: 244 244 244;
@@ -20,7 +20,7 @@
     --muted: 190 190 190;
     --muted-foreground: 110 110 110;
 
-    --accent: 97 66 255;
+    --accent: 37 99 235;
     --accent-foreground: 255 255 255;
 
     --border: 230 230 230;
@@ -30,8 +30,8 @@
 
     --revio-obsidian: 20 20 20;
     --revio-charcoal: 20 20 20;
-    --revio-violet: 97 66 255;
-    --revio-violet-glow: 97 66 255;
+    --revio-violet: 37 99 235;
+    --revio-violet-glow: 37 99 235;
     --revio-emerald: 100 100 100;
     --revio-light: 244 244 244;
     --revio-white: 255 255 255;
@@ -40,12 +40,12 @@
     --revio-light-green: 204 255 240;
 
     /* Gradients */
-    --gradient-violet: linear-gradient(135deg, rgba(97, 66, 255, 1), rgba(139, 102, 255, 1));
+    --gradient-violet: linear-gradient(135deg, rgba(37, 99, 235, 1), rgba(59, 130, 246, 1));
     --gradient-dark: linear-gradient(180deg, hsl(0 0% 4%), hsl(0 0% 8%));
     --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
 
     /* Shadows */
-    --shadow-violet-glow: 0 0 60px rgba(97, 66, 255, 0.3);
+    --shadow-violet-glow: 0 0 60px rgba(37, 99, 235, 0.3);
     --shadow-card: 0 4px 24px rgba(20, 20, 20, 0.08);
     --shadow-elevated: 0 20px 60px rgba(20, 20, 20, 0.15);
 
@@ -132,7 +132,7 @@
   }
 
   .testimonial-video-gradient {
-    background: linear-gradient(180deg, rgba(97, 66, 255, 0) 35%, rgba(97, 66, 255, 0.7) 100%);
+    background: linear-gradient(180deg, rgba(37, 99, 235, 0) 35%, rgba(37, 99, 235, 0.7) 100%);
   }
 
   .glow-violet {
@@ -182,11 +182,11 @@
 
     0%,
     100% {
-      box-shadow: 0 0 20px hsl(239 84% 67% / 0.3);
+      box-shadow: 0 0 20px hsl(221 83% 53% / 0.3);
     }
 
     50% {
-      box-shadow: 0 0 40px hsl(239 84% 67% / 0.5);
+      box-shadow: 0 0 40px hsl(221 83% 53% / 0.5);
     }
   }
 }

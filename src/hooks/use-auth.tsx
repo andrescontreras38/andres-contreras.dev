@@ -1,4 +1,3 @@
-import { lovable } from "@/integrations/lovable/index";
 import { supabase } from "@/integrations/supabase/client";
 
 import { Session, User } from "@supabase/supabase-js";
@@ -20,9 +19,7 @@ interface AuthContextType {
   session: Session | null;
   profile: Profile | null;
   loading: boolean;
-  signUp: (email: string, password: string, fullName?: string) => Promise<{ error: Error | null }>;
   signIn: (email: string, password: string) => Promise<{ error: Error | null }>;
-  signInWithGoogle: () => Promise<{ error: Error | null }>;
   signOut: () => Promise<void>;
   updateProfile: (data: ProfileUpdate) => Promise<{ error: Error | null }>;
   refreshProfile: () => Promise<void>;
@@ -69,23 +66,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
           setTimeout(async () => {
             const profileData = await fetchProfile(currentSession.user.id);
 
-            // Adopt the identity provider avatar (e.g. Google) when the
-            // profile has no picture of its own yet.
-            const providerAvatar =
-              (currentSession.user.user_metadata?.avatar_url as string | undefined) ||
-              (currentSession.user.user_metadata?.picture as string | undefined);
-
-            if (profileData && !profileData.avatar_url && providerAvatar) {
-              const { error: syncError } = await supabase
-                .from("profiles")
-                .update({ avatar_url: providerAvatar })
-                .eq("user_id", currentSession.user.id);
-
-              if (!syncError) {
-                profileData.avatar_url = providerAvatar;
-              }
-            }
-
             setProfile(profileData);
             setLoading(false);
           }, 0);
@@ -108,59 +88,12 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     };
   }, []);
 
-  const signUp = async (email: string, password: string, fullName?: string) => {
-    const { error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        emailRedirectTo: window.location.origin,
-        data: {
-          full_name: fullName,
-        },
-      },
-    });
-
-    if (!error && fullName) {
-      // Update profile with name after signup
-      const names = fullName.split(" ");
-      const firstName = names[0];
-      const lastName = names.slice(1).join(" ");
-      
-      // Wait a moment for the trigger to create the profile
-      setTimeout(async () => {
-        const { data: { user: newUser } } = await supabase.auth.getUser();
-        if (newUser) {
-          await supabase
-            .from("profiles")
-            .update({ first_name: firstName, last_name: lastName })
-            .eq("user_id", newUser.id);
-        }
-      }, 500);
-    }
-
-    return { error: error as Error | null };
-  };
-
   const signIn = async (email: string, password: string) => {
     const { error } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
     return { error: error as Error | null };
-  };
-
-  const signInWithGoogle = async () => {
-    const result = await lovable.auth.signInWithOAuth("google", {
-      redirect_uri: window.location.origin,
-    });
-
-    if (result.error) {
-      return { error: result.error as Error };
-    }
-
-    // Either the browser is redirecting to Google, or the session was set and
-    // onAuthStateChange will hydrate the user.
-    return { error: null };
   };
 
 
@@ -193,9 +126,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         session,
         profile,
         loading,
-        signUp,
         signIn,
-        signInWithGoogle,
         signOut,
         updateProfile,
         refreshProfile,

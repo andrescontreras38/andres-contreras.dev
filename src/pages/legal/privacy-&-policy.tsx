@@ -17,8 +17,8 @@ const PrivacyPolicyPage = () => {
     return (
         <>
             <SEO
-                title={`Privacy & Policy | ${appConfig.name}`}
-                description={`${appConfig.description}`}
+                title={`Política de privacidad | ${appConfig.name}`}
+                description="Cómo se tratan los datos personales en contreras.dev."
                 canonicalUrl={`/legal/privacy-&-policy`}
                 ogType="website"
                 jsonLd={jsonLd}
@@ -26,7 +26,7 @@ const PrivacyPolicyPage = () => {
             <Layout>
                 <LegalHero
                     title={`Privacy & Policy`}
-                    description={`Privacy & Policy | Revio - Legal`}
+                    description={`Privacy & Policy | Andrés Contreras - Legal`}
                 />
                 <section>
                     <Container className="flex flex-col lg:flex-row justify-center md:gap-10 gap-6 py-[60px]">

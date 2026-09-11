@@ -31,7 +31,7 @@ const BlogList = () => {
             onClick={() => handleCategoryFilter(null)}
             className="rounded-full"
           >
-            All
+            Todos
           </Button>
           {categoriesLoading ? (
             <>
@@ -87,7 +87,7 @@ const BlogList = () => {
         ) : (
           <div className="text-center py-16">
             <p className="text-muted-foreground text-lg">
-              No articles found in this category.
+              Todavía no hay artículos en esta categoría.
             </p>
           </div>
         )}

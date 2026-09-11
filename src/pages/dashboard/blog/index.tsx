@@ -87,7 +87,7 @@ const BlogDashboard = () => {
   return (
     <BlogLayout breadcrumbs={[{ label: "Dashboard", to: "/dashboard/blog" }, { label: "Blog" }]}>
       <Helmet>
-        <title>Blog Dashboard | Revio</title>
+        <title>Blog Dashboard | Andrés Contreras</title>
       </Helmet>
 
       <div className="space-y-6">

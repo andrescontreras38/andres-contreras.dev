@@ -13,35 +13,69 @@ const Integrations = lazy(() => import("@/components/sections/home/integrations"
 const MobileApp = lazy(() => import("@/components/sections/home/mobile-app"));
 const SecurityCompliance = lazy(() => import("@/components/sections/home/security-compliance"));
 const Testimonials = lazy(() => import("@/components/sections/home/testimonials"));
+const Now = lazy(() => import("@/components/sections/home/now"));
 
 const Home = () => {
   const heroRef = useRef<HTMLElement>(null);
-  const metaTitle = "SaaS Website Design Template | Lovable";
-  const metaDescription = "Launch a fintech SaaS marketing site with blog CMS and admin dashboard. Remix this template and go live in hours with pricing pages, SEO, and auth built in.";
+  const metaTitle = "Andrés Contreras | Desarrollador Full-Stack con IA";
+  const metaDescription = "Migraciones sin downtime, e-commerce que vende e IA aplicada a problemas reales de negocio. Un único punto de contacto para diseño, desarrollo, IA y despliegue.";
+  const person = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${appConfig.url}/#andres-contreras`,
+    "name": "Andrés Contreras",
+    "jobTitle": "Desarrollador full-stack",
+    "description": appConfig.description,
+    "url": appConfig.url,
+    "email": "hola@contreras.dev",
+    "image": `${appConfig.url}/og-image.png`,
+    "sameAs": ["https://github.com/andrescontreras38"],
+    "knowsLanguage": "es",
+    "knowsAbout": [
+      "Desarrollo web full-stack",
+      "Migraciones de WordPress",
+      "E-commerce a medida",
+      "Inteligencia artificial aplicada",
+      "Next.js",
+      "React",
+      "Node.js",
+      "PHP",
+      "Python",
+      "Supabase",
+    ],
+  };
+
+  const website = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${appConfig.url}/#website`,
+    "url": appConfig.url,
+    "name": appConfig.name,
+    "description": appConfig.description,
+    "inLanguage": "es",
+    "publisher": { "@id": `${appConfig.url}/#andres-contreras` },
+  };
+
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "FinancialService",
+    "@type": "ProfessionalService",
     "name": appConfig.name,
     "description": appConfig.description,
     "url": appConfig.url,
     "logo": appConfig.logo,
     "image": appConfig.ogImage,
-    "applicationCategory": "FinanceApplication, BusinessApplication",
-    "operatingSystem": "Web, iOS, Android",
-    "offers": {
-      "@type": "Offer",
-      "price": "0.00",
-      "priceCurrency": "USD",
-      "description": "Start for free with our basic plan"
-    },
     "areaServed": "Worldwide",
-    "serviceType": "Payment Processing",
+    "serviceType": "Software Development",
     "knowsAbout": [
-      "PCI DSS Compliance",
-      "Merchant Accounts",
-      "Point of Sale Systems",
-      "Digital Wallets",
-      "Global Payouts"
+      "Next.js",
+      "React",
+      "Node.js",
+      "Python",
+      "Supabase",
+      "Migraciones de sitios web",
+      "E-commerce",
+      "Inteligencia artificial aplicada",
+      "Claude API"
     ]
   };
 
@@ -52,7 +86,7 @@ const Home = () => {
         description={metaDescription}
         canonicalUrl="/"
         ogType="profile"
-        jsonLd={jsonLd}
+        jsonLd={[person, website, jsonLd]}
       />
       <Layout>
         <Hero heroRef={heroRef} />
@@ -74,6 +108,9 @@ const Home = () => {
         </Suspense>
         <Suspense fallback={null}>
           <Testimonials />
+        </Suspense>
+        <Suspense fallback={null}>
+          <Now />
         </Suspense>
         <Suspense fallback={null}>
           <Blog />

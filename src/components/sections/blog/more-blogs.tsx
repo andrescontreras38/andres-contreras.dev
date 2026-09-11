@@ -14,7 +14,7 @@ const MoreBlogs = () => {
       <Container className="md:space-y-10 xl:space-y-2xl space-y-8">
         {/* Section Header */}
         <AnimateOnView once blur delay={0.1} className="max-w-[683px]">
-          <h2 className="h2">Explore more insights on payments gateway</h2>
+          <h2 className="h2">Sigue leyendo</h2>
         </AnimateOnView>
 
         {/* Articles Grid */}

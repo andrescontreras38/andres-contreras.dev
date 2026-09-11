@@ -2,7 +2,17 @@ import Container from "@/components/container";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
+import { Atom, Braces, Database, FileCode2, Bot, Server } from "lucide-react";
 import { useMemo, useRef } from "react";
+
+const techStack = [
+  { name: "Next.js", Icon: FileCode2 },
+  { name: "React", Icon: Atom },
+  { name: "Node.js", Icon: Server },
+  { name: "Python", Icon: Braces },
+  { name: "Supabase", Icon: Database },
+  { name: "Claude API", Icon: Bot },
+];
 
 interface LogoItem {
   id: number;
@@ -32,9 +42,12 @@ const Logo = ({ index, logo, scrollYProgress }: LogoProps) => {
     { clamp: true }
   );
 
+  const tech = techStack[index % techStack.length];
+  const TechIcon = tech.Icon;
+
   return (
     <motion.div
-      className="absolute"
+      className="absolute flex flex-col items-center gap-2"
       style={{
         left: `${logo.x}%`,
         top: `${logo.y}%`,
@@ -47,16 +60,10 @@ const Logo = ({ index, logo, scrollYProgress }: LogoProps) => {
         ease: [0.21, 0.47, 0.32, 0.98],
       }}
     >
-      <div className="w-[60px] h-[60px] sm:w-[70px] sm:h-[70px] md:w-[91px] md:h-[91px]">
-        <img
-          src={`/images/homepage/integration-${index}.svg`}
-          alt={`Platform ${logo.id + 1}`}
-          className="w-full h-full object-contain"
-          width="91"
-          height="91"
-          loading="lazy"
-        />
+      <div className="w-[60px] h-[60px] sm:w-[70px] sm:h-[70px] md:w-[91px] md:h-[91px] rounded-2xl bg-white shadow-md flex items-center justify-center">
+        <TechIcon className="w-6 h-6 sm:w-7 sm:h-7 md:w-9 md:h-9 text-[#2563EB]" strokeWidth={1.5} />
       </div>
+      <span className="text-xs sm:text-sm font-medium text-muted-foreground">{tech.name}</span>
     </motion.div>
   );
 };
@@ -72,23 +79,25 @@ const Integrations = () => {
   });
 
   const logos = useMemo(() => {
-    const logoCount = 5;
+    const logoCount = techStack.length;
 
     // Use safer positions on mobile to prevent logos from going off-screen
     const positions = isMobile
       ? [
-        { x: 20, y: 20 },
-        { x: 80, y: 20 },
-        { x: 20, y: 70 },
-        { x: 50, y: 75 },
-        { x: 80, y: 70 },
+        { x: 20, y: 15 },
+        { x: 80, y: 15 },
+        { x: 20, y: 45 },
+        { x: 80, y: 45 },
+        { x: 20, y: 78 },
+        { x: 80, y: 78 },
       ]
       : [
-        { x: 15, y: 15 },
-        { x: 85, y: 15 },
-        { x: 15, y: 75 },
-        { x: 50, y: 80 },
-        { x: 85, y: 75 },
+        { x: 12, y: 15 },
+        { x: 50, y: 12 },
+        { x: 88, y: 15 },
+        { x: 12, y: 80 },
+        { x: 50, y: 85 },
+        { x: 88, y: 80 },
       ];
 
     const baseLogos: LogoItem[] = Array.from({ length: logoCount }, (_, i) => ({
@@ -109,7 +118,7 @@ const Integrations = () => {
 
     const shuffledLogos = shuffle(baseLogos);
 
-    const thresholds = [0.15, 0.3, 0.45, 0.6, 0.75];
+    const thresholds = [0.15, 0.28, 0.41, 0.54, 0.67, 0.8];
     return shuffledLogos.map((logo, index) => ({
       ...logo,
       scrollThreshold: thresholds[index],
@@ -123,15 +132,15 @@ const Integrations = () => {
         <Container className="relative z-10">
           <AnimateOnView>
             <h2 className="h2 text-center max-w-[644px] mx-auto mb-4">
-              Connect with <span className="text-muted-foreground">your Favorite Platforms</span>
+              Trabajo con el <span className="text-muted-foreground">stack que tu proyecto necesita</span>
             </h2>
           </AnimateOnView>
         </Container>
 
-        {/* Random positioned logos - positioned relative to viewport */}
+        {/* Random positioned tech icons - positioned relative to viewport */}
         <div ref={containerRef} className="absolute inset-0 w-full h-full pointer-events-none">
           {logos.map((logo, i) => (
-            <Logo key={logo.id} index={i + 1} logo={logo} scrollYProgress={scrollYProgress} />
+            <Logo key={logo.id} index={i} logo={logo} scrollYProgress={scrollYProgress} />
           ))}
         </div>
       </div>

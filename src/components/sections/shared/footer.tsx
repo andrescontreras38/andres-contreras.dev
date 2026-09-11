@@ -1,51 +1,55 @@
 import Container from "@/components/container";
+import Logo from "@/components/logo";
 import NewsletterForm from "@/components/newsletter-form";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
+import { Github, Linkedin, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
+
+const socialLinks = [
+  { label: "GitHub", href: "https://github.com/andrescontreras38", icon: Github },
+  { label: "LinkedIn", href: "https://linkedin.com", icon: Linkedin },
+  { label: "Email", href: "mailto:hola@contreras.dev", icon: Mail },
+];
 
 const pagesLinks = [
   {
-    title: "Home",
+    title: "Inicio",
     href: "/",
   },
   {
-    title: "Features",
+    title: "Servicios",
     href: "/features",
   },
   {
-    title: "Company",
+    title: "Sobre mí",
     href: "/company",
   },
   {
-    title: "Pricing",
-    href: "/pricing",
+    title: "Recursos",
+    href: "/recursos",
   },
   {
     title: "Blog",
     href: "/blog",
   },
   {
-    title: "Contact",
+    title: "Contacto",
     href: "/contact",
   },
 ];
 
 const innerLinks = [
   {
-    title: "Pricing Single",
-    href: "/pricing/starter",
+    title: "Casos",
+    href: "/features",
   },
   {
-    title: "Blog Single",
-    href: "/blog/future-of-digital-payments-2024",
+    title: "Preguntas frecuentes",
+    href: "/contact",
   },
   {
-    title: "Coming soon",
-    href: "/coming-soon",
-  },
-  {
-    title: "Download",
-    href: "/download",
+    title: "Escríbeme",
+    href: "mailto:hola@contreras.dev",
   },
 ];
 
@@ -66,20 +70,34 @@ const Footer = () => {
 
             <div>
               <Link to="/">
-                <img className="mb-6" src="/images/common/logo.svg" alt="logo" />
+                <Logo size="md" className="mb-6" />
               </Link>
               <p className="text-muted">
-                From startups launching their first product to mature enterprises scaling globally.
+                Desarrollador full-stack especializado en migraciones, e-commerce e IA aplicada a problemas reales de negocio.
               </p>
             </div>
 
             <div className="space-y-2.5">
               <p className="text-white">
-                Head Quarter:
+                Contacto:
               </p>
               <p className="text-muted">
-                210 Bishop, 2 th Floor, <br />London, EC2M 4NR, United Kingdom
+                hola@contreras.dev
               </p>
+              <div className="flex items-center gap-3 pt-1">
+                {socialLinks.map(({ label, href, icon: Icon }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target={href.startsWith("mailto:") ? undefined : "_blank"}
+                    rel={href.startsWith("mailto:") ? undefined : "noreferrer"}
+                    aria-label={label}
+                    className="flex items-center justify-center w-9 h-9 rounded-full border border-white/15 text-muted hover:text-white hover:border-white/40 transition-colors"
+                  >
+                    <Icon className="w-4 h-4" />
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -89,7 +107,7 @@ const Footer = () => {
               once
               delay={0.1}
             >
-              <h3 className="text-lg font-semibold mb-6">Pages</h3>
+              <h3 className="text-lg font-semibold mb-6">Páginas</h3>
               <ul className="space-y-3">
                 {pagesLinks.map((link, index) => (
                   <li key={index}>
@@ -109,13 +127,19 @@ const Footer = () => {
             >
               {/* Utility Links */}
               <div>
-                <h3 className="text-lg font-semibold mb-6">Innerpages</h3>
+                <h3 className="text-lg font-semibold mb-6">Más</h3>
                 <ul className="space-y-3">
                   {innerLinks.map((link, index) => (
                     <li key={index}>
-                      <Link to={link.href} className="text-muted hover:text-white">
-                        {link.title}
-                      </Link>
+                      {link.href.startsWith("mailto:") ? (
+                        <a href={link.href} className="text-muted hover:text-white">
+                          {link.title}
+                        </a>
+                      ) : (
+                        <Link to={link.href} className="text-muted hover:text-white">
+                          {link.title}
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -124,10 +148,10 @@ const Footer = () => {
               {/* Newsletter */}
               <div>
                 <h3 className="text-lg font-semibold mb-2">
-                  Stay Updated with Revio
+                  Actualizaciones de contreras.dev
                 </h3>
                 <p className="text-sm text-muted-foreground mb-4">
-                  Get the latest insights on payments.
+                  Notas sobre migraciones, e-commerce e IA aplicada, directo a tu correo.
                 </p>
                 <NewsletterForm
                   buttonVariant="secondary"
@@ -152,7 +176,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             {/* Copyright */}
             <p className="text-sm text-muted-foreground text-center md:text-left">
-              © {new Date().getFullYear()} Revio. Made in Lovable.
+              © {new Date().getFullYear()} Andrés Contreras.
             </p>
 
             {/* Legal Links */}
@@ -161,19 +185,19 @@ const Footer = () => {
                 to="/privacy-policy"
                 className="text-sm text-muted-foreground hover:text-white transition-colors"
               >
-                Privacy Policy
+                Política de privacidad
               </Link>
               <Link
                 to="/terms-&-condition"
                 className="text-sm text-muted-foreground hover:text-white transition-colors"
               >
-                Terms &amp; Conditions
+                Términos y condiciones
               </Link>
               <Link
                 to="/login"
                 className="text-sm text-muted-foreground hover:text-white transition-colors"
               >
-                Admin
+                Administrar
               </Link>
             </div>
           </div>

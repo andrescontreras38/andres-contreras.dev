@@ -4,6 +4,7 @@ import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 import { StaggerContainer } from "@/components/ui/motion/stagger";
 import BlogBreadcrumbs from "@/components/sections/blog/blog-breadcrumbs";
 import { BlogPost } from "@/lib/services/blog-service";
+import { formatBlogDate } from "@/lib/utils";
 
 interface BlogDetailsHeroProps {
   post?: BlogPost | null;
@@ -20,7 +21,7 @@ const BlogDetailsHero = ({ post }: BlogDetailsHeroProps) => {
         <BlogBreadcrumbs
           className="mb-8 max-w-[1024px]"
           items={[
-            { label: "Home", to: "/" },
+            { label: "Inicio", to: "/" },
             { label: "Blog", to: "/blog" },
             { label: post.title, to: `/blog/${post.slug}` },
           ]}
@@ -28,7 +29,7 @@ const BlogDetailsHero = ({ post }: BlogDetailsHeroProps) => {
         <StaggerContainer className="max-w-[1024px]">
           <AnimateOnView once blur>
             <div className="text-muted-foreground mb-[14px]">
-              <time dateTime={post.date}>{post.date}</time>
+              <time dateTime={post.date}>{formatBlogDate(post.date)}</time>
             </div>
           </AnimateOnView>
           <AnimateOnView once blur delay={0.1}>

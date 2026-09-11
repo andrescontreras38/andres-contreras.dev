@@ -17,7 +17,7 @@ const TermsAndConditionPage = () => {
     return (
         <>
             <SEO
-                title={`Terms & Conditions | ${appConfig.name}`}
+                title={`Términos y condiciones | ${appConfig.name}`}
                 description={appConfig.description}
                 canonicalUrl={`/legal/terms-&-condition`}
                 ogType="website"
@@ -26,7 +26,7 @@ const TermsAndConditionPage = () => {
             <Layout>
                 <LegalHero
                     title={`Terms & Conditions`}
-                    description={`Terms & Conditions | Revio - Legal`}
+                    description={`Terms & Conditions | Andrés Contreras - Legal`}
                 />
                 <section>
 

@@ -9,18 +9,18 @@ import { Link } from "react-router-dom";
 const SecurityCompliance = () => {
   const features = [
     {
-      title: "Fully Licensed & Compliant",
-      description: "Revio operates under strict financial regulations, ensuring your business is always backed by secure practices.",
+      title: "Un solo punto de contacto",
+      description: "Diseño, desarrollo, IA y despliegue coordinados por una sola persona, sin coordinar múltiples proveedores.",
       highlighted: false,
     },
     {
-      title: "100% Digital Experience",
-      description: "Revio is built as a modern online payment platform—designed to handle all your business transactions seamlessly, anywhere, anytime.",
+      title: "Proceso transparente",
+      description: "Prefiero mostrar el proceso real, con errores incluidos, a esperar a que todo esté perfecto para compartirlo.",
       highlighted: true,
     },
     {
-      title: "Independent & Reliable",
-      description: "Revio owns its core infrastructure, giving you direct access to payment processing without relying on third-party providers.",
+      title: "Stack moderno en producción",
+      description: "Más de 10 tecnologías distintas trabajando hoy en proyectos reales, no solo en cursos o demos.",
       highlighted: false,
     },
   ];
@@ -37,7 +37,7 @@ const SecurityCompliance = () => {
               className="flex items-center gap-2 md:mb-4 mb-1.5"
             >
               <Badge>
-                Security
+                Por qué trabajar conmigo
               </Badge>
             </AnimateOnView>
 
@@ -47,7 +47,7 @@ const SecurityCompliance = () => {
               delay={0.1}
               className="h2"
             >
-              Security & Compliance
+              Un enfoque directo, sin fricción
             </AnimateOnView>
           </div>
 
@@ -57,7 +57,7 @@ const SecurityCompliance = () => {
           >
             <Button asChild>
               <Link to="/contact">
-                Get Started for Free
+                Cuéntame tu proyecto
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </Button>
@@ -94,11 +94,11 @@ const SecurityCompliance = () => {
           className="p-[27px] bg-revio-light-green flex flex-col md:flex-row items-center justify-center gap-3"
         >
           <p className="text-foreground text-lg text-center md:text-left max-w-[400px] md:max-w-full">
-            ⚡️ The complete solution to accept money, make payments, and manage finances effortlessly.
+            ⚡️ De la idea a producción, con un solo desarrollador respondiendo por todo el proyecto.
           </p>
           <Button className="bg-foreground text-background hover:bg-foreground/90" asChild>
             <Link to="/contact">
-              Get Started for Free
+              Cuéntame tu proyecto
               <ArrowRight className="w-5 h-5" />
             </Link>
           </Button>

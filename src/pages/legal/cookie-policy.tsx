@@ -17,8 +17,8 @@ const CookiePolicyPage = () => {
     return (
         <>
             <SEO
-                title={`Cookie Policy | ${appConfig.name}`}
-                description={`${appConfig.description}`}
+                title={`Política de cookies | ${appConfig.name}`}
+                description="Cómo se usan las cookies en contreras.dev."
                 canonicalUrl={`/legal/cookie-policy`}
                 ogType="website"
                 jsonLd={jsonLd}

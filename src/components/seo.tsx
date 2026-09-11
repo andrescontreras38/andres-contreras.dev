@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { appConfig } from "@/utils/app-config";
 
 interface SEOProps {
     title: string;
@@ -7,7 +8,13 @@ interface SEOProps {
     ogType?: "website" | "article" | "profile";
     ogImage?: string;
     twitterCard?: "summary" | "summary_large_image";
-    jsonLd?: object;
+    jsonLd?: object | object[];
+    /** Solo para artículos: alimenta las etiquetas article:* de Open Graph. */
+    publishedTime?: string;
+    modifiedTime?: string;
+    section?: string;
+    /** Páginas que no deben indexarse (login, panel, utilidades). */
+    noIndex?: boolean;
 }
 
 const SEO = ({
@@ -15,51 +22,69 @@ const SEO = ({
     description,
     canonicalUrl,
     ogType = "website",
-    ogImage = "/og-image.jpg",
+    ogImage = "/og-image.png",
     twitterCard = "summary_large_image",
     jsonLd,
+    publishedTime,
+    modifiedTime,
+    section,
+    noIndex = false,
 }: SEOProps) => {
-    const siteUrl = "https://morganblake.com";
+    // Una sola fuente de verdad para el dominio. Antes estaba escrito a mano
+    // apuntando a otro sitio, así que cada canonical señalaba a un dominio ajeno.
+    const siteUrl = appConfig.url.replace(/\/$/, "");
     const fullUrl = `${siteUrl}${canonicalUrl}`;
     const fullImageUrl = ogImage.startsWith("http") ? ogImage : `${siteUrl}${ogImage}`;
+    const blocks = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 
     return (
         <Helmet>
-            {/* Basic Meta Tags */}
+            <html lang="es" />
             <title>{title}</title>
             <meta name="description" content={description} />
             <link rel="canonical" href={fullUrl} />
 
-            {/* Open Graph Meta Tags */}
+            {/* Open Graph */}
             <meta property="og:type" content={ogType} />
             <meta property="og:title" content={title} />
             <meta property="og:description" content={description} />
             <meta property="og:url" content={fullUrl} />
             <meta property="og:image" content={fullImageUrl} />
+            <meta property="og:image:width" content="1200" />
+            <meta property="og:image:height" content="630" />
             <meta property="og:image:alt" content={title} />
-            <meta property="og:site_name" content="Lovable" />
-            <meta property="og:locale" content="en_US" />
+            <meta property="og:site_name" content={appConfig.name} />
+            <meta property="og:locale" content="es_CO" />
 
-            {/* Twitter Card Meta Tags */}
+            {ogType === "article" && publishedTime && (
+                <meta property="article:published_time" content={publishedTime} />
+            )}
+            {ogType === "article" && modifiedTime && (
+                <meta property="article:modified_time" content={modifiedTime} />
+            )}
+            {ogType === "article" && section && (
+                <meta property="article:section" content={section} />
+            )}
+            {ogType === "article" && <meta property="article:author" content={appConfig.name} />}
+
+            {/* Twitter */}
             <meta name="twitter:card" content={twitterCard} />
             <meta name="twitter:title" content={title} />
             <meta name="twitter:description" content={description} />
             <meta name="twitter:image" content={fullImageUrl} />
             <meta name="twitter:image:alt" content={title} />
-            <meta name="twitter:site" content="@revio.photo" />
-            <meta name="twitter:creator" content="@revio.photo" />
 
-            {/* Additional Meta Tags */}
-            <meta name="author" content="Revio" />
-            <meta name="robots" content="index, follow" />
-            <meta name="googlebot" content="index, follow" />
+            <meta name="author" content={appConfig.name} />
+            <meta
+                name="robots"
+                content={noIndex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1"}
+            />
 
-            {/* JSON-LD Structured Data */}
-            {jsonLd && (
-                <script type="application/ld+json">
-                    {JSON.stringify(jsonLd)}
+            {blocks.map((block, index) => (
+                <script type="application/ld+json" key={index}>
+                    {JSON.stringify(block)}
                 </script>
-            )}
+            ))}
         </Helmet>
     );
 };

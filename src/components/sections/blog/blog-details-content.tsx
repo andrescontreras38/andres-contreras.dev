@@ -3,6 +3,7 @@ import Container from "@/components/container";
 import NewsletterForm from "@/components/newsletter-form";
 import { Card } from "@/components/ui/card";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
+import { coverFor } from "@/lib/blog-covers";
 import { BlogPost } from "@/lib/services/blog-service";
 import DOMPurify from "dompurify";
 import { useMemo } from "react";
@@ -37,7 +38,7 @@ const BlogDetailsContent = ({ post }: BlogDetailsContentProps) => {
       <AnimateOnView once blur delay={0.3} className="">
         <div className="max-w-[2000px] mx-auto w-full md:h-[691px] h-[300px] overflow-hidden">
           <img
-            src={post.image}
+            src={coverFor(post.image, post.category)}
             alt={post.title}
             className="w-full h-full object-cover"
           />
@@ -53,10 +54,10 @@ const BlogDetailsContent = ({ post }: BlogDetailsContentProps) => {
           <Card className="space-y-6 bg-black">
             <div className="max-w-[240px]">
               <h2 className="h6 mb-2 text-white">
-                Get insights delivered straight to you
+                Recibe las notas en tu correo
               </h2>
               <p className="text-muted">
-                Get the latest insights on payments.
+                Migraciones, e-commerce e IA aplicada, sin relleno.
               </p>
             </div>
 

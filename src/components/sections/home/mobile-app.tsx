@@ -9,12 +9,12 @@ import { Link } from "react-router-dom";
 const MobileApp = () => {
   const features = [
     {
-      title: "Manage Anywhere, Anytime",
-      description: "Track payments, approve transactions, and view reports instantly with the Revio mobile app.",
+      title: "Un solo punto de contacto",
+      description: "Diseño, desarrollo, IA y despliegue coordinados por una sola persona, sin múltiples proveedores.",
     },
     {
-      title: "Card Management",
-      description: "Freeze, unfreeze, or set limits on company cards directly from your phone.",
+      title: "Proceso a la vista",
+      description: "Avances reales, con errores incluidos, en vez de esperar a que todo esté \"perfecto\" para mostrarlo.",
     },
   ];
 
@@ -31,7 +31,7 @@ const MobileApp = () => {
             className="md:mb-4 mb-1.5"
           >
             <Badge variant="secondary">
-              Download App
+              Cómo trabajo
             </Badge>
           </AnimateOnView>
 
@@ -43,7 +43,7 @@ const MobileApp = () => {
             className="md:mb-6 mb-3"
           >
             <h2 className="h2 text-white">
-              All in one secure mobile app.
+              Sin intermediarios, sin sorpresas.
             </h2>
           </AnimateOnView>
 
@@ -54,7 +54,7 @@ const MobileApp = () => {
             delay={0.4}
             className="md:mb-6 mb-3"
           >
-            <p className="text-lg text-white">Give your team Revio cards and simplify business spending</p>
+            <p className="text-lg text-white">Prefiero mostrar el proceso real a esperar a que todo esté perfecto para compartirlo.</p>
           </AnimateOnView>
 
           {/* Features List */}
@@ -91,30 +91,36 @@ const MobileApp = () => {
             className="mb-6"
           >
             <Button asChild>
-              <Link to="/download">
-                Download app
+              <Link to="/contact">
+                Cuéntame tu proyecto
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
             </Button>
           </AnimateOnView>
         </StaggerContainer>
 
-        {/* Right Section - Smartphone Mockup */}
+        {/* Right Section - Process timeline card */}
         <AnimateOnView
           once
           blur
           delay={0.6}
-          className="flex justify-center lg:justify-end"
+          className="flex justify-center lg:justify-end w-full lg:max-w-[434px]"
         >
-          <img 
-            className="relative max-w-[434px] w-full aspect-[434/645]" 
-            src="/images/homepage/phone.webp" 
-            alt="Revio mobile app" 
-            width="434"
-            height="645"
-            loading="lazy"
-          />
-
+          <div className="w-full rounded-3xl bg-[#0d0d0f] border border-white/10 p-8 space-y-6">
+            {[
+              { step: "01", title: "Descubrimiento", desc: "Entiendo el problema real detrás del pedido." },
+              { step: "02", title: "Construcción", desc: "Avances visibles semana a semana, no al final." },
+              { step: "03", title: "Producción", desc: "Despliegue, monitoreo y ajustes con datos reales." },
+            ].map((item) => (
+              <div key={item.step} className="flex gap-4">
+                <span className="font-mono text-sm text-[#2563EB]">{item.step}</span>
+                <div>
+                  <p className="text-white font-medium mb-1">{item.title}</p>
+                  <p className="text-muted text-sm">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </AnimateOnView>
       </Container>
     </section>

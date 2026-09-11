@@ -4,36 +4,35 @@ import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 import { StaggerContainer } from "@/components/ui/motion/stagger";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Badge } from "../../ui/badge";
 
 const CompanyHero = () => {
     return (
-        <section className="relative bg-black overflow-hidden banner-top-padding pb-[400px] lg:pb-[453px]">
+        <section className="relative bg-black overflow-hidden banner-top-padding pb-20 md:pb-28 lg:pb-32">
             <Container className="relative z-10">
-                <StaggerContainer className="flex flex-wrap items-center justify-center gap-1 sm:gap-2 md:gap-4 xl:gap-6 mb-4 md:mb-8">
-                    <AnimateOnView blur>
-                        <Badge variant="color" className="gap-2">
-                            One seamless payment at a time.
-                        </Badge>
-                    </AnimateOnView>
-                    <AnimateOnView blur delay={0.1}>
-                        <Badge variant="color" className="gap-2">
-                            <span>Use over <span className="text-white">12K+</span> businesses worldwide.</span>
-                        </Badge>
-                    </AnimateOnView>
-                </StaggerContainer>
-
-                <AnimateOnView blur className="text-center max-w-3xl mx-auto lg:mb-10 md:mb-8 mb-4" delay={0.2}>
+                <AnimateOnView blur className="text-center max-w-3xl mx-auto mb-6" delay={0.1}>
                     <h1 className="h1 text-white">
-                        Shaping the future of global payments
+                        Desarrollador full-stack con IA aplicada
                     </h1>
                 </AnimateOnView>
 
-                <StaggerContainer className="flex flex-col sm:flex-row items-center justify-center gap-4 md:mb-16 mb-8">
+                <StaggerContainer className="max-w-2xl mx-auto text-center space-y-4 mb-10">
+                    <AnimateOnView blur delay={0.2}>
+                        <p className="text-lg text-muted">
+                            Soy Andrés Contreras. Construyo software para empresas y productos propios, desde migraciones de WordPress a stacks propios en Node.js hasta tiendas en línea completas, y cada vez más con IA aplicada al desarrollo y a la operación del negocio.
+                        </p>
+                    </AnimateOnView>
+                    <AnimateOnView blur delay={0.3}>
+                        <p className="text-lg text-muted">
+                            Este sitio reúne ese trabajo: los proyectos que he construido, cómo los resolví, y los tutoriales que salen de ese proceso.
+                        </p>
+                    </AnimateOnView>
+                </StaggerContainer>
+
+                <StaggerContainer className="flex flex-col sm:flex-row items-center justify-center gap-4">
                     <AnimateOnView delay={0.4}>
-                        <Button asChild className="bg-primary text-white hover:bg-primary/90">
+                        <Button asChild>
                             <Link to="/contact">
-                                Get Started for Free
+                                Cuéntame tu proyecto
                                 <ArrowRight className="w-5 h-5 ml-1" />
                             </Link>
                         </Button>
@@ -41,7 +40,7 @@ const CompanyHero = () => {
                     <AnimateOnView delay={0.5}>
                         <Button variant="link" asChild>
                             <Link to="/features">
-                                Explore Features
+                                En qué puedo ayudarte
                             </Link>
                         </Button>
                     </AnimateOnView>

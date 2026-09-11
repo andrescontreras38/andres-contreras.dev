@@ -15,26 +15,27 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import Container from "../../container";
+import Logo from "@/components/logo";
 
 const pages = [
   {
-    name: "Features",
+    name: "Servicios",
     href: "/features"
   },
   {
-    name: "Pricing",
-    href: "/pricing"
+    name: "Sobre mí",
+    href: "/company"
   },
   {
-    name: "Company",
-    href: "/company"
+    name: "Recursos",
+    href: "/recursos"
   },
   {
     name: "Blog",
     href: "/blog"
   },
   {
-    name: "Contact",
+    name: "Contacto",
     href: "/contact"
   }
 ]
@@ -68,7 +69,7 @@ const Navbar = () => {
 
   const handleSignOut = React.useCallback(async () => {
     await signOut();
-    toast.success("Signed out successfully");
+    toast.success("Sesión cerrada");
     navigate("/");
   }, [signOut, navigate]);
 
@@ -98,7 +99,8 @@ const Navbar = () => {
       )}>
       <Container className="flex justify-between items-center">
         <Link to="/" className="flex items-center space-x-2 xl:w-[35%] md:w-[30%] w-fit">
-          <img src="/images/common/logo.svg" alt="Revio" className="h-[21px] max-w-[87px]" />
+          <Logo size="md" />
+          <span className="sr-only">Andrés Contreras</span>
         </Link>
 
         {/* <!-- Mobile --> */}
@@ -117,7 +119,7 @@ const Navbar = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-56 bg-black border-white/10 z-50">
                 <div className="px-3 py-2">
-                  <p className="text-sm text-white">Hi, {getDisplayName()}</p>
+                  <p className="text-sm text-white">Hola, {getDisplayName()}</p>
                   <p className="text-xs text-muted-foreground truncate">{user.email}</p>
                 </div>
                 <DropdownMenuSeparator className="bg-white/10" />
@@ -126,7 +128,7 @@ const Navbar = () => {
                     <DropdownMenuItem asChild className="text-white hover:bg-white/10 cursor-pointer">
                       <Link to="/dashboard/blog" className="flex items-center">
                         <FileText className="mr-2 h-4 w-4" />
-                        Blog Dashboard
+                        Panel del blog
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuSeparator className="bg-white/10" />
@@ -135,13 +137,13 @@ const Navbar = () => {
                 <DropdownMenuItem asChild className="text-white hover:bg-white/10 cursor-pointer">
                   <Link to="/dashboard/profile" className="flex items-center">
                     <User className="mr-2 h-4 w-4" />
-                    Profile
+                    Perfil
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator className="bg-white/10" />
                 <DropdownMenuItem onClick={handleSignOut} className="text-red-400 hover:bg-white/10 cursor-pointer">
                   <LogOut className="mr-2 h-4 w-4" />
-                  Sign out
+                  Cerrar sesión
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -165,7 +167,7 @@ const Navbar = () => {
                 <SheetHeader className="flex flex-row justify-between border-b border-foreground">
                   <SheetTitle className="flex items-center">
                     <Link to="/" className="flex items-center" onClick={closeSheet}>
-                      <img src="/images/common/logo.svg" alt="Revio" className="h-4" />
+                      <Logo size="sm" />
                     </Link>
                   </SheetTitle>
                   <div className="flex items-center gap-2">
@@ -185,7 +187,7 @@ const Navbar = () => {
                     ))}
                     {!user && (
                       <Button asChild variant="gray" size="default" className="mt-4 w-full">
-                        <Link to="/signup" onClick={closeSheet}>Get Started</Link>
+                        <Link to="/contact" onClick={closeSheet}>Cuéntame tu proyecto</Link>
                       </Button>
                     )}
                   </div>
@@ -201,7 +203,7 @@ const Navbar = () => {
             {pages.map((page) => (
               <NavigationMenuItem key={page.href}>
                 <NavigationMenuLink asChild>
-                  <Link to={page.href} className="px-4 py-2 text-white hover:text-primary transition-colors">
+                  <Link to={page.href} className="px-4 py-2 text-white whitespace-nowrap hover:text-primary transition-colors">
                     {page.name}
                   </Link>
                 </NavigationMenuLink>
@@ -215,7 +217,7 @@ const Navbar = () => {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <button className="flex items-center gap-3 focus:outline-none hover:opacity-80 transition-opacity">
-                  <span className="text-sm text-white">Hi, {getDisplayName()}</span>
+                  <span className="text-sm text-white">Hola, {getDisplayName()}</span>
                   <Avatar className="h-10 w-10 border border-white/20">
                     <AvatarImage src={profile?.avatar_url || undefined} />
                     <AvatarFallback className="bg-primary/20 text-primary">
@@ -235,7 +237,7 @@ const Navbar = () => {
                     <DropdownMenuItem asChild className="text-white hover:bg-white/10 cursor-pointer">
                       <Link to="/dashboard/blog" className="flex items-center">
                         <FileText className="mr-2 h-4 w-4" />
-                        Blog Dashboard
+                        Panel del blog
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuSeparator className="bg-white/10" />
@@ -244,19 +246,19 @@ const Navbar = () => {
                 <DropdownMenuItem asChild className="text-white hover:bg-white/10 cursor-pointer">
                   <Link to="/dashboard/profile" className="flex items-center">
                     <User className="mr-2 h-4 w-4" />
-                    Profile
+                    Perfil
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator className="bg-white/10" />
                 <DropdownMenuItem onClick={handleSignOut} className="text-red-400 hover:bg-white/10 cursor-pointer">
                   <LogOut className="mr-2 h-4 w-4" />
-                  Sign out
+                  Cerrar sesión
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           ) : (
             <Button asChild variant="gray" size="default">
-              <Link to="/signup">Get Started</Link>
+              <Link to="/contact">Cuéntame tu proyecto</Link>
             </Button>
           )}
         </div>

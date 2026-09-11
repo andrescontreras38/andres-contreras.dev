@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { createLead } from "@/lib/services/leads-service";
 import { cn } from "@/lib/utils";
 import { VariantProps } from "class-variance-authority";
 import { useRef, useState } from "react";
@@ -19,10 +20,10 @@ interface NewsletterFormProps {
 }
 
 const NewsletterForm = ({
-  title = "Stay Updated with Revio",
-  description = "Get the latest insights on payments.",
-  placeholder = "Your email",
-  buttonText = "Subscribe",
+  title = "Actualizaciones de contreras.dev",
+  description = "Migraciones, e-commerce e IA aplicada, sin relleno.",
+  placeholder = "Tu correo",
+  buttonText = "Suscribirme",
   buttonVariant,
   buttonClassName,
   inputClassName,
@@ -31,30 +32,40 @@ const NewsletterForm = ({
   onSubmit,
 }: NewsletterFormProps) => {
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isSending, setIsSending] = useState(false);
+  const [failed, setFailed] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const email = formData.get("email") as string;
-    
-    // Call custom onSubmit if provided
-    if (onSubmit) {
-      onSubmit(email);
+    const email = (new FormData(e.currentTarget).get("email") as string || "").trim();
+    if (!email || isSending) return;
+
+    setIsSending(true);
+    setFailed(false);
+
+    try {
+      await createLead({ email, source: "newsletter" });
+
+      onSubmit?.(email);
+      formRef.current?.reset();
+      setIsSuccess(true);
+      setTimeout(() => setIsSuccess(false), 3000);
+    } catch (error) {
+      // Un correo repetido no es un fallo para quien se suscribe: ya está dentro.
+      const duplicated = (error as { code?: string })?.code === "23505";
+      if (duplicated) {
+        formRef.current?.reset();
+        setIsSuccess(true);
+        setTimeout(() => setIsSuccess(false), 3000);
+      } else {
+        console.error("Error al guardar la suscripción:", error);
+        setFailed(true);
+        setTimeout(() => setFailed(false), 5000);
+      }
+    } finally {
+      setIsSending(false);
     }
-    
-    // Clear the form
-    if (formRef.current) {
-      formRef.current.reset();
-    }
-    
-    // Show success state
-    setIsSuccess(true);
-    
-    // Reset success state after 3 seconds
-    setTimeout(() => {
-      setIsSuccess(false);
-    }, 3000);
   };
 
   const gapClass = gap || "gap-1 md:gap-2.5";
@@ -80,17 +91,21 @@ const NewsletterForm = ({
             type="submit"
             variant={buttonVariant}
             className={buttonClassName}
+            disabled={isSending}
           >
-            {buttonText}
+            {isSending ? "Enviando..." : buttonText}
           </Button>
         </div>
-        <p 
+        <p
+          role="status"
           className={cn(
             "text-sm mt-1 min-h-[20px] transition-opacity duration-200",
-            isSuccess ? "text-green-500 opacity-100" : "opacity-0 invisible"
+            isSuccess && "text-green-500 opacity-100",
+            failed && "text-red-400 opacity-100",
+            !isSuccess && !failed && "opacity-0 invisible"
           )}
         >
-          Successfully subscribed!
+          {failed ? "No se pudo guardar. Inténtalo de nuevo." : "Listo, quedaste suscrito."}
         </p>
       </div>
     </form>

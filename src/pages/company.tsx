@@ -1,65 +1,64 @@
 import Layout from "@/components/layout";
-import CEOProfile from "@/components/sections/company/ceo-profile";
-import GlobalLocations from "@/components/sections/company/global-locations";
 import CompanyHero from "@/components/sections/company/hero";
-import HeroImage from "@/components/sections/company/hero-image";
-import Investors from "@/components/sections/company/investors";
-import Mission from "@/components/sections/company/mission";
-import TeamOverview from "@/components/sections/company/team-overview";
-import Vision from "@/components/sections/company/vision";
 import SEO from "@/components/seo";
 import { appConfig } from "@/utils/app-config";
 import { lazy, Suspense } from "react";
-const Values = lazy(() => import("@/components/sections/company/values"));
+
+const Story = lazy(() => import("@/components/sections/company/story"));
+const Principles = lazy(() => import("@/components/sections/company/principles"));
+const Stack = lazy(() => import("@/components/sections/company/stack"));
 
 const CompanyPage = () => {
-
     const jsonLd = {
         "@context": "https://schema.org",
-        "@type": "AboutPage",
-        "name": `About | ${appConfig.name}`,
-        "description": `${appConfig.description}`,
-        "url": `${appConfig.url}/company`
+        "@type": "ProfilePage",
+        "mainEntity": {
+            "@type": "Person",
+            "name": "Andrés Contreras",
+            "jobTitle": "Desarrollador full-stack",
+            "description": appConfig.description,
+            "url": appConfig.url,
+            "email": "hola@contreras.dev",
+            "sameAs": ["https://github.com/andrescontreras38"],
+            "knowsAbout": [
+                "Next.js",
+                "React",
+                "Node.js",
+                "PHP",
+                "Python",
+                "Supabase",
+                "Claude API",
+                "Migraciones de sitios web",
+                "E-commerce",
+                "Inteligencia artificial aplicada",
+            ],
+        },
+        "url": `${appConfig.url}/company`,
     };
 
     return (
         <>
             <SEO
-                title={`Company | ${appConfig.name}`}
-                description={`${appConfig.description}`}
+                title={`Sobre mí | ${appConfig.name}`}
+                description="Desarrollador full-stack con IA aplicada. De Lorica a Medellín: cómo llegué a construir migraciones, tiendas en línea e IA aplicada a problemas reales de negocio."
                 canonicalUrl="/company"
-                ogType="website"
+                ogType="profile"
                 jsonLd={jsonLd}
             />
             <Layout>
                 <CompanyHero />
-                <HeroImage />
                 <Suspense fallback={null}>
-                    <Values />
+                    <Story />
                 </Suspense>
                 <Suspense fallback={null}>
-                    <Vision />
+                    <Principles />
                 </Suspense>
                 <Suspense fallback={null}>
-                    <Mission />
-                </Suspense>
-                <Suspense fallback={null}>
-                    <Investors />
-                </Suspense>
-                <Suspense fallback={null}>
-                    <TeamOverview />
-                </Suspense>
-                <Suspense fallback={null}>
-                </Suspense>
-                <Suspense fallback={null}>
-                    <CEOProfile />
-                </Suspense>
-                <Suspense fallback={null}>
-                    <GlobalLocations />
+                    <Stack />
                 </Suspense>
             </Layout>
         </>
-    )
-}
+    );
+};
 
 export default CompanyPage;

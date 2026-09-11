@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { coverFor } from "@/lib/blog-covers";
+import { formatBlogDate } from "@/lib/utils";
 import { Card, CardContent, CardHeader } from "./card";
 
 interface BlogTypes {
@@ -25,8 +27,8 @@ const BlogCard = ({
             <Card className="h-full bg-transparent overflow-hidden cursor-pointer p-0 space-y-3 rounded-none md:rounded-none group">
                 <CardHeader className="relative w-full aspect-[4/3] overflow-hidden rounded-sm">
                     <img
-                        src={image}
-                        alt="Blog Thumbnail"
+                        src={coverFor(image, category)}
+                        alt={title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-all duration-300"
                         width="400"
                         height="300"
@@ -45,9 +47,9 @@ const BlogCard = ({
                     </h3>
 
                     <div className="flex items-center md:gap-4 gap-2 text-sm md:text-base text-muted-foreground">
-                        <span>{date}</span>
+                        <span>{formatBlogDate(date)}</span>
                         <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
-                        <span>Write <span className="text-black">{author}</span></span>
+                        <span>Por <span className="text-black">{author}</span></span>
                     </div>
                 </CardContent>
             </Card>

@@ -261,7 +261,7 @@ const BlogEditor = () => {
   return (
     <BlogLayout breadcrumbs={breadcrumbs}>
       <Helmet>
-        <title>{isEditMode ? "Edit Post" : "Create Post"} | Revio</title>
+        <title>{isEditMode ? "Edit Post" : "Create Post"} | Andrés Contreras</title>
       </Helmet>
 
       <div className="max-w-4xl space-y-8">
@@ -352,8 +352,8 @@ const BlogEditor = () => {
                 onChange={(e) => setStatus(e.target.value as BlogPostStatus)}
                 className="w-full h-12 px-3 rounded-[10px] bg-foreground border border-white/10 text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary"
               >
-                <option value="draft">Draft — hidden from the site</option>
-                <option value="published">Published — live on the site</option>
+                <option value="draft">Borrador: oculto del sitio</option>
+                <option value="published">Publicado: visible en el sitio</option>
               </select>
             </div>
           </div>

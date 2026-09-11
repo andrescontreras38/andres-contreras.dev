@@ -18,21 +18,21 @@ const CTA = () => {
                     >
                         <h2
                             className="h1"
-                        >Ready to Simplify Payments with Revio?</h2>
+                        >¿Listo para construir tu proyecto?</h2>
                     </AnimateOnView>
                     <AnimateOnView
                         once
                         blur
                         className="mb-10"
                     >
-                        <p className="text-lg text-muted">From startups launching their first product to mature enterprises scaling globally.</p>
+                        <p className="text-lg text-muted">Cuéntame qué necesitas y lo llevamos a producción, de principio a fin.</p>
                     </AnimateOnView>
                     <AnimateOnView
                         once
                     >
                         <Button asChild>
                             <Link to="/contact">
-                                Get Started for Free
+                                Cuéntame tu proyecto
                                 <ArrowRight className="w-5 h-5" />
                             </Link>
                         </Button>

@@ -1,0 +1,49 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="bg3" x1="0" y1="0" x2="1600" y2="900" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#070a12"/><stop offset="1" stop-color="#0b1328"/>
+</linearGradient>
+<radialGradient id="glow3" cx="800" cy="450" r="430" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#2563EB" stop-opacity="0.28"/><stop offset="1" stop-color="#2563EB" stop-opacity="0"/>
+</radialGradient>
+<linearGradient id="pick" x1="700" y1="300" x2="820" y2="420" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#60A5FA"/><stop offset="1" stop-color="#1D4ED8"/>
+</linearGradient>
+</defs>
+
+<rect width="1600" height="900" fill="url(#bg3)"/>
+<rect width="1600" height="900" fill="url(#glow3)"/>
+
+<!-- catálogo -->
+<g>
+<rect x="520" y="288" width="150" height="150" rx="16" fill="#16213c" stroke="#60A5FA" stroke-opacity="0.22"/>
+<rect x="548" y="452" width="94" height="10" rx="5" fill="#243049"/>
+
+<rect x="700" y="288" width="150" height="150" rx="16" fill="url(#pick)" fill-opacity="0.92"/>
+<rect x="700" y="288" width="150" height="150" rx="16" fill="white" fill-opacity="0.05"/>
+<rect x="728" y="452" width="94" height="10" rx="5" fill="#60A5FA" fill-opacity="0.8"/>
+
+<rect x="880" y="288" width="150" height="150" rx="16" fill="#16213c" stroke="#60A5FA" stroke-opacity="0.22"/>
+<rect x="908" y="452" width="94" height="10" rx="5" fill="#243049"/>
+</g>
+
+<!-- checkout -->
+<g>
+<rect x="520" y="520" width="510" height="120" rx="20" fill="#0f1c3a" stroke="#60A5FA" stroke-opacity="0.3"/>
+<rect x="556" y="556" width="200" height="12" rx="6" fill="#243049"/>
+<rect x="556" y="590" width="130" height="12" rx="6" fill="#1d2b47"/>
+<rect x="826" y="556" width="168" height="48" rx="12" fill="#2563EB"/>
+<path d="M886 580 h48" stroke="white" stroke-width="3" stroke-linecap="round"/>
+<path d="M918 566 l16 14 l-16 14" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</g>
+
+<!-- carrito -->
+<g stroke="#93C5FD" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.9">
+<path d="M1104 318 h28 l34 158 h146"/>
+<path d="M1146 358 h156 l-18 78 h-122"/>
+<circle cx="1180" cy="516" r="12"/>
+<circle cx="1272" cy="516" r="12"/>
+</g>
+
+<path d="M300 700 H1300" stroke="#60A5FA" stroke-opacity="0.12" stroke-width="2"/>
+</svg>

@@ -6,38 +6,38 @@ import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const faqs = [
+// Se exporta para que /contact genere el structured data FAQPage a partir de
+// estas mismas preguntas: el marcado tiene que coincidir con lo visible.
+export const faqs = [
   {
-    question: "What is Revio?",
-    answer: "Revio is a secure and scalable payment gateway that helps businesses accept, process, and manage online payments worldwide. With features like real-time processing, multi-currency support, recurring billing, and fraud prevention, Revio makes payments seamless for both businesses and their customers.",
+    question: "¿Quién es Andrés Contreras?",
+    answer:
+      "Desarrollador full-stack. Construyo software que resuelve problemas reales de negocio: migraciones completas, tiendas en línea, asistentes con IA. No maquetas bonitas que se quedan en Figma.",
   },
   {
-    question: "How long does it take to set up Revio?",
-    answer: "Setting up Revio is quick and straightforward. Most businesses can get started within minutes. Our onboarding process typically takes 1-2 business days for account verification and integration setup. We provide comprehensive documentation and support to help you get up and running as fast as possible.",
+    question: "¿Con qué tecnologías trabajas?",
+    answer:
+      "Principalmente Next.js, React, Node.js/Express, PHP y Supabase, con IA aplicada al desarrollo mediante la API de Claude. Uso Claude Code dentro del flujo de trabajo, así que puedo moverme en el stack que tu proyecto ya tenga y no solo en el que domino de memoria.",
   },
   {
-    question: "Which payment methods does Revio support?",
-    answer: "Revio supports all major payment methods including credit and debit cards (Visa, Mastercard, American Express), digital wallets (Apple Pay, Google Pay, PayPal), bank transfers, and local payment methods in over 150 countries. We continuously add new payment methods based on market demand.",
+    question: "¿Qué proyectos has construido?",
+    answer:
+      "Migré todo el sitio de una universidad de WordPress a un stack propio con un asistente de IA integrado, lancé de cero una tienda en línea de perfumes con pagos y cuentas, y construí una alternativa a WeTransfer sin los límites de tamaño que todos odiamos. Los casos completos, con el problema y la solución de cada uno, están en la página de servicios.",
   },
   {
-    question: "Is Revio safe and compliant?",
-    answer: "Yes, Revio is fully PCI DSS Level 1 compliant and adheres to the highest security standards. We use end-to-end encryption, tokenization, and advanced fraud detection systems to protect your transactions. We're also compliant with GDPR, SOC 2, and other regional regulations.",
+    question: "¿Trabajas con plataformas que ya existen o solo desde cero?",
+    answer:
+      "Las dos cosas. Buena parte de mi trabajo es justamente tomar algo que ya está corriendo (un WordPress lento, un sistema hecho años atrás) y modernizarlo sin perder contenido, SEO ni continuidad del negocio. Si no hace falta reconstruir todo, no lo reconstruyo.",
   },
   {
-    question: "Can I use Revio for subscription billing?",
-    answer: "Absolutely! Revio offers robust subscription and recurring billing features. You can set up flexible billing cycles, manage customer subscriptions, handle upgrades and downgrades, and automate recurring payments. Our Pro and Enterprise plans include advanced subscription management tools.",
+    question: "¿Qué significa que uses IA en el desarrollo?",
+    answer:
+      "Que la uso como herramienta de trabajo, no como truco de marketing. Me permite entregar más rápido y trabajar en tecnologías distintas según lo que el proyecto necesite. Y cuando el proyecto lo pide, también construyo IA hacia adentro: agentes y automatizaciones que ejecutan tareas reales del negocio, no un chatbot de vitrina para la demo.",
   },
   {
-    question: "Does Revio work for international businesses?",
-    answer: "Yes, Revio is designed for global businesses. We support multi-currency transactions, cross-border payments, and local payment methods in over 150 countries. Our platform handles currency conversion, international compliance, and regulatory requirements automatically.",
-  },
-  {
-    question: "What support options are available?",
-    answer: "Revio offers multiple support tiers. Starter plans include email support, Pro plans add 24/7 live chat support, and Enterprise plans include dedicated account managers, SLA guarantees, and priority support. We also provide comprehensive documentation, API guides, and developer resources.",
-  },
-  {
-    question: "Can I customize the checkout experience?",
-    answer: "Yes, Revio offers flexible customization options. You can customize the look and feel of hosted checkout pages, use our API to build fully custom checkout experiences, and integrate with your existing design system. Enterprise plans include advanced customization and white-label options.",
+    question: "¿Cómo empezamos?",
+    answer:
+      "Escríbeme por el formulario de esta página o a hola@contreras.dev contándome qué necesitas. Reviso el caso, te digo con franqueza si es algo en lo que puedo ayudarte y cómo lo abordaría, y de ahí definimos alcance y tiempos.",
   },
 ];
 
@@ -49,11 +49,11 @@ const FAQ = () => {
         <div className="flex flex-col md:flex-row justify-between gap-12">
           <div className="max-w-[507px] md:sticky static top-24 self-start">
             <AnimateOnView once blur>
-              <Badge className="md:mb-4 mb-1.5">FAQs</Badge>
-              <h2 className="h2 md:mb-6 mb-3">Frequently asked questions</h2>
+              <Badge className="md:mb-4 mb-1.5">Preguntas frecuentes</Badge>
+              <h2 className="h2 md:mb-6 mb-3">Lo que suelen preguntarme</h2>
               <Button asChild>
                 <Link to="/contact">
-                  Book a free call <ArrowRight className="w-4 h-4" />
+                  Cuéntame tu proyecto <ArrowRight className="w-4 h-4" />
                 </Link>
               </Button>
             </AnimateOnView>

@@ -44,7 +44,7 @@ const ForgotPassword = () => {
     return (
         <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center p-4">
             <Helmet>
-                <title>Forgot Password | Revio</title>
+                <title>Forgot Password | Andrés Contreras</title>
             </Helmet>
             <div className="w-full max-w-[400px] space-y-8">
                 <div className="text-center space-y-2">

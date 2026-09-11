@@ -1,162 +1,148 @@
+import Logo from "@/components/logo";
+import SEO from "@/components/seo";
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useAuth } from "@/hooks/use-auth";
-import { useState } from "react";
-import { Helmet } from "react-helmet-async";
+import { ArrowLeft, Loader2 } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { toast } from "sonner";
-import { z } from "zod";
 
-const loginSchema = z.object({
-    email: z
-        .string()
-        .trim()
-        .min(1, "Please enter your email")
-        .email("Please enter a valid email address")
-        .max(255, "Email is too long"),
-    password: z
-        .string()
-        .min(1, "Please enter your password")
-        .max(72, "Password must be 72 characters or less"),
-});
-
+/**
+ * Acceso de administración. El sitio no tiene registro público: la única cuenta
+ * que existe es la de Andrés, creada desde Supabase. Por eso aquí no hay
+ * proveedores externos ni enlace a "crear cuenta".
+ */
 const Login = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [isLoading, setIsLoading] = useState(false);
-    const { signIn, signInWithGoogle } = useAuth();
+  const { signIn, user } = useAuth();
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-    const handleGoogleSignIn = async () => {
-        setIsLoading(true);
-        const { error } = await signInWithGoogle();
-        if (error) {
-            setIsLoading(false);
-            toast.error(error.message);
-        }
-    };
-    const navigate = useNavigate();
+  // Si ya hay sesión, no tiene sentido mostrar el formulario.
+  useEffect(() => {
+    if (user) navigate("/dashboard/blog", { replace: true });
+  }, [user, navigate]);
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    if (sending) return;
 
-        const parsed = loginSchema.safeParse({ email, password });
-        if (!parsed.success) {
-            toast.error(parsed.error.issues[0].message);
-            return;
-        }
+    setSending(true);
+    setError(null);
 
-        setIsLoading(true);
-        const { error } = await signIn(parsed.data.email, parsed.data.password);
-        setIsLoading(false);
+    const { error: signInError } = await signIn(email.trim(), password);
 
-        if (error) {
-            toast.error(error.message);
-        } else {
-            toast.success("Signed in successfully!");
-            navigate("/dashboard/profile");
-        }
-    };
+    if (signInError) {
+      // Sin distinguir si falló el correo o la contraseña: decirlo revelaría
+      // qué correos tienen cuenta.
+      setError("Correo o contraseña incorrectos.");
+      setSending(false);
+      return;
+    }
 
+    navigate("/dashboard/blog", { replace: true });
+  };
 
-    return (
-        <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center p-4">
-            <Helmet>
-                <title>Sign In | Revio</title>
-            </Helmet>
+  return (
+    <>
+      <SEO
+        title="Acceso | Andrés Contreras"
+        description="Acceso de administración."
+        canonicalUrl="/login"
+        noIndex
+      />
 
-            <div className="w-full max-w-[400px] space-y-8">
-                <div className="text-center space-y-2">
-                    <h1 className="text-4xl font-semibold tracking-tight">Sign In to Your Account</h1>
-                    <p className="text-muted-foreground text-sm">
-                        Let's sign in to your account and start.
-                    </p>
-                </div>
+      <main className="min-h-screen bg-[#05070d] flex flex-col items-center justify-center px-6 py-16">
+        <div
+          className="pointer-events-none absolute inset-x-0 top-0 h-[420px]"
+          style={{
+            background:
+              "radial-gradient(70% 60% at 50% 0%, rgba(37,99,235,0.22) 0%, rgba(5,7,13,0) 70%)",
+          }}
+          aria-hidden="true"
+        />
 
-                <form className="space-y-6" onSubmit={handleSubmit}>
-                    <div className="space-y-4">
-                        <div className="space-y-2">
-                            <Label htmlFor="email">Email</Label>
-                            <Input
-                                id="email"
-                                type="email"
-                                placeholder="support@onixtheme.com"
-                                className="bg-black border-input h-12 rounded-xl focus:ring-primary"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                disabled={isLoading}
-                            />
-                        </div>
-                        <div className="space-y-2">
-                            <Label htmlFor="password">Password</Label>
-                            <Input
-                                id="password"
-                                type="password"
-                                placeholder="••••••••"
-                                className="bg-black border-input h-12 rounded-xl focus:ring-primary"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                disabled={isLoading}
-                            />
-                        </div>
-                    </div>
+        <div className="relative w-full max-w-[380px]">
+          <Link to="/" className="flex justify-center mb-10">
+            <Logo size="md" />
+          </Link>
 
-                    <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-2">
-                            <Checkbox id="remember" className="border-muted-foreground data-[state=checked]:bg-primary data-[state=checked]:border-primary" />
-                            <label
-                                htmlFor="remember"
-                                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-muted-foreground"
-                            >
-                                Remember for 30 days
-                            </label>
-                        </div>
-                        <Link
-                            to="/forgot-password"
-                            className="text-sm font-medium text-muted-foreground hover:text-white transition-colors"
-                        >
-                            Forgot password
-                        </Link>
-                    </div>
+          <h1 className="text-2xl font-semibold text-white text-center mb-2">Entrar al panel</h1>
+          <p className="text-sm text-muted-foreground text-center mb-8">
+            Desde aquí publicas artículos y recursos.
+          </p>
 
-                    <Button 
-                        type="submit"
-                        className="w-full h-12 bg-primary hover:bg-primary/90 text-white font-medium rounded-xl text-lg"
-                        disabled={isLoading}
-                    >
-                        {isLoading ? "Signing in..." : "Sign in"}
-                    </Button>
-                </form>
-
-                <div className="flex items-center gap-4">
-                    <span className="h-px flex-1 bg-white/10" />
-                    <span className="text-xs uppercase tracking-wide text-muted-foreground">or</span>
-                    <span className="h-px flex-1 bg-white/10" />
-                </div>
-
-                <Button
-                    type="button"
-                    variant="gray"
-                    className="w-full h-12 rounded-xl text-base"
-                    disabled={isLoading}
-                    onClick={handleGoogleSignIn}
-                >
-                    Continue with Google
-                </Button>
-
-                <div className="text-center text-sm">
-                    <span className="text-muted-foreground">Don't have an account? </span>
-                    <Link
-                        to="/signup"
-                        className="font-medium text-primary hover:text-primary/90 transition-colors"
-                    >
-                        Sign Up
-                    </Link>
-                </div>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="email" className="text-white">
+                Correo
+              </Label>
+              <Input
+                id="email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                autoComplete="username"
+                required
+                className="bg-white/5 border-white/10 text-white"
+              />
             </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="password" className="text-white">
+                Contraseña
+              </Label>
+              <Input
+                id="password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                autoComplete="current-password"
+                required
+                className="bg-white/5 border-white/10 text-white"
+              />
+            </div>
+
+            {error && (
+              <p role="alert" className="text-sm text-red-400">
+                {error}
+              </p>
+            )}
+
+            <Button type="submit" className="w-full" disabled={sending}>
+              {sending ? (
+                <>
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                  Entrando
+                </>
+              ) : (
+                "Entrar"
+              )}
+            </Button>
+          </form>
+
+          <div className="flex items-center justify-between mt-6 text-sm">
+            <Link
+              to="/"
+              className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-white transition-colors"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Volver al sitio
+            </Link>
+            <Link
+              to="/forgot-password"
+              className="text-muted-foreground hover:text-white transition-colors"
+            >
+              Olvidé mi contraseña
+            </Link>
+          </div>
         </div>
-    );
+      </main>
+    </>
+  );
 };
 
 export default Login;

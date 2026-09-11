@@ -62,6 +62,90 @@ export type Database = {
         }
         Relationships: []
       }
+      leads: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          message: string | null
+          name: string | null
+          phone: string | null
+          resource_slug: string | null
+          source: string
+          subject: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          message?: string | null
+          name?: string | null
+          phone?: string | null
+          resource_slug?: string | null
+          source: string
+          subject?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          message?: string | null
+          name?: string | null
+          phone?: string | null
+          resource_slug?: string | null
+          source?: string
+          subject?: string | null
+        }
+        Relationships: []
+      }
+      resources: {
+        Row: {
+          created_at: string
+          delivery_url: string
+          description: string | null
+          gated: boolean
+          id: string
+          image: string | null
+          includes: string[]
+          keyword: string
+          slug: string
+          status: string
+          summary: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          delivery_url: string
+          description?: string | null
+          gated?: boolean
+          id?: string
+          image?: string | null
+          includes?: string[]
+          keyword: string
+          slug: string
+          status?: string
+          summary: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          delivery_url?: string
+          description?: string | null
+          gated?: boolean
+          id?: string
+          image?: string | null
+          includes?: string[]
+          keyword?: string
+          slug?: string
+          status?: string
+          summary?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
@@ -118,6 +202,22 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      claim_resource: {
+        Args: {
+          _slug: string
+          _email?: string | null
+          _name?: string | null
+        }
+        Returns: { delivery_url: string; title: string }[]
+      }
+      admin_list_resources: {
+        Args: Record<string, never>
+        Returns: Database["public"]["Tables"]["resources"]["Row"][]
+      }
+      admin_get_resource: {
+        Args: { _id: string }
+        Returns: Database["public"]["Tables"]["resources"]["Row"][]
+      }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]

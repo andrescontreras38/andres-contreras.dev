@@ -1,8 +1,10 @@
 export const appConfig = {
-    name: "Revio",
-    description: "Revio is a payment processing platform that allows you to accept payments online and offline.",
-    url: "https://revio-template.lovable.dev",
-    logo: "/logo.svg",
+    name: "Andrés Contreras",
+    description: "Desarrollador full-stack especializado en migraciones, e-commerce e inteligencia artificial aplicada a problemas reales de negocio.",
+    // De aquí salen los canonical, el sitemap y las URLs del structured data.
+    // Cámbialo por el dominio real antes de publicar.
+    url: "https://contreras.dev",
+    logo: "/images/common/logo.svg",
     favicon: "/favicon.ico",
     ogImage: "/og-image.jpg",
 }

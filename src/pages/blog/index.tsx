@@ -17,8 +17,8 @@ const Blog = () => {
   return (
     <>
       <SEO
-        title={`Blog | ${appConfig.name}`}
-        description={`${appConfig.description}`}
+        title={`Blog sobre migraciones, e-commerce e IA | ${appConfig.name}`}
+        description="Artículos sobre migrar sitios sin perder SEO, elegir entre tienda a medida o plantilla, rendimiento web e IA aplicada a problemas reales de negocio."
         canonicalUrl="/blog"
         ogType="website"
         jsonLd={jsonLd}

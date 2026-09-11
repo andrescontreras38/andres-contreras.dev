@@ -1,13 +1,31 @@
 import Container from "@/components/container";
 import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 import { StaggerContainer } from "@/components/ui/motion/stagger";
-import TestimonialCard from "@/components/ui/testimonial-card";
-import VideoTestimonialCard from "@/components/ui/video-testimonial-card";
+import { ArrowUpRight } from "lucide-react";
+
+const projects = [
+  {
+    name: "Uniremington",
+    tag: "Proyecto para cliente",
+    description: "Migración de WordPress + WPBakery a un stack propio en Node.js, con scraping en Python para rescatar todo el contenido existente.",
+  },
+  {
+    name: "Scentual Bliss",
+    tag: "En producción",
+    description: "Tienda en línea de perfumes con más de 150 fragancias, sistema de checkout propio y un quiz olfativo para recomendar productos.",
+  },
+  {
+    name: "RemiTransfer",
+    tag: "Proyecto personal",
+    description: "Alternativa a WeTransfer sin límites de tamaño ni necesidad de crear una cuenta para enviar archivos.",
+  },
+];
 
 const Testimonials = () => {
   return (
-    <section className="md:pt-20 xl:pt-32 pt-12 md:pb-20 xl:pb-32 pb-12" id="testimonials">
+    <section className="md:pt-20 xl:pt-32 pt-12 md:pb-20 xl:pb-32 pb-12" id="projects">
       <Container className="md:space-y-10 xl:space-y-2xl space-y-8">
         {/* Section Header */}
         <StaggerContainer
@@ -18,7 +36,7 @@ const Testimonials = () => {
             blur
             className="flex items-center gap-2 md:mb-4 mb-1.5">
             <Badge>
-              Testimonials
+              Proyectos
             </Badge>
           </AnimateOnView>
           <AnimateOnView
@@ -27,57 +45,30 @@ const Testimonials = () => {
             delay={0.1}
           >
             <h2 className="h3">
-              Designed for businesses that value seamless and secure payments.
+              Proyectos reales, no mockups.
             </h2>
           </AnimateOnView>
         </StaggerContainer>
 
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-12 gap-4">
-          <TestimonialCard
-            className="col-span-12 sm:col-span-6 lg:col-span-5 sm:order-1 lg:order-1"
-            companyLogo="/images/homepage/logo-5.svg"
-            text="Revio transformed how we handle payments—simple, fast, and reliable!"
-            avatar="/images/homepage/avatar-1.png"
-            author="Sophia Martinez"
-            designation="Co-Founder & CEO"
-          />
-          <VideoTestimonialCard
-            className="col-span-12 sm:col-span-6 lg:col-span-3 sm:order-2 lg:order-2"
-            thumbnail="/images/homepage/testimonial-1.webp"
-            logo="/images/homepage/logo-2.svg"
-            videoUrl="https://youtu.be/xDwR1_vrIg8"
-          />
-          <TestimonialCard
-            className="col-span-12 sm:col-span-6 lg:col-span-4 sm:order-4 lg:order-3"
-            companyLogo="/images/homepage/logo-3.svg"
-            text="Revio transformed how we handle payments—simple, fast, and reliable!"
-            avatar="/images/homepage/avatar-1.png"
-            author="Sophia Martinez"
-            designation="Co-Founder & CEO"
-          />
-          <VideoTestimonialCard
-            className="col-span-12 sm:col-span-6 lg:col-span-3 sm:order-3 lg:order-4"
-            thumbnail="/images/homepage/testimonial-2.webp"
-            logo="/images/homepage/logo-4.svg"
-            videoUrl="https://youtu.be/xDwR1_vrIg8"
-          />
-          <TestimonialCard
-            className="col-span-12 sm:col-span-6 lg:col-span-4 sm:order-5 lg:order-5"
-            companyLogo="/images/homepage/logo-5.svg"
-            text="Revio transformed how we handle payments—simple, fast, and reliable!"
-            avatar="/images/homepage/avatar-1.png"
-            author="Sophia Martinez"
-            designation="Co-Founder & CEO"
-          />
-          <TestimonialCard
-            className="col-span-12 sm:col-span-6 lg:col-span-5 sm:order-6 lg:order-6"
-            companyLogo="/images/homepage/logo-1.svg"
-            text="Revio transformed how we handle payments—simple, fast, and reliable!"
-            avatar="/images/homepage/avatar-1.png"
-            author="Sophia Martinez"
-            designation="Co-Founder & CEO"
-          />
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {projects.map((project, index) => (
+            <AnimateOnView key={project.name} once y={40} delay={index * 0.1}>
+              <Card className="h-full hover-lift">
+                <CardContent className="p-6 flex flex-col h-full justify-between gap-8">
+                  <div>
+                    <Badge variant="secondary" className="mb-4">{project.tag}</Badge>
+                    <h3 className="h5 mb-2">{project.name}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{project.description}</p>
+                  </div>
+                  <div className="flex items-center gap-1 text-sm font-medium text-[#2563EB]">
+                    Ver detalle
+                    <ArrowUpRight className="w-4 h-4" />
+                  </div>
+                </CardContent>
+              </Card>
+            </AnimateOnView>
+          ))}
         </div>
       </Container>
     </section>
@@ -85,4 +76,3 @@ const Testimonials = () => {
 };
 
 export default Testimonials;
-

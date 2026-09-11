@@ -1,14 +1,10 @@
-import insights from "@/assets/lottie/insights.json";
-import revioPay from "@/assets/lottie/revio-pay.json";
-import sheild from "@/assets/lottie/sheild.json";
 import Container from "@/components/container";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 import { StaggerContainer } from "@/components/ui/motion/stagger";
 import { AnimatePresence, motion } from "framer-motion";
-import Lottie from "lottie-react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, RefreshCw, ShoppingCart, Bot } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -18,29 +14,29 @@ const BusinessAccount = () => {
   const tabs = [
     {
       icon: "/images/icons/bank.svg",
-      title: "Payment Automation",
-      badge: "Business Account",
-      heading: "Simplified payments with Revio pay",
-      description: "Streamline transactions and manage high-value payments effortlessly.",
-      lottie: revioPay,
+      title: "Migraciones",
+      badge: "Sin downtime",
+      heading: "Migra sin perder nada en el camino",
+      description: "Saco sitios de plataformas legadas a un stack propio, rescatando contenido con scraping cuando hace falta.",
+      Visual: RefreshCw,
       link: "/contact",
     },
     {
       icon: "/images/icons/growth-arrow.svg",
-      title: "Built to Grow",
-      badge: "Scalable Solutions",
-      heading: "Scale your business with confidence",
-      description: "Built to handle growth from startup to enterprise with flexible payment infrastructure.",
-      lottie: insights,
+      title: "E-commerce",
+      badge: "Tiendas que venden",
+      heading: "Tiendas en línea que convierten",
+      description: "Catálogos grandes, checkout claro y experiencias a medida como quizzes de recomendación.",
+      Visual: ShoppingCart,
       link: "/contact",
     },
     {
       icon: "/images/icons/globe.svg",
-      title: "Go Worldwide",
-      badge: "Global Payments",
-      heading: "Accept payments from anywhere in the world",
-      description: "Expand globally with multi-currency support and local payment methods worldwide.",
-      lottie: sheild,
+      title: "IA aplicada",
+      badge: "Automatización",
+      heading: "IA que resuelve problemas de negocio",
+      description: "Asistentes y automatizaciones con Claude API enfocados en resultados, no en demos.",
+      Visual: Bot,
       link: "/contact",
     },
   ];
@@ -130,7 +126,7 @@ const BusinessAccount = () => {
                 >
                   <Button asChild>
                     <Link to={tabs[activeTab].link}>
-                      Get Started for Free
+                      Cuéntame tu proyecto
                       <ArrowRight className="w-5 h-5" />
                     </Link>
                   </Button>
@@ -139,14 +135,23 @@ const BusinessAccount = () => {
             </AnimatePresence>
           </div>
 
-          {/* Right Side - Card Illustration */}
-          <div className="relative flex items-center justify-center md:min-h-[524px] p-4 max-w-[691px] w-full bg-card rounded-4xl">
-
-            {/* Prominent Black Card - Foreground */}
+          {/* Right Side - Visual */}
+          <div className="relative flex items-center justify-center md:min-h-[524px] p-4 max-w-[691px] w-full bg-card rounded-4xl overflow-hidden">
             <AnimatePresence mode="wait">
-              <div aria-hidden="true">
-                <Lottie animationData={tabs[activeTab].lottie} loop={true} />
-              </div>
+              <motion.div
+                key={activeTab}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.3 }}
+                className="w-40 h-40 md:w-56 md:h-56 rounded-full bg-[#2563EB]/10 flex items-center justify-center"
+                aria-hidden="true"
+              >
+                {(() => {
+                  const Visual = tabs[activeTab].Visual;
+                  return <Visual className="w-16 h-16 md:w-24 md:h-24 text-[#2563EB]" strokeWidth={1.5} />;
+                })()}
+              </motion.div>
             </AnimatePresence>
           </div>
         </div>
