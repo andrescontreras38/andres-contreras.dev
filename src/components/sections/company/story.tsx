@@ -1,5 +1,6 @@
 import Container from "@/components/container";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
+import { cn } from "@/lib/utils";
 
 const milestones = [
     { value: "2018", label: "empecé Ingeniería de Sistemas" },
@@ -8,11 +9,12 @@ const milestones = [
 ];
 
 const story = [
-    "Soy de Lorica, Córdoba. En 2018 empecé Ingeniería de Sistemas en la Universidad de Córdoba y, al terminar, no tenía claro si quería dedicarme a programar. Gracias a mi prima Lilibeth conseguí mi primer trabajo en Barranquilla, como diseñador y desarrollador de todo tipo de sitios web, todo muy manual y artesanal, sin ayuda de IA. Ahí trabajé dos años, con un jefe, Giomar, al que le tengo mucho aprecio y admiración.",
-    "Por cosas de la vida volví a mi pueblo a descansar, sin pensar en lo difícil que sería después conseguir trabajo de nuevo. Así que decidí emprender con un amigo y compañero de la universidad, desarrollando sitios web. Conseguimos un cliente: una empresa de acueducto rural, a la que le hicimos una página informativa por 2 millones de pesos. Con el tiempo nos dimos cuenta de que conseguir clientes en Córdoba era difícil, así que guardamos lo que habíamos ganado y decidimos aventurarnos a Medellín en busca de mejores oportunidades, con esos dos millones de pesos, sin trabajo asegurado, sin amigos ni contactos, pero con la esperanza de mejorar.",
-    "Cuando uno cambia de ciudad sabe que las cosas no van a ser fáciles. A los 15 días de estar en Medellín sin conseguir nada, la frustración y la desesperación eran tan fuertes que estuvimos a punto de abortar la misión. En ese momento llamé a mis papás y les conté la situación; se les ocurrió que fuéramos a visitar a mis tíos en El Peñol, en el oriente antioqueño. Allá mi primo conocía al dueño de una panadería, donde él había trabajado, y lo convenció de darme la oportunidad de trabajar como panadero. Nunca se me había pasado por la cabeza hacer ese tipo de malabares, trabajar en algo totalmente distinto a lo que había estudiado, pero gracias a Dios me fue muy bien: trabajé ahí cuatro meses. Desde el principio le había dicho a mi jefe, Ilde, que si me salía una oportunidad en mi carrera la iba a tomar, y él, una excelente persona, lo entendió sin problema.",
-    "En octubre de 2025 volví a Itagüí, un municipio cerca de Medellín, donde un amigo de infancia de mi pueblo nos hospedó a mí y a mi compañero de la universidad durante 22 días. Ahí conseguimos trabajo en una agencia de trámites de visas, en el CC La Central de Miraflores, pero duramos solo unos meses, porque los dueños cerraron la empresa por una mejor oportunidad de negocio en el extranjero. Volví a quedar sin trabajo. Me postulé a varias empresas de tecnología en Medellín y ninguna me contactó para una entrevista; tal vez no preparé bien la hoja de vida, o simplemente no era el momento.",
-    "Mientras tanto trabajé como independiente, unos seis meses, para agencias de Bogotá con las que había hecho contacto durante mi época en Barranquilla, desde el apartaestudio que ya habíamos logrado arrendar con mucho esfuerzo. En medio de un proyecto, volví a postularme a varias empresas, esta vez sin la urgencia de antes, aunque en cada entrevista seguía poniendo el mismo entusiasmo de siempre. Por cosas de la vida, una de ellas me contactó: Uniremington, una universidad grande y reconocida con sedes en todo el país. Melisa, en ese entonces directora de Comunicaciones, me dio la oportunidad que había estado buscando desde hacía tanto tiempo. Le estaré siempre agradecido a ella y a Uniremington por ese logro. De ahí en adelante, cada proyecto de este portafolio es el resultado de ese camino.",
+    "Soy de Lorica, Córdoba. En 2018 entré a Ingeniería de Sistemas en la Universidad de Córdoba y salí sin tener claro si quería dedicarme a programar. Mi prima Lilibeth me consiguió el primer trabajo, en Barranquilla: diseñar y desarrollar sitios web de todo tipo, a mano, artesanal, sin una sola línea escrita por IA. Estuve dos años. Giomar, mi jefe de entonces, me enseñó bastante más de lo que cabía en el cargo, y todavía le tengo aprecio y admiración.",
+    "Por cosas de la vida volví al pueblo a descansar, sin medir lo difícil que sería conseguir trabajo otra vez. Así que emprendí con un amigo de la universidad. Nuestro primer cliente fue una empresa de acueducto rural: una página informativa por dos millones de pesos. Con el tiempo entendimos que conseguir clientes en Córdoba iba a ser cuesta arriba, así que guardamos lo ganado y nos fuimos a Medellín con esos dos millones. Sin trabajo asegurado, sin amigos allá, sin un solo contacto. Con la esperanza de que las cosas se movieran.",
+    "Uno sabe que cambiar de ciudad no va a ser fácil. Lo que no se imagina son los quince días siguientes. Quince días en Medellín sin conseguir nada, hasta que la frustración llegó al punto en que estuvimos a punto de devolvernos. Llamé a mis papás y les conté. Se les ocurrió que fuéramos donde mis tíos, en El Peñol, en el oriente antioqueño. Allá mi primo habló con el dueño de la panadería donde él había trabajado y lo convenció de darme la oportunidad. Nunca me había pasado por la cabeza amasar pan para sostenerme, pero gracias a Dios me fue bien y estuve cuatro meses. Desde el primer día le dije a Ilde, mi jefe, que si me salía algo de mi carrera lo iba a tomar. Lo entendió sin un solo reproche.",
+    "En octubre de 2025 volví a Itagüí. Un amigo de infancia del pueblo nos hospedó a mi compañero y a mí durante veintidós días. Conseguimos trabajo en una agencia de trámites de visas, en el CC La Central de Miraflores, y duró pocos meses: los dueños cerraron la empresa para irse tras una oportunidad en el extranjero. Otra vez sin trabajo. Me postulé a varias empresas de tecnología en Medellín y ninguna me contactó para una entrevista. Quizá no preparé bien la hoja de vida, quizá no era el momento.",
+    "Mientras tanto trabajé por mi cuenta cerca de seis meses, para agencias de Bogotá que había conocido en la época de Barranquilla, desde el apartaestudio que habíamos logrado arrendar con mucho esfuerzo. En mitad de un proyecto volví a postularme, esta vez sin la urgencia de antes, aunque a cada entrevista llegué con el mismo entusiasmo de siempre. Una respondió: Uniremington, una universidad grande y reconocida, con sedes en todo el país. Melisa, entonces directora de Comunicaciones, me dio la oportunidad que llevaba tanto tiempo buscando. A ella y a Uniremington les voy a estar siempre agradecido.",
+    "Cuento todo esto porque explica cómo trabajo. Nada de lo que sé me llegó fácil: lo aprendí resolviendo con lo que tenía a la mano, en una panadería, en un apartaestudio arrendado con esfuerzo, en cada proyecto que me dieron. Por eso, cuando un negocio me cuenta su problema, no pienso primero en qué tecnología quiero usar. Pienso en cómo sacarlo adelante.",
 ];
 
 const Story = () => {
@@ -32,22 +34,33 @@ const Story = () => {
                     <h2 className="h2 max-w-2xl">Cómo llegué aquí</h2>
                 </AnimateOnView>
 
-                {/* Medida corta a propósito: son cinco párrafos largos y la línea
+                {/* Medida corta a propósito: son párrafos largos y la línea
                     tiene que quedar cómoda de leer. */}
                 <div className="max-w-[68ch] space-y-7">
-                    {story.map((paragraph, index) => (
-                        <AnimateOnView key={index} once y={24} delay={Math.min(index, 3) * 0.06}>
-                            <p
-                                className={
-                                    index === 0
-                                        ? "text-lg leading-[1.75] text-foreground"
-                                        : "leading-[1.75] text-muted-foreground"
-                                }
-                            >
-                                {paragraph}
-                            </p>
-                        </AnimateOnView>
-                    ))}
+                    {story.map((paragraph, index) => {
+                        const esApertura = index === 0;
+                        // El último párrafo es la conclusión: es donde el camino
+                        // se conecta con la forma de trabajar de hoy. Si se pinta
+                        // del mismo gris que los intermedios, el lector lo cruza
+                        // sin notarlo y la historia se queda sin remate.
+                        const esCierre = index === story.length - 1;
+
+                        return (
+                            <AnimateOnView key={index} once y={24} delay={Math.min(index, 3) * 0.06}>
+                                <p
+                                    className={cn(
+                                        "leading-[1.75]",
+                                        esApertura && "text-lg text-foreground",
+                                        esCierre &&
+                                            "text-lg text-foreground border-l-2 border-[#2563EB] pl-6 mt-12",
+                                        !esApertura && !esCierre && "text-muted-foreground"
+                                    )}
+                                >
+                                    {paragraph}
+                                </p>
+                            </AnimateOnView>
+                        );
+                    })}
                 </div>
             </Container>
         </section>
