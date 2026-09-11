@@ -37,7 +37,7 @@ const Blog = () => {
               delay={0.1}
             >
               <h2 className="h2">
-                Notas sobre desarrollo, migraciones e IA
+                Notas sobre desarrollo, automatización e IA
               </h2>
             </AnimateOnView>
           </StaggerContainer>

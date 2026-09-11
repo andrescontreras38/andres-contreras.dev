@@ -18,7 +18,7 @@ const CompanyHero = () => {
                 <StaggerContainer className="max-w-2xl mx-auto text-center space-y-4 mb-10">
                     <AnimateOnView blur delay={0.2}>
                         <p className="text-lg text-muted">
-                            Soy Andrés Contreras. Construyo software para empresas y productos propios, desde migraciones de WordPress a stacks propios en Node.js hasta tiendas en línea completas, y cada vez más con IA aplicada al desarrollo y a la operación del negocio.
+                            Soy Andrés Contreras. Construyo software para empresas y productos propios: automatizaciones que quitan trabajo manual, agentes con IA, integraciones entre sistemas que no se hablaban y plataformas completas desde cero.
                         </p>
                     </AnimateOnView>
                     <AnimateOnView blur delay={0.3}>

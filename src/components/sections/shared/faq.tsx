@@ -12,7 +12,7 @@ export const faqs = [
   {
     question: "¿Quién es Andrés Contreras?",
     answer:
-      "Desarrollador full-stack. Construyo software que resuelve problemas reales de negocio: migraciones completas, tiendas en línea, asistentes con IA. No maquetas bonitas que se quedan en Figma.",
+      "Desarrollador full-stack. Construyo software que resuelve problemas reales de negocio: automatización de procesos, agentes con IA, integraciones entre sistemas y plataformas a medida. No maquetas bonitas que se quedan en Figma.",
   },
   {
     question: "¿Con qué tecnologías trabajas?",

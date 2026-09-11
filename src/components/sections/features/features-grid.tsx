@@ -18,36 +18,40 @@ import {
   Zap,
 } from "lucide-react";
 
-// Los cuatro primeros llevan `proof`: ya están construidos y corriendo, y el
-// proyecto que lo demuestra pesa más que cualquier descripción.
+// Los cuatro llevan `proof`: ya están construidos y corriendo, y el proyecto
+// que lo demuestra pesa más que cualquier descripción.
+//
+// El orden importa: quien llega aquí lee los dos primeros y se hace una idea
+// de a qué me dedico. Cuando la lista abría con migraciones y e-commerce, esa
+// idea quedaba estrecha y el resto del catálogo parecía trabajo secundario.
 const proven = [
+  {
+    Icon: Bot,
+    title: "Agentes con IA",
+    description:
+      "Agentes que leen datos, deciden y ejecutan tareas sobre tus propios sistemas mediante herramientas que les construyo. No un chatbot de vitrina para la demo.",
+    proof: "Remi, asistente de orientación sobre la API de Claude",
+  },
+  {
+    Icon: Wrench,
+    title: "Automatización de procesos",
+    description:
+      "Todo lo que hoy alguien hace a mano y se puede delegar a una máquina: sincronizar datos entre plataformas, generar reportes, mover archivos, encadenar tareas programadas.",
+    proof: "RemiTransfer: archivos sin límite de tamaño",
+  },
+  {
+    Icon: ShoppingCart,
+    title: "Plataformas a medida",
+    description:
+      "Sistemas completos construidos desde cero: paneles de gestión, aplicaciones internas y tiendas en línea con catálogo, checkout, cuentas y monitoreo en producción.",
+    proof: "Scentual Bliss: 150+ fragancias en producción",
+  },
   {
     Icon: RefreshCw,
     title: "Migración y modernización",
     description:
       "Llevar una plataforma legacy (WordPress, sistemas hechos a la medida años atrás) a un stack moderno, sin perder contenido, SEO ni continuidad del negocio.",
     proof: "Uniremington: de WordPress + WPBakery a Node.js",
-  },
-  {
-    Icon: ShoppingCart,
-    title: "E-commerce a medida",
-    description:
-      "Tiendas en línea completas: catálogo, checkout, cuentas, correos transaccionales y monitoreo en producción, no una plantilla genérica.",
-    proof: "Scentual Bliss: 150+ fragancias en producción",
-  },
-  {
-    Icon: Bot,
-    title: "Agentes y automatizaciones con IA",
-    description:
-      "Automatizaciones y agentes que ejecutan tareas reales del negocio, no un chatbot de vitrina para la demo.",
-    proof: "Remi, asistente de orientación sobre la API de Claude",
-  },
-  {
-    Icon: Wrench,
-    title: "Herramientas internas",
-    description:
-      "Utilidades a medida para procesos específicos del equipo: paneles de administración, transferencia de archivos, reportes.",
-    proof: "RemiTransfer: archivos sin límite de tamaño",
   },
 ];
 

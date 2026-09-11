@@ -34,7 +34,7 @@ const Hero = ({ heroRef }: {
 
         <AnimateOnView blur className="text-center max-w-2xl mx-auto lg:mb-10 md:mb-8 mb-4" delay={0.3}>
           <p className="text-lg text-muted">
-            Migraciones que no rompen nada, tiendas que generan ventas e IA aplicada a desafíos concretos, con un único punto de contacto para diseño, desarrollo, IA y despliegue.
+            Automatizo procesos que hoy se hacen a mano, construyo agentes con IA que ejecutan tareas de punta a punta e integro los sistemas que tu negocio ya usa, con un único punto de contacto para diseño, desarrollo, IA y despliegue.
           </p>
         </AnimateOnView>
 
@@ -70,13 +70,13 @@ const Hero = ({ heroRef }: {
                   <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
                   <span className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
                   <span className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
-                  <span className="ml-2 text-xs text-white/40">deploy.ts</span>
+                  <span className="ml-2 text-xs text-white/40">agente.ts</span>
                 </div>
                 <div className="p-5 space-y-1.5 text-[#d4d4d4]">
-                  <p><span className="text-[#c586c0]">const</span> <span className="text-[#9cdcfe]">stack</span> = [<span className="text-[#ce9178]">"Next.js"</span>, <span className="text-[#ce9178]">"Supabase"</span>, <span className="text-[#ce9178]">"Claude"</span>];</p>
-                  <p><span className="text-[#c586c0]">await</span> <span className="text-[#dcdcaa]">migrate</span>(<span className="text-[#9cdcfe]">legacySite</span>);</p>
-                  <p className="text-white/30">// 0 downtime</p>
-                  <p className="text-[#4ec9b0]">✓ deploy exitoso</p>
+                  <p><span className="text-[#c586c0]">const</span> <span className="text-[#9cdcfe]">agente</span> = <span className="text-[#dcdcaa]">crearAgente</span>({'{'} <span className="text-[#9cdcfe]">tools</span>, <span className="text-[#9cdcfe]">datos</span> {'}'});</p>
+                  <p><span className="text-[#c586c0]">await</span> <span className="text-[#9cdcfe]">agente</span>.<span className="text-[#dcdcaa]">ejecutar</span>(<span className="text-[#9cdcfe]">proceso</span>);</p>
+                  <p className="text-white/30">// sin intervención manual</p>
+                  <p className="text-[#4ec9b0]">✓ proceso automatizado</p>
                 </div>
               </div>
             </AnimateOnView>

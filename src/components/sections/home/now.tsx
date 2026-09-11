@@ -25,7 +25,7 @@ const items: { title: string; description: string; status: Status; href?: string
   {
     title: "Escribiendo sobre lo que me preguntan",
     description:
-      "Migraciones sin perder SEO, tienda a medida o plantilla, y qué es la IA aplicada de verdad. Las dudas que más me repiten, resueltas por escrito.",
+      "Cómo automatizar sin romper lo que ya funciona, qué puede hacer de verdad un agente con IA, y cuándo conviene construir a medida. Las dudas que más me repiten, resueltas por escrito.",
     status: "recién lanzado",
     href: "/blog",
   },

@@ -73,7 +73,7 @@ const Footer = () => {
                 <Logo size="md" className="mb-6" />
               </Link>
               <p className="text-muted">
-                Desarrollador full-stack especializado en migraciones, e-commerce e IA aplicada a problemas reales de negocio.
+                Desarrollador full-stack con IA. Automatizo procesos, construyo agentes y desarrollo software a medida para problemas reales de negocio.
               </p>
             </div>
 
@@ -151,7 +151,7 @@ const Footer = () => {
                   Actualizaciones de contreras.dev
                 </h3>
                 <p className="text-sm text-muted-foreground mb-4">
-                  Notas sobre migraciones, e-commerce e IA aplicada, directo a tu correo.
+                  Notas sobre automatización, agentes con IA y desarrollo, directo a tu correo.
                 </p>
                 <NewsletterForm
                   buttonVariant="secondary"

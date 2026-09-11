@@ -21,7 +21,7 @@ interface NewsletterFormProps {
 
 const NewsletterForm = ({
   title = "Actualizaciones de contreras.dev",
-  description = "Migraciones, e-commerce e IA aplicada, sin relleno.",
+  description = "Automatización, agentes con IA y desarrollo, sin relleno.",
   placeholder = "Tu correo",
   buttonText = "Suscribirme",
   buttonVariant,

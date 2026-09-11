@@ -11,32 +11,37 @@ import { Link } from "react-router-dom";
 const BusinessAccount = () => {
   const [activeTab, setActiveTab] = useState(0);
 
+  // Tres capacidades, no tres tipos de proyecto. Antes decían "Migraciones",
+  // "E-commerce" e "IA aplicada", y eso dejaba fuera casi todo lo que cabe
+  // hacer: una integración entre dos sistemas, un panel interno, un proceso
+  // que hoy se hace a mano. Las migraciones y las tiendas siguen ahí, pero
+  // como ejemplos dentro de "Software a medida" y no como el catálogo entero.
   const tabs = [
     {
-      icon: "/images/icons/bank.svg",
-      title: "Migraciones",
-      badge: "Sin downtime",
-      heading: "Migra sin perder nada en el camino",
-      description: "Saco sitios de plataformas legadas a un stack propio, rescatando contenido con scraping cuando hace falta.",
+      icon: "/images/icons/globe.svg",
+      title: "Automatización de procesos",
+      badge: "Menos trabajo manual",
+      heading: "Lo que hoy haces a mano, hecho solo",
+      description: "Conecto por API sistemas que no se hablaban y elimino el trabajo repetitivo: sincronización de datos entre plataformas, reportes que se generan solos y tareas programadas que no dependen de que alguien se acuerde.",
       Visual: RefreshCw,
       link: "/contact",
     },
     {
-      icon: "/images/icons/growth-arrow.svg",
-      title: "E-commerce",
-      badge: "Tiendas que venden",
-      heading: "Tiendas en línea que convierten",
-      description: "Catálogos grandes, checkout claro y experiencias a medida como quizzes de recomendación.",
-      Visual: ShoppingCart,
+      icon: "/images/icons/bank.svg",
+      title: "Agentes con IA",
+      badge: "Claude API",
+      heading: "Asistentes que ejecutan, no que conversan",
+      description: "Agentes que leen tus datos, deciden y actúan sobre tus propios sistemas usando herramientas que les construyo. Atención al cliente, clasificación de documentos, respuestas con el contexto real del negocio.",
+      Visual: Bot,
       link: "/contact",
     },
     {
-      icon: "/images/icons/globe.svg",
-      title: "IA aplicada",
-      badge: "Automatización",
-      heading: "IA que resuelve problemas de negocio",
-      description: "Asistentes y automatizaciones con Claude API enfocados en resultados, no en demos.",
-      Visual: Bot,
+      icon: "/images/icons/growth-arrow.svg",
+      title: "Software a medida",
+      badge: "De cero o sobre lo que ya tienes",
+      heading: "El sistema que tu operación necesita",
+      description: "Plataformas internas, paneles de gestión, tiendas en línea y migraciones desde sistemas legados. Sobre el stack que le convenga al proyecto, no sobre el que yo prefiera.",
+      Visual: ShoppingCart,
       link: "/contact",
     },
   ];

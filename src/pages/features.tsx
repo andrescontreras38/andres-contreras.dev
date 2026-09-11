@@ -18,7 +18,7 @@ const Features = () => {
     <>
       <SEO
         title={`Servicios de desarrollo web e IA | ${appConfig.name}`}
-        description="Migraciones sin perder SEO, tiendas en línea a medida, agentes con IA, integraciones y herramientas internas. Cada servicio anclado a un proyecto real en producción."
+        description="Automatización de procesos, agentes con IA, integraciones entre sistemas, herramientas internas y plataformas a medida. Cada servicio anclado a un proyecto real en producción."
         canonicalUrl="/features"
         ogType="website"
         jsonLd={jsonLd}

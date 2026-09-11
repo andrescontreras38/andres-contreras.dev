@@ -18,7 +18,7 @@ const Now = lazy(() => import("@/components/sections/home/now"));
 const Home = () => {
   const heroRef = useRef<HTMLElement>(null);
   const metaTitle = "Andrés Contreras | Desarrollador Full-Stack con IA";
-  const metaDescription = "Migraciones sin downtime, e-commerce que vende e IA aplicada a problemas reales de negocio. Un único punto de contacto para diseño, desarrollo, IA y despliegue.";
+  const metaDescription = "Automatizo procesos, construyo agentes con IA y desarrollo software a medida para problemas reales de negocio. Un único punto de contacto para diseño, desarrollo, IA y despliegue.";
   const person = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -31,11 +31,18 @@ const Home = () => {
     "image": `${appConfig.url}/og-image.png`,
     "sameAs": ["https://github.com/andrescontreras38"],
     "knowsLanguage": "es",
+    // Lista amplia a propósito. Las migraciones y el e-commerce se quedan
+    // porque son ciertos y los buscan por su nombre, pero como una entrada más
+    // entre varias, no como aquello a lo que se dedica.
     "knowsAbout": [
       "Desarrollo web full-stack",
-      "Migraciones de WordPress",
+      "Automatización de procesos",
+      "Agentes con inteligencia artificial",
+      "Integraciones entre sistemas",
+      "Software a medida",
+      "Herramientas internas",
+      "Migraciones de sitios web",
       "E-commerce a medida",
-      "Inteligencia artificial aplicada",
       "Next.js",
       "React",
       "Node.js",
@@ -67,15 +74,18 @@ const Home = () => {
     "areaServed": "Worldwide",
     "serviceType": "Software Development",
     "knowsAbout": [
+      "Automatización de procesos",
+      "Agentes con inteligencia artificial",
+      "Integraciones entre sistemas",
+      "Software a medida",
       "Next.js",
       "React",
       "Node.js",
       "Python",
       "Supabase",
+      "Claude API",
       "Migraciones de sitios web",
-      "E-commerce",
-      "Inteligencia artificial aplicada",
-      "Claude API"
+      "E-commerce"
     ]
   };
 

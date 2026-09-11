@@ -28,9 +28,12 @@ const CompanyPage = () => {
                 "Python",
                 "Supabase",
                 "Claude API",
+                "Automatización de procesos",
+                "Agentes con inteligencia artificial",
+                "Integraciones entre sistemas",
+                "Software a medida",
                 "Migraciones de sitios web",
                 "E-commerce",
-                "Inteligencia artificial aplicada",
             ],
         },
         "url": `${appConfig.url}/company`,
@@ -40,7 +43,7 @@ const CompanyPage = () => {
         <>
             <SEO
                 title={`Sobre mí | ${appConfig.name}`}
-                description="Desarrollador full-stack con IA aplicada. De Lorica a Medellín: cómo llegué a construir migraciones, tiendas en línea e IA aplicada a problemas reales de negocio."
+                description="Desarrollador full-stack con IA. De Lorica a Medellín: cómo llegué a construir automatizaciones, agentes con IA y software a medida para problemas reales de negocio."
                 canonicalUrl="/company"
                 ogType="profile"
                 jsonLd={jsonLd}

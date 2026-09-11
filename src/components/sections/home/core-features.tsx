@@ -72,7 +72,7 @@ const CoreFeatures = () => {
                   delay={0.3}
                 >
                   <h4 className="h4 text-white mb-3 max-w-[400px]">
-                    Migraciones sin downtime.
+                    Procesos que se ejecutan solos.
                   </h4>
                 </AnimateOnView>
                 <AnimateOnView
@@ -81,7 +81,7 @@ const CoreFeatures = () => {
                   blur
                 >
                   <p className="text-muted mb-8 leading-relaxed">
-                    Saco tu sitio de plataformas legadas (WordPress, sistemas a medida) hacia un stack propio, rescatando cada pieza de contenido en el camino.
+                    Conecto por API los sistemas que hoy no se hablan y delego a una máquina el trabajo repetitivo: sincronizar datos, generar reportes, disparar tareas programadas. Incluidas las migraciones desde plataformas legadas.
                   </p>
                 </AnimateOnView>
               </StaggerContainer>
