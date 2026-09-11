@@ -582,7 +582,7 @@ const PortadaIsak = () => {
                             <div id="work" className="section-work flat-spacing">
                                 <div className="sect-tag text-caption fw-medium">
                                     <i className="icon icon-high-light"></i>
-                                    Work Highlights
+                                    Proyectos
                                 </div>
                                 <div className="work-list element-sticky">
                                     <div className="sticky-item">
@@ -601,46 +601,45 @@ const PortadaIsak = () => {
                                                                 <img loading="lazy" width="40" height="40" src="/assets/images/logo/logo-2.svg" alt="Image" />
                                                             </div>
                                                             <h4 className="w-title letter-space--2 text-white-72">
-                                                                Drone
+                                                                Uniremington
                                                             </h4>
                                                             <p className="w-desc text-white-56 text-body-3">
-                                                                Brand and website for a drone startup, blending
-                                                                futuristic
-                                                                visuals with trust-driven
-                                                                design
+                                                                Migración del sitio de una universidad con sedes en todo
+                                                                el país, de WordPress a un stack propio en Node.js, sin
+                                                                perder contenido ni posicionamiento
                                                             </p>
                                                             <div className="w-highlight">
                                                                 <div className="box-high">
                                                                     <p className="text-body-3 text-white-56">
-                                                                        Year
+                                                                        Año
                                                                     </p>
                                                                     <p className="text-body-1 text-white-72">
-                                                                        2024
+                                                                        2026
                                                                     </p>
                                                                 </div>
                                                                 <div className="box-high">
                                                                     <p className="text-body-3 text-white-56">
-                                                                        Role
+                                                                        Rol
                                                                     </p>
                                                                     <p className="text-body-1 text-white-72">
-                                                                        Lead Product Designer
+                                                                        Desarrollo completo
                                                                     </p>
                                                                 </div>
                                                             </div>
                                                             <div className="w-tag-list">
                                                                 <div className="tag">
                                                                     <span className="text-body-3 fw-medium text-white-72">
-                                                                        Brand
+                                                                        Migración
                                                                     </span>
                                                                 </div>
                                                                 <div className="tag">
                                                                     <span className="text-body-3 fw-medium text-white-72">
-                                                                        Website
+                                                                        Node.js
                                                                     </span>
                                                                 </div>
                                                                 <div className="tag">
                                                                     <span className="text-body-3 fw-medium text-white-72">
-                                                                        Webflow
+                                                                        SEO
                                                                     </span>
                                                                 </div>
                                                             </div>
@@ -685,45 +684,44 @@ const PortadaIsak = () => {
                                                                 <img loading="lazy" width="40" height="40" src="/assets/images/logo/logo-2.svg" alt="Image" />
                                                             </div>
                                                             <h4 className="w-title letter-space--2 text-white-72">
-                                                                Durotan
+                                                                Scentual Bliss
                                                             </h4>
                                                             <p className="w-desc text-white-56 text-body-3">
-                                                                Minimal e-commerce identity and website crafted to
-                                                                highlight
-                                                                timeless fashion essentials
+                                                                Tienda en línea completa con más de 150 fragancias:
+                                                                catálogo, checkout, cuentas y correos transaccionales
                                                             </p>
                                                             <div className="w-highlight">
                                                                 <div className="box-high">
                                                                     <p className="text-body-3 text-white-56">
-                                                                        Year
+                                                                        Año
                                                                     </p>
                                                                     <p className="text-body-1 text-white-72">
-                                                                        2024
+                                                                        2025
                                                                     </p>
                                                                 </div>
                                                                 <div className="box-high">
                                                                     <p className="text-body-3 text-white-56">
-                                                                        Role
+                                                                        Rol
                                                                     </p>
                                                                     <p className="text-body-1 text-white-72">
-                                                                        Lead Product Designer
+                                                                        Desarrollo completo
                                                                     </p>
                                                                 </div>
                                                             </div>
                                                             <div className="w-tag-list">
                                                                 <div className="tag">
                                                                     <span className="text-body-3 fw-medium text-white-72">
-                                                                        Brand
+                                                                        E-commerce
                                                                     </span>
                                                                 </div>
                                                                 <div className="tag">
                                                                     <span className="text-body-3 fw-medium text-white-72">
-                                                                        Website
+                                                                        Checkout
                                                                     </span>
                                                                 </div>
                                                                 <div className="tag">
                                                                     <span className="text-body-3 fw-medium text-white-72">
-                                                                        Webflow
+                                                                        Catálogo
                                                                     </span>
                                                                 </div>
                                                             </div>
@@ -768,44 +766,44 @@ const PortadaIsak = () => {
                                                                 <img loading="lazy" width="40" height="40" src="/assets/images/logo/logo-2.svg" alt="Image" />
                                                             </div>
                                                             <h4 className="w-title letter-space--2 text-white-72">
-                                                                Nike Campaign
+                                                                RemiTransfer
                                                             </h4>
                                                             <p className="w-desc text-white-56 text-body-3">
-                                                                Landing experience for Nike’s urban campaign, built to
-                                                                inspire movement and brand loyalty
+                                                                Herramienta interna para transferir archivos sin límite
+                                                                de tamaño entre los equipos de la universidad
                                                             </p>
                                                             <div className="w-highlight">
                                                                 <div className="box-high">
                                                                     <p className="text-body-3 text-white-56">
-                                                                        Year
+                                                                        Año
                                                                     </p>
                                                                     <p className="text-body-1 text-white-72">
-                                                                        2024
+                                                                        2026
                                                                     </p>
                                                                 </div>
                                                                 <div className="box-high">
                                                                     <p className="text-body-3 text-white-56">
-                                                                        Role
+                                                                        Rol
                                                                     </p>
                                                                     <p className="text-body-1 text-white-72">
-                                                                        Lead Product Designer
+                                                                        Herramienta interna
                                                                     </p>
                                                                 </div>
                                                             </div>
                                                             <div className="w-tag-list">
                                                                 <div className="tag">
                                                                     <span className="text-body-3 fw-medium text-white-72">
-                                                                        Brand
+                                                                        Node.js
                                                                     </span>
                                                                 </div>
                                                                 <div className="tag">
                                                                     <span className="text-body-3 fw-medium text-white-72">
-                                                                        Website
+                                                                        Archivos
                                                                     </span>
                                                                 </div>
                                                                 <div className="tag">
                                                                     <span className="text-body-3 fw-medium text-white-72">
-                                                                        Webflow
+                                                                        Interno
                                                                     </span>
                                                                 </div>
                                                             </div>
@@ -912,10 +910,10 @@ const PortadaIsak = () => {
                                                         API de Claude
                                                     </a>
                                                     <a href="#" className="tag-item text-body-3 fw-medium text-black-72 link">
-                                                        Webflow Sites
+                                                        Herramientas propias
                                                     </a>
                                                     <a href="#" className="tag-item text-body-3 fw-medium text-black-72 link">
-                                                        Scalable Launches
+                                                        Contexto del negocio
                                                     </a>
                                                 </div>
                                                 <p className="service-desc text-black-56">
