@@ -7,15 +7,11 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HelmetProvider } from "react-helmet-async";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { lazy, Suspense } from "react";
 import Blog from "./pages/blog";
 import BlogDetails from "./pages/blog/[slug]";
 import Company from "./pages/company";
 import Contact from "./pages/contact";
-import ContactsPage from "./pages/dashboard/contactos";
-import ResourcesAdmin from "./pages/dashboard/recursos";
-import ProfileSettings from "./pages/dashboard/profile";
-import BlogDashboard from "./pages/dashboard/blog";
-import BlogEditor from "./pages/dashboard/blog/editor";
 import Features from "./pages/features";
 import Home from "./pages/home";
 import CookiePolicyPage from "./pages/legal/cookie-policy";
@@ -27,6 +23,15 @@ import NotFound from "./pages/not-found";
 import ResourcesPage from "./pages/resources";
 import ResourceDetail from "./pages/resources/[slug]";
 
+
+// El panel de administración se carga aparte: incluye el editor de texto
+// enriquecido, que son cientos de kB que ningún visitante necesita.
+const ContactsPage = lazy(() => import("./pages/dashboard/contactos"));
+const ResourcesAdmin = lazy(() => import("./pages/dashboard/recursos"));
+const ProfileSettings = lazy(() => import("./pages/dashboard/profile"));
+const BlogDashboard = lazy(() => import("./pages/dashboard/blog"));
+const BlogEditor = lazy(() => import("./pages/dashboard/blog/editor"));
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -37,6 +42,7 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <AuthProvider>
+            <Suspense fallback={null}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/company" element={<Company />} />
@@ -101,6 +107,7 @@ const App = () => (
               />
               <Route path="*" element={<NotFound />} />
             </Routes>
+            </Suspense>
           </AuthProvider>
         </BrowserRouter>
       </TooltipProvider>
