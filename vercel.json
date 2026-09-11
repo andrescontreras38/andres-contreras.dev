@@ -71,5 +71,5 @@
       ]
     }
   ],
-  "installCommand": "npm install && npx playwright install chromium"
+  "installCommand": "dnf install -y nss nspr atk at-spi2-atk at-spi2-core cups-libs libdrm libxkbcommon libXcomposite libXdamage libXext libXfixes libXrandr mesa-libgbm pango cairo alsa-lib || true; npm install && npx playwright install chromium"
 }
