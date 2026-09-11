@@ -20,10 +20,29 @@
       ahora se sirve desde este mismo dominio (ver src/main.tsx), lo que además
       evita anunciarle a Google cada visita que recibes.
     -->
+
+    <!--
+      Hojas de estilo de la plantilla ISAK, tal cual vienen en el paquete.
+      Viven en /public para que Vite no las procese ni reescriba las rutas
+      relativas que usan internamente hacia ../fonts y ../images.
+    -->
+    <link rel="stylesheet" href="/assets/fonts/fonts.css" />
+    <link rel="stylesheet" href="/assets/fonts/inter/inter.css" />
+    <link rel="stylesheet" href="/assets/icon/icomoon/style.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/assets/css/animate.css" />
+    <link rel="stylesheet" href="/assets/css/styles.css" />
   </head>
 
-  <body>
+  <!--
+    Los atributos del <body> son los del index.html de la plantilla y no son
+    decorativos: `data-default-mode="dark"` es lo que selecciona el tema
+    oscuro, y `counter-scroll` lo lee su JavaScript para los contadores.
+  -->
+  <body data-default-mode="dark" class="counter-scroll">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+
   </body>
 </html>
