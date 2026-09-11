@@ -25,3 +25,7 @@ dist-ssr
 *.sw?
 .vercel
 .env*
+
+# Fotografias originales sin procesar. Se conservan en local para poder
+# reencuadrar, pero no forman parte del sitio ni se publican.
+.originales/
