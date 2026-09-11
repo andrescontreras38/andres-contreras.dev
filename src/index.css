@@ -66,8 +66,11 @@
   }
 
   body {
-    @apply text-foreground bg-white text-base leading-[1.4] antialiased;
-    font-family: 'Inter Tight', system-ui, sans-serif;
+    /* `font-sans` lee la lista de tailwind.config.ts en vez de repetirla aquí.
+       Antes esta regla llevaba la lista escrita a mano y pisaba a la del
+       config, así que corregir el config no servía de nada: las dos copias se
+       desincronizaron y ganó la equivocada. */
+    @apply font-sans text-foreground bg-white text-base leading-[1.4] antialiased;
   }
 
   /* Typography */

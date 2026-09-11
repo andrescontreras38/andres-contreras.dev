@@ -12,7 +12,13 @@ export default {
   	},
   	extend: {
   		fontFamily: {
+  			// 'Inter Tight Variable' es el nombre que declara el @font-face del
+  			// paquete instalado, y tiene que ir primero: pedir solo 'Inter Tight'
+  			// no encuentra nada y cae en silencio a la fuente del sistema, que es
+  			// justo lo que pasaba antes. 'Inter Tight' se queda detrás por si
+  			// alguien la tiene instalada en su equipo.
   			sans: [
+  				'Inter Tight Variable',
   				'Inter Tight',
   				'system-ui',
   				'sans-serif'

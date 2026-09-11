@@ -1,4 +1,22 @@
 import { createRoot } from "react-dom/client";
+
+/**
+ * Inter Tight, servida desde este mismo dominio.
+ *
+ * `tailwind.config.ts` la pedía desde el principio, pero nadie la cargaba
+ * nunca: no había @font-face ni enlace a Google Fonts, solo unos `preconnect`
+ * heredados de la plantilla que abrían conexión y no pedían nada. El sitio
+ * entero se veía con la fuente del sistema.
+ *
+ * Es la versión variable: un archivo cubre los cuatro grosores que usa el
+ * sitio (400, 500, 600 y 700) en lugar de cuatro descargas. Cada subconjunto
+ * lleva su `unicode-range`, así que el navegador solo baja el latino (~45 kB);
+ * el cirílico, el griego y el vietnamita quedan en el servidor sin tocarse.
+ * La cursiva va aparte porque solo aparece en las citas del blog.
+ */
+import "@fontsource-variable/inter-tight/wght.css";
+import "@fontsource-variable/inter-tight/wght-italic.css";
+
 import "./index.css";
 
 const container = document.getElementById("root")!;

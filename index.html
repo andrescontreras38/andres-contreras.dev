@@ -13,10 +13,13 @@
     -->
     <title>Andrés Contreras | Desarrollador Full-Stack con IA</title>
 
-    <!-- Resource Hints -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <!--
+      Aquí había tres `preconnect` a Google Fonts que no servían para nada: no
+      se pedía ninguna hoja de estilos a ese dominio, así que abrían una
+      conexión TLS con Google en cada visita y no descargaban nada. La fuente
+      ahora se sirve desde este mismo dominio (ver src/main.tsx), lo que además
+      evita anunciarle a Google cada visita que recibes.
+    -->
   </head>
 
   <body>
