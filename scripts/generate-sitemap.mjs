@@ -5,7 +5,7 @@
  * Si no hay credenciales o Supabase no responde, escribe el sitemap solo con
  * las rutas estáticas en vez de romper el build.
  */
-import { writeFile } from "node:fs/promises";
+import { readFile, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 
@@ -102,6 +102,16 @@ ${urls
 </urlset>
 `;
 
-const outPath = resolve(dirname(fileURLToPath(import.meta.url)), "../public/sitemap.xml");
-await writeFile(outPath, xml, "utf8");
+const publicDir = resolve(dirname(fileURLToPath(import.meta.url)), "../public");
+await writeFile(resolve(publicDir, "sitemap.xml"), xml, "utf8");
+
+// La línea Sitemap del robots.txt tiene que seguir al dominio, así que se
+// reescribe aquí en vez de dejarla fija en el archivo.
+const robotsPath = resolve(publicDir, "robots.txt");
+const robots = await readFile(robotsPath, "utf8");
+await writeFile(
+  robotsPath,
+  robots.replace(/^Sitemap: .*$/m, `Sitemap: ${SITE_URL}/sitemap.xml`),
+  "utf8"
+);
 console.log(`[sitemap] ${urls.length} URLs (${posts.length} artículos, ${resources.length} recursos) → public/sitemap.xml`);

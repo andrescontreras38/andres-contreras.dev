@@ -33,6 +33,12 @@ const SEO = ({
     // Una sola fuente de verdad para el dominio. Antes estaba escrito a mano
     // apuntando a otro sitio, así que cada canonical señalaba a un dominio ajeno.
     const siteUrl = appConfig.url.replace(/\/$/, "");
+
+    // Bloqueado por defecto: mientras el sitio viva en una URL provisional, que
+    // se indexe crearía una versión que luego competiría con el dominio real.
+    // Se abre poniendo VITE_ALLOW_INDEXING=true en el despliegue definitivo.
+    const indexingAllowed = import.meta.env.VITE_ALLOW_INDEXING === "true";
+    const blockIndex = noIndex || !indexingAllowed;
     const fullUrl = `${siteUrl}${canonicalUrl}`;
     const fullImageUrl = ogImage.startsWith("http") ? ogImage : `${siteUrl}${ogImage}`;
     const blocks = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
@@ -77,7 +83,7 @@ const SEO = ({
             <meta name="author" content={appConfig.name} />
             <meta
                 name="robots"
-                content={noIndex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1"}
+                content={blockIndex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1"}
             />
 
             {blocks.map((block, index) => (
