@@ -249,7 +249,7 @@ const PortadaIsak = () => {
             <div className="wrap">
                 <div className="user-image">
                     <div className="image">
-                        <img loading="lazy" width="468" height="856" src="/assets/images/avatar/avatar.png" alt="Image" />
+                        <img loading="lazy" width="468" height="856" src="/assets/images/avatar/andres-sidebar.webp" alt="Andrés Contreras" />
                     </div>
                     <div className="meta-left d-none d-sm-block">
                         <div className="bg-item-svg">
@@ -328,7 +328,7 @@ const PortadaIsak = () => {
                             <div id="home" className="section-intro flat-spacing">
                                 <div className="intro-author effectFade fadeUp no-div">
                                     <div className="author-image">
-                                        <img loading="lazy" width="23" height="31" src="/assets/images/avatar/avatar-boy.png" alt="Image" />
+                                        <img loading="lazy" width="23" height="31" src="/assets/images/avatar/andres-avatar.webp" alt="Andrés Contreras" />
                                     </div>
                                     <div className="author-info letter-space--05">
                                         <p className="info_name text-black">Andrés Contreras</p>
