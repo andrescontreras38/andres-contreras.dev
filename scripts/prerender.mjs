@@ -98,7 +98,21 @@ const server = await serveDist();
 
 let browser;
 try {
-  browser = await chromium.launch();
+  browser = await chromium.launch({
+    // El contenedor de build de Vercel no permite el sandbox de Chrome: el
+    // proceso arrancaba y moría al instante, y Playwright lo reportaba como
+    // "Target page, context or browser has been closed", que suena a otra
+    // cosa. Desactivarlo es seguro aquí porque el único contenido que abre
+    // este navegador es el propio sitio recién construido.
+    args: [
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      // /dev/shm en los contenedores suele ser diminuto y Chrome se queda sin
+      // memoria compartida a media página.
+      "--disable-dev-shm-usage",
+      "--disable-gpu",
+    ],
+  });
 } catch (error) {
   // Sin navegador no hay prerenderizado, pero el sitio funciona igual: se
   // pierde el HTML para los rastreadores que no ejecutan JavaScript, no el
@@ -106,7 +120,12 @@ try {
   server.close();
   console.warn("");
   console.warn("[prerender] OMITIDO: no se pudo abrir el navegador.");
-  console.warn(`[prerender] ${String(error.message).split("\n")[0]}`);
+  // El mensaje entero, no solo la primera línea: recortarlo escondió una vez
+  // la causa real durante un despliegue.
+  String(error.message)
+    .split("\n")
+    .slice(0, 12)
+    .forEach((linea) => console.warn(`[prerender] ${linea}`));
   console.warn("[prerender] El sitio se publica sin prerenderizar: los buscadores");
   console.warn("[prerender] que ejecutan JavaScript lo verán bien, GPTBot y");
   console.warn("[prerender] similares no. Revisa la instalación de Playwright.");
