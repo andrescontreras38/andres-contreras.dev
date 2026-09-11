@@ -15,7 +15,7 @@ import { createLead } from "@/lib/services/leads-service";
 import { cn } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowRight } from "lucide-react";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 
@@ -39,6 +39,7 @@ type ContactFormValues = z.infer<typeof contactFormSchema>;
 const ContactForm = () => {
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const trampaRef = useRef<HTMLInputElement>(null);
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
@@ -52,6 +53,17 @@ const ContactForm = () => {
   });
 
   const onSubmit = async (data: ContactFormValues) => {
+    // Campo trampa. Está fuera de la pantalla y sin recorrido de teclado, así
+    // que una persona no puede rellenarlo ni por accidente; los bots que
+    // recorren formularios rellenan todo lo que encuentran. Se finge éxito a
+    // propósito: si el bot recibe un error, reintenta con otra táctica.
+    if (trampaRef.current?.value) {
+      form.reset();
+      setIsSuccess(true);
+      setTimeout(() => setIsSuccess(false), 3000);
+      return;
+    }
+
     try {
       await createLead({
         email: data.email,
@@ -83,14 +95,23 @@ const ContactForm = () => {
       setError(null);
     } catch (error) {
       console.error("Error al guardar el contacto:", error);
+
+      // P0001 es el freno de envíos de la base de datos, y su mensaje ya viene
+      // redactado para quien lo lee. Taparlo con un "no se pudo enviar" haría
+      // que alguien legítimo reintentara sin entender por qué falla.
+      const frenado = (error as { code?: string })?.code === "P0001";
+      const detalle = frenado
+        ? (error as { message: string }).message
+        : "Inténtalo de nuevo o escríbeme directo a hola@contreras.dev.";
+
       toast({
-        title: "No se pudo enviar",
-        description: "Inténtalo de nuevo o escríbeme directo a hola@contreras.dev.",
-        variant: "destructive",
+        title: frenado ? "Espera un momento" : "No se pudo enviar",
+        description: detalle,
+        variant: frenado ? "default" : "destructive",
       });
 
-      setError("No se pudo enviar el mensaje. Escríbeme a hola@contreras.dev si sigue fallando.");
-      
+      setError(detalle);
+
       // Reset error state after 5 seconds
       setTimeout(() => {
         setError(null);
@@ -115,6 +136,19 @@ const ContactForm = () => {
         {/* Form Section */}
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 max-w-[822px] mx-auto">
+            {/* Campo trampa para bots. Invisible y fuera del foco del teclado. */}
+            <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
+              <label htmlFor="sitio-web-empresa">Deja este campo vacío</label>
+              <input
+                ref={trampaRef}
+                id="sitio-web-empresa"
+                name="sitio-web-empresa"
+                type="text"
+                tabIndex={-1}
+                autoComplete="off"
+              />
+            </div>
+
             {/* First Name and Last Name - Two Columns */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <FormField
