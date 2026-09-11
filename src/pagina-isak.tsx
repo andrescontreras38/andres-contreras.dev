@@ -328,7 +328,7 @@ const PortadaIsak = () => {
                             <div id="home" className="section-intro flat-spacing">
                                 <div className="intro-author effectFade fadeUp no-div">
                                     <div className="author-image">
-                                        <img loading="lazy" width="23" height="31" src="/assets/images/avatar/andres-avatar.webp" alt="Andrés Contreras" />
+                                        <img loading="lazy" width="48" height="48" style={{ width: "100%", height: "100%", objectFit: "cover" }} src="/assets/images/avatar/andres-avatar.webp" alt="Andrés Contreras" />
                                     </div>
                                     <div className="author-info letter-space--05">
                                         <p className="info_name text-black">Andrés Contreras</p>
