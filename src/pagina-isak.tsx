@@ -9,7 +9,7 @@
  *
  * El contenido de demostracion se reemplaza por el real en un paso aparte.
  */
-import { useEffect } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 /**
  * Los scripts de la plantilla, en su orden original. Se cargan aqui y no desde
@@ -65,7 +65,104 @@ function cargarEnSerie(archivos: string[]): Promise<void> {
 /** Direccion real de contacto: el dominio del sitio aun no recibe correo. */
 const CORREO_CONTACTO = "contreraslopezandresdavid@gmail.com";
 
+/**
+ * Certificaciones oficiales. Las imagenes salen del PDF original con la cedula
+ * y el codigo de verificacion tapados: el codigo permite consultar el registro
+ * del titular en el portal de la universidad, asi que no debe publicarse.
+ */
+const CERTIFICACIONES = [
+  {
+    id: "unicordoba-nube",
+    titulo: "Desarrollo de Aplicaciones Orientadas a la Nube",
+    emisor: "Universidad de Córdoba",
+    detalle: "Diplomado · 120 horas · 2022",
+    imagen: "/assets/images/certificaciones/unicordoba-nube.png",
+  },
+];
+
+const ZOOM_MIN = 1;
+const ZOOM_MAX = 4;
+const acotar = (v) => Math.min(ZOOM_MAX, Math.max(ZOOM_MIN, v));
+
+/** Visor a pantalla completa: rueda o botones para acercar, arrastre para mover. */
+const VisorCertificado = ({ cert, alCerrar }) => {
+  const [zoom, setZoom] = useState(1);
+  const [pos, setPos] = useState({ x: 0, y: 0 });
+  const arrastre = useRef(null);
+
+  const reencuadrar = useCallback((nuevo) => {
+    setZoom(nuevo);
+    if (nuevo === 1) setPos({ x: 0, y: 0 });
+  }, []);
+
+  useEffect(() => {
+    const alPulsar = (e) => {
+      if (e.key === "Escape") alCerrar();
+      if (e.key === "+" || e.key === "=") reencuadrar(acotar(zoom + 0.5));
+      if (e.key === "-") reencuadrar(acotar(zoom - 0.5));
+    };
+    document.addEventListener("keydown", alPulsar);
+    // Sin esto la pagina de detras sigue desplazandose al usar la rueda.
+    const previo = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", alPulsar);
+      document.body.style.overflow = previo;
+    };
+  }, [alCerrar, reencuadrar, zoom]);
+
+  const alaRueda = (e) => {
+    e.preventDefault();
+    reencuadrar(acotar(zoom + (e.deltaY < 0 ? 0.25 : -0.25)));
+  };
+
+  const empezarArrastre = (e) => {
+    if (zoom === 1) return;
+    arrastre.current = { x: e.clientX - pos.x, y: e.clientY - pos.y };
+  };
+  const moverArrastre = (e) => {
+    if (!arrastre.current) return;
+    setPos({ x: e.clientX - arrastre.current.x, y: e.clientY - arrastre.current.y });
+  };
+  const soltarArrastre = () => { arrastre.current = null; };
+
+  return (
+    <div className="visor-cert" role="dialog" aria-modal="true" aria-label={cert.titulo}>
+      <div className="visor-cert__fondo" onClick={alCerrar}></div>
+      <div className="visor-cert__barra">
+        <p className="visor-cert__titulo">{cert.titulo}</p>
+        <div className="visor-cert__acciones">
+          <button type="button" onClick={() => reencuadrar(acotar(zoom - 0.5))} aria-label="Alejar" disabled={zoom <= ZOOM_MIN}>−</button>
+          <span className="visor-cert__nivel">{Math.round(zoom * 100)}%</span>
+          <button type="button" onClick={() => reencuadrar(acotar(zoom + 0.5))} aria-label="Acercar" disabled={zoom >= ZOOM_MAX}>+</button>
+          <a href={cert.imagen} target="_blank" rel="noreferrer" aria-label="Abrir en una pestaña nueva">↗</a>
+          <button type="button" onClick={alCerrar} aria-label="Cerrar">✕</button>
+        </div>
+      </div>
+      <div
+        className="visor-cert__lienzo"
+        onWheel={alaRueda}
+        onMouseDown={empezarArrastre}
+        onMouseMove={moverArrastre}
+        onMouseUp={soltarArrastre}
+        onMouseLeave={soltarArrastre}
+        onDoubleClick={() => reencuadrar(zoom === 1 ? 2 : 1)}
+        style={{ cursor: zoom > 1 ? (arrastre.current ? "grabbing" : "grab") : "zoom-in" }}
+      >
+        <img
+          src={cert.imagen}
+          alt={`${cert.titulo}, ${cert.emisor}`}
+          draggable={false}
+          style={{ transform: `translate(${pos.x}px, ${pos.y}px) scale(${zoom})` }}
+        />
+      </div>
+    </div>
+  );
+};
+
 const PortadaIsak = () => {
+  const [certAbierta, setCertAbierta] = useState(null);
+
   useEffect(() => {
     cargarEnSerie(SCRIPTS);
   }, []);
@@ -145,9 +242,9 @@ const PortadaIsak = () => {
                     </a>
                 </li>
                 <li className="nav-item">
-                    <a href="#testimonial" className="item-link scroll-link">
-                        <i className="icon icon-tes"></i>
-                        <p className="tool-tip text-caption">Testimonios</p>
+                    <a href="#certificaciones" className="item-link scroll-link">
+                        <i className="icon icon-edu"></i>
+                        <p className="tool-tip text-caption">Certificaciones</p>
                     </a>
                 </li>
                 <li className="br-line"></li>
@@ -208,9 +305,9 @@ const PortadaIsak = () => {
                 </a>
             </li>
             <li className="nav-item">
-                <a href="#testimonial" className="item-link scroll-link">
-                    <i className="icon icon-tes"></i>
-                    <p className="tool-tip text-caption">Testimonios</p>
+                <a href="#certificaciones" className="item-link scroll-link">
+                    <i className="icon icon-edu"></i>
+                    <p className="tool-tip text-caption">Certificaciones</p>
                 </a>
             </li>
             <li className="br-line"></li>
@@ -992,6 +1089,38 @@ const PortadaIsak = () => {
                             </div>
                             {/* /Tech Stack */}
 
+                            {/* Certificaciones */}
+                            <div id="certificaciones" className="section-certificaciones flat-spacing">
+                                <div className="sect-tag text-caption fw-medium effectFade fadeUp no-div">
+                                    <i className="icon icon-edu"></i>
+                                    Certificaciones
+                                </div>
+                                <h4 className="s-title letter-space--2 text-black-72 split-text effect-blur-fade">
+                                    Formación certificada, <br className="d-none d-sm-block" />
+                                    verificable en la fuente
+                                </h4>
+                                <ul className="cert-list">
+                                    {CERTIFICACIONES.map((cert) => (
+                                        <li key={cert.id} className="cert-item effectFade fadeUp no-div">
+                                            <button
+                                                type="button"
+                                                className="cert-lamina"
+                                                onClick={() => setCertAbierta(cert)}
+                                                aria-label={`Ampliar el certificado: ${cert.titulo}`}
+                                            >
+                                                <img loading="lazy" src={cert.imagen} alt={`${cert.titulo}, ${cert.emisor}`} />
+                                                <span className="cert-lupa" aria-hidden="true">Ampliar</span>
+                                            </button>
+                                            <p className="cert-titulo fw-medium text-black-72">{cert.titulo}</p>
+                                            <p className="cert-detalle text-black-56 text-body-3">
+                                                {cert.emisor} · {cert.detalle}
+                                            </p>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                            {/* /Certificaciones */}
+
                             {/* Seccion de testimonios retirada: la plantilla traia citas de
                                 personas inventadas. Se repondra cuando haya recomendaciones reales. */}
 
@@ -1096,6 +1225,9 @@ const PortadaIsak = () => {
     
     
     
+    {certAbierta && (
+      <VisorCertificado cert={certAbierta} alCerrar={() => setCertAbierta(null)} />
+    )}
     </>
   );
 };

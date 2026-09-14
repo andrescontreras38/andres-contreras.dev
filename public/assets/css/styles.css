@@ -7513,3 +7513,150 @@ button.animate-btn::after,
     font-size: clamp(26px, 8.5vw, 40px);
   }
 }
+
+/*------------ Certificaciones ---------------- */
+.cert-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.cert-lamina {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 1px solid var(--black-6);
+  border-radius: 18px;
+  overflow: hidden;
+  background-color: var(--white);
+  box-shadow: var(--shadow);
+  position: relative;
+  cursor: zoom-in;
+  transition: transform 0.3s ease;
+}
+.cert-lamina img {
+  display: block;
+  width: 100%;
+  /* Un certificado es apaisado: se recorta a una proporcion fija para que la
+     rejilla quede pareja y el detalle se lee al ampliar. */
+  aspect-ratio: 1.3;
+  object-fit: cover;
+  object-position: top center;
+}
+.cert-lamina:hover {
+  transform: translateY(-4px);
+}
+.cert-lupa {
+  position: absolute;
+  inset: auto 12px 12px auto;
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  background-color: rgba(0, 0, 0, 0.62);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.cert-lamina:hover .cert-lupa,
+.cert-lamina:focus-visible .cert-lupa {
+  opacity: 1;
+}
+.cert-titulo {
+  margin: 18px 0 4px;
+}
+.cert-detalle {
+  margin: 0;
+}
+
+/* Visor a pantalla completa */
+.visor-cert {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: flex;
+  flex-direction: column;
+}
+.visor-cert__fondo {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(6px);
+}
+.visor-cert__barra {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+}
+.visor-cert__titulo {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 14px;
+}
+.visor-cert__acciones {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.visor-cert__acciones button,
+.visor-cert__acciones a {
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.12);
+  color: var(--white);
+  font-size: 15px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.visor-cert__acciones button:hover:not(:disabled),
+.visor-cert__acciones a:hover {
+  background-color: rgba(255, 255, 255, 0.24);
+}
+.visor-cert__acciones button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.visor-cert__nivel {
+  min-width: 52px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 13px;
+}
+.visor-cert__lienzo {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0 20px 24px;
+}
+.visor-cert__lienzo img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 8px;
+  transition: transform 0.15s ease-out;
+  user-select: none;
+}
+@media (max-width: 575px) {
+  .visor-cert__titulo {
+    display: none;
+  }
+  .visor-cert__barra {
+    justify-content: flex-end;
+  }
+}
