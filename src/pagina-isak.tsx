@@ -89,10 +89,10 @@ const CERTIFICACIONES = [
 
 /** Lo que el visitante reconoce como problema propio, no herramientas concretas. */
 const PROBLEMAS = [
-  "tareas repetitivas",
-  "comentarios sin responder",
-  "web lenta",
-  "mal SEO y GEO",
+  "Tareas repetitivas",
+  "Comentarios sin responder",
+  "Web lenta",
+  "Mal SEO y GEO",
 ];
 
 const ZOOM_MIN = 1;
@@ -464,58 +464,58 @@ const PortadaIsak = () => {
                                     <div
                                         className="flujo"
                                         role="img"
-                                        aria-label="Tareas repetitivas, comentarios sin responder, web lenta y mal SEO entran a un agente que devuelve la tarea resuelta"
+                                        aria-label="Tareas repetitivas, comentarios sin responder, web lenta y mal SEO entran a un agente que los deja resueltos"
                                     >
                                         {/* Apaisada. El texto del SVG escala con el viewBox, asi que en
-                                            movil quedaria a unos 8px: por eso hay una version aparte. */}
-                                        <svg className="flujo__ancho d-none d-md-block" viewBox="0 0 708 293" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            movil quedaria ilegible: por eso hay una version aparte. */}
+                                        <svg className="flujo__ancho d-none d-md-block" viewBox="0 0 580 240" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             {PROBLEMAS.map((texto, i) => {
-                                                const y = 40 + i * 68;
+                                                const y = 32 + i * 56;
                                                 return (
                                                     <g key={texto} className="flujo__origen" style={{ animationDelay: `${i * 0.35}s` }}>
-                                                        <rect className="flujo__chip" x="6" y={y - 20} width="250" height="40" rx="20" />
-                                                        <circle className="flujo__punto" cx="32" cy={y} r="5" />
-                                                        <text className="flujo__etiqueta" x="50" y={y + 5}>{texto}</text>
-                                                        <path className="flujo__linea" d={`M256 ${y} C 320 ${y}, 330 142, 368 142`} />
+                                                        <rect className="flujo__chip" x="4" y={y - 17} width="236" height="34" rx="17" />
+                                                        <circle className="flujo__punto" cx="26" cy={y} r="4.5" />
+                                                        <text className="flujo__etiqueta" x="44" y={y + 5}>{texto}</text>
+                                                        <path className="flujo__linea" d={`M240 ${y} C 276 ${y}, 278 116, 304 116`} />
                                                     </g>
                                                 );
                                             })}
-                                            <circle className="flujo__onda" cx="420" cy="142" r="52" />
-                                            <circle className="flujo__halo" cx="420" cy="142" r="52" />
-                                            <g className="flujo__marca" transform="translate(394,116) scale(1.3)">
+                                            <circle className="flujo__onda" cx="348" cy="116" r="44" />
+                                            <circle className="flujo__halo" cx="348" cy="116" r="44" />
+                                            <g className="flujo__marca" transform="translate(326,94) scale(1.1)">
                                                 <path className="flujo__marcaCuerpo" d="M27 2L40 32L33.5 32L27 17L10.6 40L0 40Z" />
                                                 <path className="flujo__marcaRanura" d="M13.1 21.56L20.18 26.59L18.68 28.71L11.6 23.68Z" />
                                                 <path className="flujo__marcaRanura" d="M7.31 29.71L14.39 34.74L12.89 36.86L5.81 31.83Z" />
                                             </g>
-                                            <text className="flujo__pie" x="420" y="222" textAnchor="middle">agente</text>
-                                            <path className="flujo__linea" d="M472 142 C 500 142, 510 142, 534 142" />
-                                            <rect className="flujo__salida" x="534" y="120" width="164" height="44" rx="22" />
-                                            <text className="flujo__salidaTexto" x="616" y="147" textAnchor="middle">resuelto</text>
+                                            <text className="flujo__pie" x="348" y="182" textAnchor="middle">Agente</text>
+                                            <path className="flujo__linea" d="M392 116 L432 116" />
+                                            <rect className="flujo__salida" x="436" y="98" width="128" height="36" rx="18" />
+                                            <text className="flujo__salidaTexto" x="500" y="121" textAnchor="middle">Resuelto</text>
                                         </svg>
 
                                         {/* Apilada, para pantallas estrechas. */}
-                                        <svg className="flujo__alto d-md-none" viewBox="0 0 360 430" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <svg className="flujo__alto d-md-none" viewBox="0 0 360 372" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             {PROBLEMAS.map((texto, i) => {
-                                                const y = 26 + i * 52;
+                                                const y = 22 + i * 46;
                                                 return (
                                                     <g key={texto} className="flujo__origen" style={{ animationDelay: `${i * 0.35}s` }}>
-                                                        <rect className="flujo__chip" x="10" y={y - 18} width="340" height="36" rx="18" />
-                                                        <circle className="flujo__punto" cx="34" cy={y} r="5" />
-                                                        <text className="flujo__etiqueta" x="52" y={y + 5}>{texto}</text>
+                                                        <rect className="flujo__chip" x="8" y={y - 16} width="344" height="32" rx="16" />
+                                                        <circle className="flujo__punto" cx="30" cy={y} r="4.5" />
+                                                        <text className="flujo__etiqueta" x="48" y={y + 5}>{texto}</text>
                                                     </g>
                                                 );
                                             })}
-                                            <path className="flujo__linea" d="M180 216 L180 270" />
-                                            <circle className="flujo__onda" cx="180" cy="318" r="44" />
-                                            <circle className="flujo__halo" cx="180" cy="318" r="44" />
-                                            <g className="flujo__marca" transform="translate(158,296) scale(1.1)">
+                                            <path className="flujo__linea" d="M180 184 L180 226" />
+                                            <circle className="flujo__onda" cx="180" cy="266" r="38" />
+                                            <circle className="flujo__halo" cx="180" cy="266" r="38" />
+                                            <g className="flujo__marca" transform="translate(161,247) scale(0.95)">
                                                 <path className="flujo__marcaCuerpo" d="M27 2L40 32L33.5 32L27 17L10.6 40L0 40Z" />
                                                 <path className="flujo__marcaRanura" d="M13.1 21.56L20.18 26.59L18.68 28.71L11.6 23.68Z" />
                                                 <path className="flujo__marcaRanura" d="M7.31 29.71L14.39 34.74L12.89 36.86L5.81 31.83Z" />
                                             </g>
-                                            <path className="flujo__linea" d="M180 362 L180 392" />
-                                            <rect className="flujo__salida" x="112" y="392" width="136" height="36" rx="18" />
-                                            <text className="flujo__salidaTexto" x="180" y="415" textAnchor="middle">resuelto</text>
+                                            <path className="flujo__linea" d="M180 304 L180 330" />
+                                            <rect className="flujo__salida" x="122" y="330" width="116" height="34" rx="17" />
+                                            <text className="flujo__salidaTexto" x="180" y="352" textAnchor="middle">Resuelto</text>
                                         </svg>
                                     </div>
                                 </div>

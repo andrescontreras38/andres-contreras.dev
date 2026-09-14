@@ -7697,7 +7697,12 @@ button.animate-btn::after,
 }
 .flujo__etiqueta {
   fill: var(--black-72);
-  font-size: 15px;
+  font-size: 14px;
+}
+/* No estira hasta el ancho de la columna: asi el bloque respira y no compite
+   con el titular. */
+.flujo__ancho {
+  max-width: 560px;
 }
 /* La apilada usa un viewBox mas estrecho, asi que su texto necesita menos
    tamano en unidades propias para acabar con el mismo tamano en pantalla. */
