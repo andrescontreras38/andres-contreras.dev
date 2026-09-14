@@ -917,7 +917,7 @@ const PortadaIsak = () => {
                                     <li className="wg-tech">
                                         <div className="tech-infor effectFade fadeUp no-div">
                                             <div className="tech_image">
-                                                <img loading="lazy" width="19" height="28" src="/assets/images/section/tech-1.svg" alt="Image" />
+                                                <img className="image-switch" data-dark="assets/images/section/tech-1_dark.svg" loading="lazy" width="28" height="28" src="/assets/images/section/tech-1.svg" alt="React" />
                                             </div>
                                             <div className="tech_info">
                                                 <p className="info__name fw-medium text-black-72">React · Next.js</p>
@@ -939,7 +939,7 @@ const PortadaIsak = () => {
                                     <li className="wg-tech">
                                         <div className="tech-infor effectFade fadeUp no-div">
                                             <div className="tech_image">
-                                                <img className="image-switch" data-dark="assets/images/section/tech-2_dark.svg" width="18" height="28" src="/assets/images/section/tech-2.svg" alt="Image" />
+                                                <img className="image-switch" data-dark="assets/images/section/tech-2_dark.svg" loading="lazy" width="28" height="28" src="/assets/images/section/tech-2.svg" alt="Node.js" />
                                             </div>
                                             <div className="tech_info">
                                                 <p className="info__name fw-medium text-black-72">Node.js · PHP · Python</p>
@@ -962,11 +962,11 @@ const PortadaIsak = () => {
                                     <li className="wg-tech">
                                         <div className="tech-infor effectFade fadeUp no-div">
                                             <div className="tech_image">
-                                                <img loading="lazy" width="29" height="28" src="/assets/images/section/tech-3.svg" alt="Image" />
+                                                <img className="image-switch" data-dark="assets/images/section/tech-3_dark.svg" loading="lazy" width="28" height="28" src="/assets/images/section/tech-3.svg" alt="Supabase" />
                                             </div>
                                             <div className="tech_info">
                                                 <p className="info__name fw-medium text-black-72">Supabase · API de Claude</p>
-                                                <p className="info__duty text-black-56 text-body-3">Raster graphics editor
+                                                <p className="info__duty text-black-56 text-body-3">Base de datos y agentes con IA
                                                 </p>
                                             </div>
                                         </div>
