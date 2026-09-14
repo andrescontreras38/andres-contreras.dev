@@ -533,7 +533,7 @@ const PortadaIsak = () => {
                                         <div className="timeline-dot"></div>
                                         <div className="timeline-content">
                                             <div className="icon">
-                                                <img className="image-switch" data-dark="assets/images/item/edu-3_dark.svg" width="120" height="32" src="/assets/images/item/edu-3.svg" alt="Image" />
+                                                <img className="image-switch" data-dark="assets/images/brand/unicordoba_dark.png" loading="lazy" width="116" height="32" src="/assets/images/brand/unicordoba.png" alt="Universidad de Córdoba" />
                                             </div>
                                             <p className="timeline-role fw-medium text-black-72">Ingeniería de Sistemas,
                                                 Universidad de Córdoba</p>
