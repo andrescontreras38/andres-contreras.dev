@@ -7517,8 +7517,9 @@ button.animate-btn::after,
 /*------------ Certificaciones ---------------- */
 .cert-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 32px;
+  /* Laminas compactas: el detalle se lee al ampliar, aqui basta reconocerlas. */
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 24px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -7566,10 +7567,19 @@ button.animate-btn::after,
   opacity: 1;
 }
 .cert-titulo {
-  margin: 18px 0 4px;
+  margin: 14px 0 3px;
+  font-size: 15px;
+  line-height: 1.35;
 }
 .cert-detalle {
   margin: 0;
+  font-size: 13px;
+}
+@media (max-width: 575px) {
+  /* A una sola columna: a este ancho dos laminas quedarian ilegibles. */
+  .cert-list {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Visor a pantalla completa */
