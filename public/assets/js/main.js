@@ -411,6 +411,10 @@
                         data: str,
                         beforeSend: function () {
                             $form.find(".send-wrap").append(loading);
+                            // Sin esto se podia pulsar Enviar varias veces y
+                            // mandar el mismo mensaje repetido.
+                            $form.find("button[type=submit]").prop("disabled", true);
+                            $form.find(".flat-alert").remove();
                         },
                         success: function (msg) {
                             var result, cls;
@@ -451,6 +455,7 @@
                         },
                         complete: function (xhr, status, error_thrown) {
                             $form.find(".loading").remove();
+                            $form.find("button[type=submit]").prop("disabled", false);
                         },
                     });
                 },

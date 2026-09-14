@@ -7417,3 +7417,99 @@ button.animate-btn::after,
 }
 
 /*# sourceMappingURL=styles.css.map */
+
+/*------------ Formulario de contacto ---------------- */
+/* Nombre y correo comparten fila: apilados dejaban el formulario larguisimo. */
+.form-contact .form-content {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px 32px;
+}
+.form-contact .field-full {
+  grid-column: 1 / -1;
+}
+.form-contact .field-label {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--black-56);
+}
+.form-contact .field-label .req {
+  color: var(--primary);
+}
+.form-contact textarea {
+  height: 132px;
+  resize: vertical;
+}
+/* El campo en si no cambiaba al fallar: solo salia el texto rojo debajo. */
+.form-contact input.error,
+.form-contact textarea.error,
+.form-contact input.error:focus,
+.form-contact textarea.error:focus {
+  /* La regla :focus de la plantilla pinta el borde de verde y gana por
+     especificidad; como la validacion enfoca el primer campo invalido, el
+     error se veia verde. De ahi el :focus explicito. */
+  border-bottom-color: var(--error);
+}
+.form-contact label.error {
+  font-size: 13px;
+  margin-top: 8px;
+}
+.form-contact .flat-alert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 20px;
+  border-radius: 16px;
+  margin-bottom: 32px;
+}
+.form-contact .flat-alert.msg-success {
+  background-color: rgba(0, 222, 81, 0.12);
+  color: var(--primary);
+}
+.form-contact .flat-alert.msg-error {
+  background-color: rgba(244, 67, 54, 0.12);
+  color: var(--error);
+}
+/* El script anade un div .loading al enviar, pero no tenia estilo: no habia
+   ninguna senal de que el envio estuviera en curso. */
+.form-contact .send-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.form-contact .send-wrap .loading {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--black-6);
+  border-top-color: var(--primary);
+  animation: girar-envio 0.7s linear infinite;
+}
+@keyframes girar-envio {
+  to { transform: rotate(360deg); }
+}
+/* Una direccion larga se salia del ancho. */
+.form-contact .form-action > .link {
+  font-size: 16px;
+  word-break: break-word;
+}
+@media (max-width: 767px) {
+  .form-contact .form-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* La plantilla tenia aqui un SVG con max-width; al sustituirlo por el wordmark
+   como texto a tamano h1 dejo de tener limite y en movil no cabia junto al
+   copyright en la misma fila flex: la pagina ganaba scroll horizontal. */
+@media (max-width: 767px) {
+  .tf-footer .foot-inner,
+  .tf-footer .foot-bottom {
+    flex-wrap: wrap;
+  }
+  .tf-footer .foot-inner > .h1,
+  .tf-footer .foot-bottom > .h1 {
+    font-size: clamp(26px, 8.5vw, 40px);
+  }
+}

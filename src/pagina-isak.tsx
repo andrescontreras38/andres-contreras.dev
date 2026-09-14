@@ -1011,15 +1011,15 @@ const PortadaIsak = () => {
                                     <input type="text" name="website" tabIndex={-1} autoComplete="off" className="visually-hidden" aria-hidden="true" />
                                     <div className="form-content effectFade fadeUp no-div">
                                         <fieldset className="field-ip">
-                                            <label htmlFor="name" className="visually-hidden">Tu nombre</label>
-                                            <input type="text" name="name" id="name" autoComplete="name" placeholder="Tu nombre *" required data-msg-required="Dime cómo te llamas" />
+                                            <label htmlFor="name" className="field-label">Nombre <span className="req">*</span></label>
+                                            <input type="text" name="name" id="name" autoComplete="name" placeholder="Cómo te llamas" required data-msg-required="Dime cómo te llamas" />
                                         </fieldset>
                                         <fieldset className="field-ip">
-                                            <label htmlFor="email" className="visually-hidden">Tu correo</label>
-                                            <input type="email" name="email" id="email" autoComplete="email" placeholder="Tu correo *" required data-msg-required="Necesito un correo para responderte" data-msg-email="Ese correo no parece válido" />
+                                            <label htmlFor="email" className="field-label">Correo <span className="req">*</span></label>
+                                            <input type="email" name="email" id="email" autoComplete="email" placeholder="Dónde te respondo" required data-msg-required="Necesito un correo para responderte" data-msg-email="Ese correo no parece válido" />
                                         </fieldset>
-                                        <fieldset className="field-ip">
-                                            <label htmlFor="message" className="visually-hidden">Cuéntame del proyecto</label>
+                                        <fieldset className="field-ip field-full">
+                                            <label htmlFor="message" className="field-label">Tu proyecto</label>
                                             <textarea name="message" id="message" rows={4} placeholder="Qué tienes hoy, qué quieres lograr y para cuándo"></textarea>
                                         </fieldset>
                                     </div>
