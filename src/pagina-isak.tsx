@@ -107,51 +107,51 @@ const PortadaIsak = () => {
                 <li className="nav-item">
                     <a href="#home" className="item-link scroll-link">
                         <i className="icon icon-home"></i>
-                        <p className="tool-tip text-caption">Home</p>
+                        <p className="tool-tip text-caption">Inicio</p>
                     </a>
                 </li>
                 <li className="br-line"></li>
                 <li className="nav-item">
                     <a href="#about" className="item-link scroll-link">
                         <i className="icon icon-user-circle"></i>
-                        <p className="tool-tip text-caption">About</p>
+                        <p className="tool-tip text-caption">Sobre mí</p>
                     </a>
                 </li>
                 <li className="nav-item">
                     <a href="#education" className="item-link scroll-link">
                         <i className="icon icon-edu"></i>
-                        <p className="tool-tip text-caption">Education & Experience</p>
+                        <p className="tool-tip text-caption">Formación y experiencia</p>
                     </a>
                 </li>
                 <li className="nav-item">
                     <a href="#work" className="item-link scroll-link">
                         <i className="icon icon-high-light"></i>
-                        <p className="tool-tip text-caption">Work</p>
+                        <p className="tool-tip text-caption">Proyectos</p>
                     </a>
                 </li>
                 <li className="nav-item">
                     <a href="#service" className="item-link scroll-link">
                         <i className="icon icon-service"></i>
-                        <p className="tool-tip text-caption">Services</p>
+                        <p className="tool-tip text-caption">Servicios</p>
                     </a>
                 </li>
                 <li className="nav-item">
                     <a href="#tech" className="item-link scroll-link">
                         <i className="icon icon-tech-stack"></i>
-                        <p className="tool-tip text-caption">Tech</p>
+                        <p className="tool-tip text-caption">Tecnologías</p>
                     </a>
                 </li>
                 <li className="nav-item">
                     <a href="#testimonial" className="item-link scroll-link">
                         <i className="icon icon-tes"></i>
-                        <p className="tool-tip text-caption">Testimonials</p>
+                        <p className="tool-tip text-caption">Testimonios</p>
                     </a>
                 </li>
                 <li className="br-line"></li>
                 <li className="nav-item">
                     <a href="#contact" className="item-link scroll-link">
                         <i className="icon icon-send"></i>
-                        <p className="tool-tip text-caption">Contact</p>
+                        <p className="tool-tip text-caption">Contacto</p>
                     </a>
                 </li>
             </ul>
@@ -170,51 +170,51 @@ const PortadaIsak = () => {
             <li className="nav-item">
                 <a href="#home" className="item-link scroll-link">
                     <i className="icon icon-home"></i>
-                    <p className="tool-tip text-caption">Home</p>
+                    <p className="tool-tip text-caption">Inicio</p>
                 </a>
             </li>
             <li className="br-line"></li>
             <li className="nav-item">
                 <a href="#about" className="item-link scroll-link">
                     <i className="icon icon-user-circle"></i>
-                    <p className="tool-tip text-caption">About</p>
+                    <p className="tool-tip text-caption">Sobre mí</p>
                 </a>
             </li>
             <li className="nav-item">
                 <a href="#education" className="item-link scroll-link">
                     <i className="icon icon-edu"></i>
-                    <p className="tool-tip text-caption">Education</p>
+                    <p className="tool-tip text-caption">Formación</p>
                 </a>
             </li>
             <li className="nav-item">
                 <a href="#work" className="item-link scroll-link">
                     <i className="icon icon-high-light"></i>
-                    <p className="tool-tip text-caption">Work</p>
+                    <p className="tool-tip text-caption">Proyectos</p>
                 </a>
             </li>
             <li className="nav-item">
                 <a href="#service" className="item-link scroll-link">
                     <i className="icon icon-service"></i>
-                    <p className="tool-tip text-caption">Services</p>
+                    <p className="tool-tip text-caption">Servicios</p>
                 </a>
             </li>
             <li className="nav-item">
                 <a href="#tech" className="item-link scroll-link">
                     <i className="icon icon-tech-stack"></i>
-                    <p className="tool-tip text-caption">Tech</p>
+                    <p className="tool-tip text-caption">Tecnologías</p>
                 </a>
             </li>
             <li className="nav-item">
                 <a href="#testimonial" className="item-link scroll-link">
                     <i className="icon icon-tes"></i>
-                    <p className="tool-tip text-caption">Testimonials</p>
+                    <p className="tool-tip text-caption">Testimonios</p>
                 </a>
             </li>
             <li className="br-line"></li>
             <li className="nav-item">
                 <a href="#contact" className="item-link scroll-link">
                     <i className="icon icon-send"></i>
-                    <p className="tool-tip text-caption">Contact</p>
+                    <p className="tool-tip text-caption">Contacto</p>
                 </a>
             </li>
         </ul>
@@ -337,9 +337,9 @@ const PortadaIsak = () => {
                                     </div>
                                 </div>
                                 <h1 className="intro-title letter-space--2 split-text effect-blur-fade">
-                                    Construyo el
+                                    Construyo el{" "}
                                     <span className="">software</span><br />
-                                    <span className="type-2">y los agentes</span>
+                                    <span className="type-2">y los agentes</span>{" "}
                                     que tu negocio necesita
                                 </h1>
                                 <div className="intro-item">
@@ -398,42 +398,24 @@ const PortadaIsak = () => {
                                     <div className="infiniteSlide" data-clone="3">
                                         {/* Clone 1 */}
                                         <div className="image-brand">
-                                            <img className="image-switch" data-dark="assets/images/brand/brand-1_dark.svg" width="132" height="24" src="/assets/images/brand/brand-1.svg" alt="Image" />
+                                            <img className="image-switch" data-dark="assets/images/brand/smark7_dark.png" width="137" height="32" src="/assets/images/brand/smark7.png" alt="Smark7" />
                                         </div>
                                         <div className="image-brand">
-                                            <img className="image-switch" data-dark="assets/images/brand/brand-2_dark.svg" width="122" height="24" src="/assets/images/brand/brand-2.svg" alt="Image" />
-                                        </div>
-                                        <div className="image-brand">
-                                            <img className="image-switch" data-dark="assets/images/brand/brand-3_dark.svg" width="125" height="24" src="/assets/images/brand/brand-3.svg" alt="Image" />
-                                        </div>
-                                        <div className="image-brand">
-                                            <img className="image-switch" data-dark="assets/images/brand/brand-4_dark.svg" width="112" height="24" src="/assets/images/brand/brand-4.svg" alt="Image" />
+                                            <img className="image-switch" data-dark="assets/images/brand/uniremington_dark.svg" width="119" height="32" src="/assets/images/brand/uniremington.svg" alt="Uniremington" />
                                         </div>
                                         {/* Clone 2 */}
                                         <div className="image-brand">
-                                            <img className="image-switch" data-dark="assets/images/brand/brand-1_dark.svg" width="132" height="24" src="/assets/images/brand/brand-1.svg" alt="Image" />
+                                            <img className="image-switch" data-dark="assets/images/brand/smark7_dark.png" width="137" height="32" src="/assets/images/brand/smark7.png" alt="Smark7" />
                                         </div>
                                         <div className="image-brand">
-                                            <img className="image-switch" data-dark="assets/images/brand/brand-2_dark.svg" width="122" height="24" src="/assets/images/brand/brand-2.svg" alt="Image" />
-                                        </div>
-                                        <div className="image-brand">
-                                            <img className="image-switch" data-dark="assets/images/brand/brand-3_dark.svg" width="125" height="24" src="/assets/images/brand/brand-3.svg" alt="Image" />
-                                        </div>
-                                        <div className="image-brand">
-                                            <img className="image-switch" data-dark="assets/images/brand/brand-4_dark.svg" width="112" height="24" src="/assets/images/brand/brand-4.svg" alt="Image" />
+                                            <img className="image-switch" data-dark="assets/images/brand/uniremington_dark.svg" width="119" height="32" src="/assets/images/brand/uniremington.svg" alt="Uniremington" />
                                         </div>
                                         {/* Clone 3 */}
                                         <div className="image-brand">
-                                            <img className="image-switch" data-dark="assets/images/brand/brand-1_dark.svg" width="132" height="24" src="/assets/images/brand/brand-1.svg" alt="Image" />
+                                            <img className="image-switch" data-dark="assets/images/brand/smark7_dark.png" width="137" height="32" src="/assets/images/brand/smark7.png" alt="Smark7" />
                                         </div>
                                         <div className="image-brand">
-                                            <img className="image-switch" data-dark="assets/images/brand/brand-2_dark.svg" width="122" height="24" src="/assets/images/brand/brand-2.svg" alt="Image" />
-                                        </div>
-                                        <div className="image-brand">
-                                            <img className="image-switch" data-dark="assets/images/brand/brand-3_dark.svg" width="125" height="24" src="/assets/images/brand/brand-3.svg" alt="Image" />
-                                        </div>
-                                        <div className="image-brand">
-                                            <img className="image-switch" data-dark="assets/images/brand/brand-4_dark.svg" width="112" height="24" src="/assets/images/brand/brand-4.svg" alt="Image" />
+                                            <img className="image-switch" data-dark="assets/images/brand/uniremington_dark.svg" width="119" height="32" src="/assets/images/brand/uniremington.svg" alt="Uniremington" />
                                         </div>
                                     </div>
                                 </div>
@@ -461,7 +443,7 @@ const PortadaIsak = () => {
                                     esta lista está en producción, con usuarios reales usándolo.
                                 </p>
                                 <ul className="award-list">
-                                    <li className="award-item hover-cursor-img">
+                                    <li className="award-item">
                                         <div className="left">
                                             <h6 className="award_name letter-space--2 text-black-72">Uniremington</h6>
                                             <p className="award_desc text-black-56">Migración de WordPress a un stack propio</p>
@@ -469,11 +451,8 @@ const PortadaIsak = () => {
                                         <h6 className="award_year text-black-72">
                                             Node.js
                                         </h6>
-                                        <div className="award_img hover-image">
-                                            <img loading="lazy" width="158" height="224" src="/assets/images/section/award-1.jpg" alt="Uniremington" />
-                                        </div>
                                     </li>
-                                    <li className="award-item hover-cursor-img">
+                                    <li className="award-item">
                                         <div className="left">
                                             <h6 className="award_name letter-space--2 text-black-72">Scentual Bliss</h6>
                                             <p className="award_desc text-black-56">Tienda en línea con más de 150 fragancias</p>
@@ -481,11 +460,8 @@ const PortadaIsak = () => {
                                         <h6 className="award_year text-black-72">
                                             E-commerce
                                         </h6>
-                                        <div className="award_img hover-image">
-                                            <img loading="lazy" width="158" height="224" src="/assets/images/section/award-2.jpg" alt="Scentual Bliss" />
-                                        </div>
                                     </li>
-                                    <li className="award-item hover-cursor-img">
+                                    <li className="award-item">
                                         <div className="left">
                                             <h6 className="award_name letter-space--2 text-black-72">RemiTransfer</h6>
                                             <p className="award_desc text-black-56">Transferencia de archivos sin límite de tamaño</p>
@@ -493,11 +469,8 @@ const PortadaIsak = () => {
                                         <h6 className="award_year text-black-72">
                                             Interno
                                         </h6>
-                                        <div className="award_img hover-image">
-                                            <img loading="lazy" width="158" height="224" src="/assets/images/section/award-3.jpg" alt="RemiTransfer" />
-                                        </div>
                                     </li>
-                                    <li className="award-item hover-cursor-img">
+                                    <li className="award-item">
                                         <div className="left">
                                             <h6 className="award_name letter-space--2 text-black-72">Remi</h6>
                                             <p className="award_desc text-black-56">Asistente de orientación para estudiantes</p>
@@ -505,9 +478,6 @@ const PortadaIsak = () => {
                                         <h6 className="award_year text-black-72">
                                             Claude API
                                         </h6>
-                                        <div className="award_img hover-image">
-                                            <img loading="lazy" width="158" height="224" src="/assets/images/section/award-4.jpg" alt="Remi" />
-                                        </div>
                                     </li>
                                 </ul>
                             </div>
@@ -529,7 +499,7 @@ const PortadaIsak = () => {
                                         <div className="timeline-dot"></div>
                                         <div className="timeline-content">
                                             <div className="icon">
-                                                <img className="image-switch" data-dark="assets/images/logo/logo-4.svg" loading="lazy" width="32" height="32" src="/assets/images/logo/logo-3.svg" alt="Image" />
+                                                <img loading="lazy" width="32" height="32" src="/assets/images/brand/uniremington-seal.svg" alt="Uniremington" />
                                             </div>
                                             <p className="timeline-role fw-medium text-black-72">Desarrollador Full-Stack en
                                                 Uniremington</p>
@@ -546,7 +516,7 @@ const PortadaIsak = () => {
                                         <div className="timeline-dot"></div>
                                         <div className="timeline-content">
                                             <div className="icon">
-                                                <img className="image-switch" data-dark="assets/images/item/edu-2_dark.svg" width="29" height="32" src="/assets/images/item/edu-2.svg" alt="Image" />
+                                                <img className="image-switch" data-dark="assets/images/logo/logo-4.svg" loading="lazy" width="32" height="32" src="/assets/images/logo/logo-3.svg" alt="Andrés Contreras" />
                                             </div>
                                             <p className="timeline-role fw-medium text-black-72">Desarrollador independiente
                                                 </p>
@@ -593,12 +563,12 @@ const PortadaIsak = () => {
                                             <div className="wrap">
                                                 <div className="work-content">
                                                     <div className="w-image">
-                                                        <img loading="lazy" width="468" height="856" src="/assets/images/section/work-1.jpg" alt="Image" />
+                                                        <img loading="lazy" width="468" height="856" src="/assets/images/section/work-1-portrait.jpg" alt="Image" />
                                                     </div>
                                                     <div className="content">
                                                         <div className="content-top">
                                                             <div className="w-logo">
-                                                                <img loading="lazy" width="40" height="40" src="/assets/images/logo/logo-2.svg" alt="Image" />
+                                                                <img loading="lazy" width="40" height="40" src="/assets/images/brand/uniremington-seal.svg" alt="Uniremington" />
                                                             </div>
                                                             <h4 className="w-title letter-space--2 text-white-72">
                                                                 Uniremington
@@ -652,7 +622,7 @@ const PortadaIsak = () => {
                                                                         <i className="icon icon-arrow-right-top"></i>
                                                                     </span>
                                                                     <span className="text text-body-3 letter-space--05 fw-medium">
-                                                                        Let’s talk
+                                                                        Ver proyecto
                                                                     </span>
                                                                     <span className="ic-wrap">
                                                                         <i className="icon icon-arrow-right-top"></i>
@@ -676,12 +646,12 @@ const PortadaIsak = () => {
                                             <div className="wrap">
                                                 <div className="work-content">
                                                     <div className="w-image">
-                                                        <img loading="lazy" width="468" height="856" src="/assets/images/section/work-2.jpg" alt="Image" />
+                                                        <img loading="lazy" width="468" height="856" src="/assets/images/section/work-2-portrait.png" alt="Image" />
                                                     </div>
                                                     <div className="content">
                                                         <div className="content-top">
                                                             <div className="w-logo">
-                                                                <img loading="lazy" width="40" height="40" src="/assets/images/logo/logo-2.svg" alt="Image" />
+                                                                <img loading="lazy" width="29" height="40" src="/assets/images/brand/scentualbliss-icon.png" alt="Scentual Bliss" />
                                                             </div>
                                                             <h4 className="w-title letter-space--2 text-white-72">
                                                                 Scentual Bliss
@@ -734,7 +704,7 @@ const PortadaIsak = () => {
                                                                         <i className="icon icon-arrow-right-top"></i>
                                                                     </span>
                                                                     <span className="text text-body-3 letter-space--05 fw-medium">
-                                                                        Let’s talk
+                                                                        Ver proyecto
                                                                     </span>
                                                                     <span className="ic-wrap">
                                                                         <i className="icon icon-arrow-right-top"></i>
@@ -763,7 +733,7 @@ const PortadaIsak = () => {
                                                     <div className="content">
                                                         <div className="content-top">
                                                             <div className="w-logo">
-                                                                <img loading="lazy" width="40" height="40" src="/assets/images/logo/logo-2.svg" alt="Image" />
+                                                                <img loading="lazy" width="40" height="40" src="/assets/images/brand/uniremington-seal.svg" alt="Uniremington" />
                                                             </div>
                                                             <h4 className="w-title letter-space--2 text-white-72">
                                                                 RemiTransfer
@@ -816,7 +786,7 @@ const PortadaIsak = () => {
                                                                         <i className="icon icon-arrow-right-top"></i>
                                                                     </span>
                                                                     <span className="text text-body-3 letter-space--05 fw-medium">
-                                                                        Let’s talk
+                                                                        Ver proyecto
                                                                     </span>
                                                                     <span className="ic-wrap">
                                                                         <i className="icon icon-arrow-right-top"></i>
@@ -951,10 +921,10 @@ const PortadaIsak = () => {
                                                         Plataformas internas
                                                     </a>
                                                     <a href="#" className="tag-item text-body-3 fw-medium text-black-72 link">
-                                                        Visual Systems
+                                                        Paneles de gestión
                                                     </a>
                                                     <a href="#" className="tag-item text-body-3 fw-medium text-black-72 link">
-                                                        Brand Guidelines
+                                                        Migraciones
                                                     </a>
                                                 </div>
                                                 <p className="service-desc text-black-56">

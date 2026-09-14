@@ -203,7 +203,7 @@
                     }
                 };
 
-                if (window.loaded) {
+                if (window.loaded || document.readyState === "complete") {
                     _onload();
                 } else {
                     $(window).on("load", _onload);
