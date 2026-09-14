@@ -72,11 +72,18 @@ const CORREO_CONTACTO = "contreraslopezandresdavid@gmail.com";
  */
 const CERTIFICACIONES = [
   {
+    id: "udemy-claude-code",
+    titulo: "Master en Claude Code: crea apps con IA y Vibe Coding",
+    emisor: "Udemy",
+    detalle: "10 horas · 2026",
+    imagen: "/assets/images/certificaciones/udemy-claude-code.jpg",
+  },
+  {
     id: "unicordoba-nube",
     titulo: "Desarrollo de Aplicaciones Orientadas a la Nube",
     emisor: "Universidad de Córdoba",
     detalle: "Diplomado · 120 horas · 2022",
-    imagen: "/assets/images/certificaciones/unicordoba-nube.png",
+    imagen: "/assets/images/certificaciones/unicordoba-nube.jpg",
   },
 ];
 
