@@ -1190,19 +1190,18 @@ const PortadaIsak = () => {
                                 </div>
                                 <div className="br-line"></div>
                                 <div className="foot-inner">
-                                    <p className="h1 font-2 letter-space--2 text-black-72 effectFade fadeUp no-div">contreras.dev</p>
-                                    <a href="#home" className="f-logo effectFade fadeZoom">
+                                    <p className="h1 font-2 letter-space--2 text-black-72">contreras.dev</p>
+                                    <a href="#home" className="f-logo">
                                         <div className="logo">
                                             <img className="image-switch" data-light="assets/images/logo/logo.svg" data-dark="assets/images/logo/logo-2.svg" loading="lazy" width="32" height="32" src="/assets/images/logo/logo.svg" alt="Image" />
                                         </div>
                                     </a>
                                 </div>
                                 <div className="foot-bottom">
-                                    <p className="text-nocopy text-black-56 effectFade fadeUp no-div">
+                                    <p className="text-nocopy text-black-56">
                                         Todos los derechos reservados <br />
                                         © 2026 Andrés Contreras
                                     </p>
-                                    <p className="h1 font-2 letter-space--2 text-black-72 effectFade fadeUp no-div">contreras.dev</p>
                                 </div>
                             </div>
                             {/* /Footer */}
