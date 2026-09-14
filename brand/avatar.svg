@@ -1,7 +1,8 @@
 <svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="512" height="512" fill="#0A0A0A"/>
-<g transform="translate(81,81) scale(8.75)">
-<path d="M20 3L37 37L27.5 37L20 21L12.5 37L3 37Z" fill="#00DE51"/>
-<path opacity="0.4" d="M8 27L32 27L34.75 32.5L5.25 32.5Z" fill="#FFFFFF"/>
+<g transform="translate(107.6,107.6) scale(7.42)">
+<path opacity="0.4" d="M0 14L26 40L15 40L0 25Z" fill="#FFFFFF"/>
+<path opacity="0.4" d="M0 31L9 40L0 40Z" fill="#FFFFFF"/>
+<path d="M26 1L40 32L31 32L26 20L21 32L12 32Z" fill="#00DE51"/>
 </g>
 </svg>

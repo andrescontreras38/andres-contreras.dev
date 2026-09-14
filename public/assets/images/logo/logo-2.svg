@@ -1,4 +1,5 @@
 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M20 3L37 37L27.5 37L20 21L12.5 37L3 37Z" fill="#00DE51"/>
-<path opacity="0.4" d="M8 27L32 27L34.75 32.5L5.25 32.5Z" fill="#FFFFFF"/>
+<path opacity="0.4" d="M0 14L26 40L15 40L0 25Z" fill="#FFFFFF"/>
+<path opacity="0.4" d="M0 31L9 40L0 40Z" fill="#FFFFFF"/>
+<path d="M26 1L40 32L31 32L26 20L21 32L12 32Z" fill="#00DE51"/>
 </svg>
