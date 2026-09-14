@@ -7695,6 +7695,19 @@ button.animate-btn::after,
   fill: var(--black-56);
   font-size: 15px;
 }
+.flujo__etiqueta {
+  fill: var(--black-72);
+  font-size: 15px;
+}
+/* La apilada usa un viewBox mas estrecho, asi que su texto necesita menos
+   tamano en unidades propias para acabar con el mismo tamano en pantalla. */
+.flujo__alto .flujo__etiqueta,
+.flujo__alto .flujo__salidaTexto {
+  font-size: 17px;
+}
+.flujo__alto .flujo__pie {
+  font-size: 16px;
+}
 .flujo__salidaTexto {
   fill: #071409;
   font-size: 15px;
@@ -7747,18 +7760,6 @@ button.animate-btn::after,
 .flujo__salida {
   fill: var(--primary);
 }
-@media (max-width: 767px) {
-  /* Al encoger el viewBox el texto se vuelve ilegible: se agranda en unidades
-     del propio SVG para compensar. */
-  .flujo__pie {
-    font-size: 24px;
-  }
-  /* Mas pequeno que el resto a proposito: a 24px el rotulo se salia de su
-     pildora, cuyo ancho esta fijado en el propio SVG. */
-  .flujo__salidaTexto {
-    font-size: 19px;
-  }
-}
 @media (prefers-reduced-motion: reduce) {
   .flujo__linea,
   .flujo__origen,
@@ -7804,5 +7805,26 @@ button.animate-btn::after,
 @media (prefers-reduced-motion: reduce) {
   .body-background::after {
     animation: none;
+  }
+}
+
+/*------------ Ritmo vertical ---------------- */
+/* La plantilla dejaba 72px arriba y abajo en cada seccion, o sea 144px de aire
+   entre una y la siguiente, ocho veces. Se aprieta el compas sin que las
+   secciones lleguen a tocarse. */
+.flat-spacing {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+@media (max-width: 991px) {
+  .flat-spacing {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+@media (max-width: 767px) {
+  .flat-spacing {
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
 }
