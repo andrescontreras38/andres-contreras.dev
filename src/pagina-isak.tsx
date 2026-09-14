@@ -219,7 +219,7 @@ const PortadaIsak = () => {
             </li>
         </ul>
         <div className="nav-bottom">
-            <a href="#" className="tf-btn-icon go-top">
+            <a href="#home" className="tf-btn-icon go-top">
                 <i className="icon icon-arrow-top"></i>
             </a>
         </div>
@@ -296,7 +296,7 @@ const PortadaIsak = () => {
                     </p>
                     <div className="br-line"></div>
                     <div className="action-group">
-                        <a href="#" className="tf-btn-action">
+                        <a href="#contact" className="tf-btn-action scroll-link">
                             <span className="ic-wrap">
                                 <i className="icon icon-arrow-right-top"></i>
                             </span>
@@ -1006,13 +1006,16 @@ const PortadaIsak = () => {
                                 <form className="form-contact" id="contactform" action="./assets/contact/contact-process.php" method="post" noValidate>
                                     <div className="form-content effectFade fadeUp no-div">
                                         <fieldset className="field-ip">
-                                            <input type="text" name="name" id="name" placeholder="Tu nombre *" required />
+                                            <label htmlFor="name" className="visually-hidden">Tu nombre</label>
+                                            <input type="text" name="name" id="name" autoComplete="name" placeholder="Tu nombre *" required data-msg-required="Dime cómo te llamas" />
                                         </fieldset>
                                         <fieldset className="field-ip">
-                                            <input type="email" name="email" id="email" placeholder="Tu correo *" required />
+                                            <label htmlFor="email" className="visually-hidden">Tu correo</label>
+                                            <input type="email" name="email" id="email" autoComplete="email" placeholder="Tu correo *" required data-msg-required="Necesito un correo para responderte" data-msg-email="Ese correo no parece válido" />
                                         </fieldset>
                                         <fieldset className="field-ip">
-                                            <input type="text" name="message" id="message" placeholder="De qué se trata el proyecto" />
+                                            <label htmlFor="message" className="visually-hidden">Cuéntame del proyecto</label>
+                                            <textarea name="message" id="message" rows={4} placeholder="Qué tienes hoy, qué quieres lograr y para cuándo"></textarea>
                                         </fieldset>
                                     </div>
                                     <div className="form-action effectFade fadeUp no-div">
@@ -1047,7 +1050,7 @@ const PortadaIsak = () => {
                                 <div className="br-line"></div>
                                 <div className="foot-inner">
                                     <p className="h1 font-2 letter-space--2 text-black-72 effectFade fadeUp no-div">contreras.dev</p>
-                                    <a href="#" className="f-logo effectFade fadeZoom">
+                                    <a href="#home" className="f-logo effectFade fadeZoom">
                                         <div className="logo">
                                             <img className="image-switch" data-light="assets/images/logo/logo.svg" data-dark="assets/images/logo/logo-2.svg" loading="lazy" width="32" height="32" src="/assets/images/logo/logo.svg" alt="Image" />
                                         </div>

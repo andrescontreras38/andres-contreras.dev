@@ -415,10 +415,10 @@
                         success: function (msg) {
                             var result, cls;
                             if (msg === "Success") {
-                                result = "Email Sent Successfully. Thank you, Your application is accepted - we will contact you shortly";
+                                result = "Mensaje enviado. Gracias por escribir, te respondo lo antes posible.";
                                 cls = "msg-success";
                             } else {
-                                result = "Error sending email.";
+                                result = "No se pudo enviar el mensaje. Escríbeme directamente por correo.";
                                 cls = "msg-error";
                             }
                             $form.prepend(
@@ -429,6 +429,16 @@
                             );
 
                             $form.find(":input").not(".submit").val("");
+                        },
+                        error: function () {
+                            // Sin esto un fallo del envio era mudo: se quitaba el
+                            // spinner y el usuario se quedaba sin saber que paso.
+                            $form.prepend(
+                                $("<div />", {
+                                    class: "flat-alert msg-error",
+                                    text: "No se pudo enviar el mensaje. Escríbeme directamente por correo.",
+                                }).append($('<a class="close" href="#"><i class="icon icon-close2"></i></a>'))
+                            );
                         },
                         complete: function (xhr, status, error_thrown) {
                             $form.find(".loading").remove();
