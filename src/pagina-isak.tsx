@@ -810,7 +810,7 @@ const PortadaIsak = () => {
                             <div id="service" className="section-service flat-spacing">
                                 <div className="sect-tag text-caption fw-medium effectFade fadeUp no-div mb-0">
                                     <i className="icon icon-service"></i>
-                                    Services
+                                    Servicios
                                 </div>
                                 <div className="" id="accordion-service">
                                     <div className="service-accordion_item scrolling-effect effectBottom" role="presentation">
@@ -822,28 +822,16 @@ const PortadaIsak = () => {
                                         </div>
                                         <div id="service-1" className="collapse show" data-bs-parent="#accordion-service">
                                             <div className="accordion-content">
-                                                <div className="tf-grid-layout sm-col-2">
-                                                    <div className="service-image">
-                                                        <div className="wrap_image">
-                                                            <img width="340" height="206" src="/assets/images/section/service-1.jpg" alt="Image" />
-                                                        </div>
-                                                    </div>
-                                                    <div className="service-image">
-                                                        <div className="wrap_image">
-                                                            <img width="340" height="206" src="/assets/images/section/service-2.jpg" alt="Image" />
-                                                        </div>
-                                                    </div>
-                                                </div>
                                                 <div className="service-tag">
-                                                    <a href="#" className="tag-item text-body-3 fw-medium text-black-72 link">
+                                                    <span className="tag-item text-body-3 fw-medium text-black-72">
                                                         Integraciones por API
-                                                    </a>
-                                                    <a href="#" className="tag-item text-body-3 fw-medium text-black-72 link">
+                                                    </span>
+                                                    <span className="tag-item text-body-3 fw-medium text-black-72">
                                                         Sincronización de datos
-                                                    </a>
-                                                    <a href="#" className="tag-item text-body-3 fw-medium text-black-72 link">
+                                                    </span>
+                                                    <span className="tag-item text-body-3 fw-medium text-black-72">
                                                         Tareas programadas
-                                                    </a>
+                                                    </span>
                                                 </div>
                                                 <p className="service-desc text-black-56">
                                                     Conecto por API los sistemas que hoy no se hablan y le quito a tu
@@ -863,28 +851,16 @@ const PortadaIsak = () => {
                                         </div>
                                         <div id="service-2" className="collapse" data-bs-parent="#accordion-service">
                                             <div className="accordion-content">
-                                                <div className="tf-grid-layout sm-col-2">
-                                                    <div className="service-image">
-                                                        <div className="wrap_image">
-                                                            <img width="340" height="206" src="/assets/images/section/service-3.jpg" alt="Image" />
-                                                        </div>
-                                                    </div>
-                                                    <div className="service-image">
-                                                        <div className="wrap_image">
-                                                            <img width="340" height="206" src="/assets/images/section/service-4.jpg" alt="Image" />
-                                                        </div>
-                                                    </div>
-                                                </div>
                                                 <div className="service-tag">
-                                                    <a href="#" className="tag-item text-body-3 fw-medium text-black-72 link">
+                                                    <span className="tag-item text-body-3 fw-medium text-black-72">
                                                         API de Claude
-                                                    </a>
-                                                    <a href="#" className="tag-item text-body-3 fw-medium text-black-72 link">
+                                                    </span>
+                                                    <span className="tag-item text-body-3 fw-medium text-black-72">
                                                         Herramientas propias
-                                                    </a>
-                                                    <a href="#" className="tag-item text-body-3 fw-medium text-black-72 link">
+                                                    </span>
+                                                    <span className="tag-item text-body-3 fw-medium text-black-72">
                                                         Contexto del negocio
-                                                    </a>
+                                                    </span>
                                                 </div>
                                                 <p className="service-desc text-black-56">
                                                     Agentes que leen tus datos, deciden y actúan sobre tus propios
@@ -904,28 +880,16 @@ const PortadaIsak = () => {
                                         </div>
                                         <div id="service-3" className="collapse" data-bs-parent="#accordion-service">
                                             <div className="accordion-content">
-                                                <div className="tf-grid-layout sm-col-2">
-                                                    <div className="service-image">
-                                                        <div className="wrap_image">
-                                                            <img width="340" height="206" src="/assets/images/section/service-5.jpg" alt="Image" />
-                                                        </div>
-                                                    </div>
-                                                    <div className="service-image">
-                                                        <div className="wrap_image">
-                                                            <img width="340" height="206" src="/assets/images/section/service-6.jpg" alt="Image" />
-                                                        </div>
-                                                    </div>
-                                                </div>
                                                 <div className="service-tag">
-                                                    <a href="#" className="tag-item text-body-3 fw-medium text-black-72 link">
+                                                    <span className="tag-item text-body-3 fw-medium text-black-72">
                                                         Plataformas internas
-                                                    </a>
-                                                    <a href="#" className="tag-item text-body-3 fw-medium text-black-72 link">
+                                                    </span>
+                                                    <span className="tag-item text-body-3 fw-medium text-black-72">
                                                         Paneles de gestión
-                                                    </a>
-                                                    <a href="#" className="tag-item text-body-3 fw-medium text-black-72 link">
+                                                    </span>
+                                                    <span className="tag-item text-body-3 fw-medium text-black-72">
                                                         Migraciones
-                                                    </a>
+                                                    </span>
                                                 </div>
                                                 <p className="service-desc text-black-56">
                                                     Plataformas completas desde cero: paneles de gestión, aplicaciones
