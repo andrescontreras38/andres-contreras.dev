@@ -456,23 +456,29 @@ const PortadaIsak = () => {
                                     <div
                                         className="flujo"
                                         role="img"
-                                        aria-label="Una tienda, un ERP y un correo conectados a un agente que devuelve la tarea resuelta"
+                                        aria-label="Varios sistemas conectados a un agente que devuelve la tarea resuelta"
                                     >
                                         <svg viewBox="0 0 708 293" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            {["Tienda", "ERP", "Correo"].map((nombre, i) => {
-                                                const y = 62 + i * 84;
-                                                return (
-                                                    <g key={nombre}>
-                                                        <rect className="flujo__chip" x="6" y={y - 21} width="132" height="42" rx="21" />
-                                                        <text className="flujo__etiqueta" x="72" y={y + 5} textAnchor="middle">{nombre}</text>
-                                                        <path className="flujo__linea" d={`M138 ${y} C 210 ${y}, 250 146, 300 146`} />
-                                                    </g>
-                                                );
-                                            })}
-                                            <path className="flujo__linea" d="M412 146 C 470 146, 490 146, 548 146" />
+                                            {[62, 146, 230].map((y, i) => (
+                                                <g key={y} className="flujo__origen" style={{ animationDelay: `${i * 0.45}s` }}>
+                                                    <rect className="flujo__chip" x="14" y={y - 20} width="112" height="40" rx="20" />
+                                                    <circle className="flujo__punto" cx="46" cy={y} r="5" />
+                                                    <rect className="flujo__barra" x="62" y={y - 5} width="48" height="10" rx="5" />
+                                                    <path className="flujo__linea" d={`M126 ${y} C 200 ${y}, 248 146, 296 146`} />
+                                                </g>
+                                            ))}
+                                            <text className="flujo__pie" x="70" y="288" textAnchor="middle">tus sistemas</text>
+
+                                            <circle className="flujo__onda" cx="356" cy="146" r="56" />
                                             <circle className="flujo__halo" cx="356" cy="146" r="56" />
-                                            <path className="flujo__marca" d="M340 160 L356 134 L372 160" />
-                                            <text className="flujo__pie" x="356" y="230" textAnchor="middle">agente</text>
+                                            <g className="flujo__marca" transform="translate(328,118) scale(1.4)">
+                                                <path className="flujo__marcaCuerpo" d="M27 2L40 32L33.5 32L27 17L10.6 40L0 40Z" />
+                                                <path className="flujo__marcaRanura" d="M13.1 21.56L20.18 26.59L18.68 28.71L11.6 23.68Z" />
+                                                <path className="flujo__marcaRanura" d="M7.31 29.71L14.39 34.74L12.89 36.86L5.81 31.83Z" />
+                                            </g>
+                                            <text className="flujo__pie" x="356" y="288" textAnchor="middle">agente</text>
+
+                                            <path className="flujo__linea" d="M416 146 C 470 146, 500 146, 548 146" />
                                             <rect className="flujo__salida" x="548" y="124" width="154" height="44" rx="22" />
                                             <text className="flujo__salidaTexto" x="625" y="151" textAnchor="middle">tarea resuelta</text>
                                         </svg>

@@ -7685,17 +7685,20 @@ button.animate-btn::after,
   fill: var(--black-6);
   stroke: var(--black-8);
 }
-.flujo__etiqueta,
-.flujo__salidaTexto {
-  font-size: 15px;
-  font-weight: 500;
+.flujo__punto {
+  fill: var(--primary);
 }
-.flujo__etiqueta {
-  fill: var(--black-72);
+.flujo__barra {
+  fill: var(--black-15);
 }
 .flujo__pie {
   fill: var(--black-56);
-  font-size: 14px;
+  font-size: 15px;
+}
+.flujo__salidaTexto {
+  fill: #071409;
+  font-size: 15px;
+  font-weight: 500;
 }
 .flujo__linea {
   fill: none;
@@ -7709,28 +7712,45 @@ button.animate-btn::after,
   from { stroke-dashoffset: 90; }
   to { stroke-dashoffset: 0; }
 }
+/* Cada origen late por turno, como si fueran mandando trabajo. */
+.flujo__origen {
+  animation: flujo-late 2.7s ease-in-out infinite;
+}
+@keyframes flujo-late {
+  0%, 70%, 100% { opacity: 0.55; }
+  22% { opacity: 1; }
+}
 .flujo__halo {
   fill: rgba(0, 222, 81, 0.1);
   stroke: var(--primary);
   stroke-width: 2;
 }
-.flujo__marca {
+/* Onda que sale del agente cada vez que resuelve. */
+.flujo__onda {
   fill: none;
   stroke: var(--primary);
-  stroke-width: 7;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  stroke-width: 2;
+  transform-origin: 356px 146px;
+  animation: flujo-onda 2.7s ease-out infinite;
+}
+@keyframes flujo-onda {
+  0% { transform: scale(1); opacity: 0.5; }
+  70%, 100% { transform: scale(1.55); opacity: 0; }
+}
+.flujo__marcaCuerpo {
+  fill: var(--primary);
+}
+.flujo__marcaRanura {
+  fill: #ffffff;
+  fill-opacity: 0.4;
 }
 .flujo__salida {
   fill: var(--primary);
 }
-.flujo__salidaTexto {
-  fill: #071409;
-}
 @media (max-width: 767px) {
   /* Al encoger el viewBox el texto se vuelve ilegible: se agranda en unidades
      del propio SVG para compensar. */
-  .flujo__etiqueta {
+  .flujo__pie {
     font-size: 24px;
   }
   /* Mas pequeno que el resto a proposito: a 24px el rotulo se salia de su
@@ -7738,12 +7758,11 @@ button.animate-btn::after,
   .flujo__salidaTexto {
     font-size: 19px;
   }
-  .flujo__pie {
-    font-size: 22px;
-  }
 }
 @media (prefers-reduced-motion: reduce) {
-  .flujo__linea {
+  .flujo__linea,
+  .flujo__origen,
+  .flujo__onda {
     animation: none;
   }
 }
@@ -7752,4 +7771,38 @@ button.animate-btn::after,
    caja, asi que ese margen negativo solapaba las cifras. */
 .section-intro .intro-item {
   margin-bottom: 0;
+}
+
+/*------------ Fondo con movimiento ---------------- */
+/* La plantilla dejaba aqui un degradado plano: sus variantes con video estan
+   desactivadas por CSS. Esto anade textura viva sin pedir un solo byte extra:
+   una rejilla tenue que se desplaza y dos halos del verde de marca que derivan
+   despacio. Va en la capa de fondo, que ya es fixed y no recibe puntero. */
+.body-background::after {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  pointer-events: none;
+  background-image:
+    radial-gradient(38% 42% at 18% 26%, rgba(0, 222, 81, 0.16), transparent 60%),
+    radial-gradient(34% 38% at 82% 72%, rgba(0, 222, 81, 0.12), transparent 62%),
+    linear-gradient(var(--black-6) 1px, transparent 1px),
+    linear-gradient(90deg, var(--black-6) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 64px 64px, 64px 64px;
+  animation: fondo-deriva 34s ease-in-out infinite alternate,
+             fondo-rejilla 18s linear infinite;
+  will-change: transform, background-position;
+}
+@keyframes fondo-deriva {
+  from { transform: translate3d(-2%, -1%, 0) scale(1); }
+  to { transform: translate3d(2%, 1.5%, 0) scale(1.06); }
+}
+@keyframes fondo-rejilla {
+  from { background-position: 0 0, 0 0, 0 0, 0 0; }
+  to { background-position: 0 0, 0 0, 64px 64px, 64px 64px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .body-background::after {
+    animation: none;
+  }
 }
