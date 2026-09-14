@@ -62,6 +62,9 @@ function cargarEnSerie(archivos: string[]): Promise<void> {
   );
 }
 
+/** Direccion real de contacto: el dominio del sitio aun no recibe correo. */
+const CORREO_CONTACTO = "contreraslopezandresdavid@gmail.com";
+
 const PortadaIsak = () => {
   useEffect(() => {
     cargarEnSerie(SCRIPTS);
@@ -1003,7 +1006,10 @@ const PortadaIsak = () => {
                                     quieres lograr y para cuándo. <br className="d-none d-lg-block" />
                                     Entre más contexto, mejor te respondo
                                 </h4>
-                                <form className="form-contact" id="contactform" action="./assets/contact/contact-process.php" method="post" noValidate>
+                                <form className="form-contact" id="contactform" action={`https://formsubmit.co/ajax/${CORREO_CONTACTO}`} method="post" noValidate>
+                                    <input type="hidden" name="_subject" value="Nuevo mensaje desde andres-contreras.dev" />
+                                    <input type="hidden" name="_template" value="table" />
+                                    <input type="hidden" name="_captcha" value="false" />
                                     <div className="form-content effectFade fadeUp no-div">
                                         <fieldset className="field-ip">
                                             <label htmlFor="name" className="visually-hidden">Tu nombre</label>
@@ -1026,8 +1032,8 @@ const PortadaIsak = () => {
                                                 </span>
                                             </button>
                                         </div>
-                                        <a href="mailto:hola@contreras.dev" className="text-body-1 link letter-space--2 text-black-72">
-                                            hola@contreras.dev
+                                        <a href={`mailto:${CORREO_CONTACTO}`} className="text-body-1 link letter-space--2 text-black-72">
+                                            {CORREO_CONTACTO}
                                         </a>
                                     </div>
                                 </form>

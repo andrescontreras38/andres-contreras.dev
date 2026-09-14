@@ -414,7 +414,10 @@
                         },
                         success: function (msg) {
                             var result, cls;
-                            if (msg === "Success") {
+                            // FormSubmit responde un objeto JSON; la plantilla
+                            // original esperaba la cadena "Success".
+                            var ok = msg === "Success" || (msg && (msg.success === true || msg.success === "true"));
+                            if (ok) {
                                 result = "Mensaje enviado. Gracias por escribir, te respondo lo antes posible.";
                                 cls = "msg-success";
                             } else {
@@ -428,7 +431,13 @@
                                 }).append($('<a class="close" href="#"><i class="icon icon-close2"></i></a>'))
                             );
 
-                            $form.find(":input").not(".submit").val("");
+                            // Solo se vacia si de verdad se envio: antes se
+                            // borraba tambien al fallar y el visitante perdia lo
+                            // que habia escrito. Los hidden se conservan porque
+                            // configuran el envio.
+                            if (ok) {
+                                $form.find(":input").not(".submit").not("[type=hidden]").val("");
+                            }
                         },
                         error: function () {
                             // Sin esto un fallo del envio era mudo: se quitaba el
