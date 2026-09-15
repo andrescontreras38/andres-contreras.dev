@@ -422,7 +422,11 @@ const PortadaIsak = () => {
                                 <i className="icon icon-arrow-right-top"></i>
                             </span>
                         </a>
-                        <a href="#" className="action-down">
+                        <a
+                            href="/assets/andres-contreras-hoja-de-vida.pdf"
+                            download="Andres Contreras - Hoja de vida.pdf"
+                            className="action-down"
+                        >
                             <i className="icon icon-download"></i>
                             <span className="text-body-3">
                                 Descargar CV

@@ -7833,3 +7833,9 @@ button.animate-btn::after,
     padding-bottom: 30px;
   }
 }
+.flat-alert__accion {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  white-space: nowrap;
+}

@@ -1,0 +1,147 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Andrés Contreras — Hoja de vida</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+    color: #15181c;
+    font-size: 10.2pt;
+    line-height: 1.5;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .hoja { width: 210mm; height: 296mm; padding: 14mm 16mm; overflow: hidden; }
+
+  header { display: flex; align-items: flex-start; gap: 14px; padding-bottom: 13px; border-bottom: 2px solid #15181c; }
+  .marca { width: 34px; height: 34px; flex: none; margin-top: 2px; }
+  h1 { font-size: 21pt; letter-spacing: -0.5px; line-height: 1.1; }
+  .cargo { font-size: 10.5pt; color: #4b5563; margin-top: 2px; }
+  .contacto { margin-left: auto; text-align: right; font-size: 9pt; color: #4b5563; line-height: 1.7; }
+  .contacto a { color: #15181c; text-decoration: none; }
+  .contacto strong { color: #00a83d; }
+
+  .resumen { margin: 13px 0 4px; font-size: 10.4pt; }
+
+  h2 {
+    font-size: 8.4pt; text-transform: uppercase; letter-spacing: 0.12em;
+    color: #00a83d; margin: 16px 0 8px; padding-bottom: 4px; border-bottom: 1px solid #e3e6ea;
+  }
+  .fila { display: flex; gap: 16px; margin-bottom: 11px; }
+  .fecha { width: 74px; flex: none; font-size: 8.6pt; color: #6b7280; padding-top: 2px; }
+  .puesto { font-weight: 600; font-size: 10.6pt; }
+  .donde { color: #6b7280; font-size: 9.4pt; margin-bottom: 3px; }
+  ul { margin: 3px 0 0 15px; }
+  li { margin-bottom: 2px; }
+
+  .dos { display: grid; grid-template-columns: 1fr 1fr; gap: 0 26px; }
+  .proyecto { margin-bottom: 9px; }
+  .proyecto b { font-size: 10.2pt; }
+  .proyecto span { display: block; color: #4b5563; font-size: 9.3pt; }
+
+  .stack p { margin-bottom: 5px; }
+  .stack b { display: inline-block; min-width: 96px; }
+  .pie { margin-top: 18px; padding-top: 9px; border-top: 1px solid #e3e6ea; font-size: 8.4pt; color: #9aa1a9; }
+</style>
+
+<div class="hoja">
+  <header>
+    <svg class="marca" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M27 2L40 32L33.5 32L27 17L10.6 40L0 40Z" fill="#00a83d"/>
+      <path opacity="0.42" d="M13.1 21.56L20.18 26.59L18.68 28.71L11.6 23.68Z" fill="#fff"/>
+      <path opacity="0.42" d="M7.31 29.71L14.39 34.74L12.89 36.86L5.81 31.83Z" fill="#fff"/>
+    </svg>
+    <div>
+      <h1>Andrés Contreras</h1>
+      <div class="cargo">Desarrollador Full-Stack · IA aplicada</div>
+    </div>
+    <div class="contacto">
+      <div><a href="mailto:contreraslopezandresdavid@gmail.com">contreraslopezandresdavid@gmail.com</a></div>
+      <div>Medellín, Colombia</div>
+      <div><strong>Disponible para trabajar</strong></div>
+    </div>
+  </header>
+
+  <p class="resumen">
+    Automatizo procesos, construyo agentes con IA y desarrollo el software que un negocio
+    necesita. No llego preguntando qué tecnología quiero usar: llego preguntando qué problema
+    hay que resolver. Todo lo que aparece aquí está en producción, con usuarios reales.
+  </p>
+
+  <h2>Experiencia</h2>
+
+  <div class="fila">
+    <div class="fecha">2026 — hoy</div>
+    <div>
+      <div class="puesto">Desarrollador Full-Stack</div>
+      <div class="donde">Uniremington · Corporación Universitaria Remington</div>
+      <ul>
+        <li>Migré el sitio institucional de WordPress a un stack propio en Node.js sin perder contenido ni posicionamiento.</li>
+        <li>Construí herramientas internas para los equipos: transferencia de archivos sin límite de tamaño entre sedes.</li>
+        <li>Desarrollé un asistente de orientación para estudiantes sobre la API de Claude.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="fila">
+    <div class="fecha">2025 — 2026</div>
+    <div>
+      <div class="puesto">Desarrollador independiente</div>
+      <div class="donde">Agencias de Bogotá y clientes propios</div>
+      <ul>
+        <li>Tiendas en línea a medida, integraciones entre sistemas y automatizaciones.</li>
+        <li>De ahí salió Scentual Bliss, una tienda con más de 150 fragancias en producción.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="fila">
+    <div class="fecha">2023 — 2024</div>
+    <div>
+      <div class="puesto">WebMaster · Analista eCommerce</div>
+      <div class="donde">Smark7 S.A.S. · Barranquilla</div>
+      <ul>
+        <li>Gestión de tiendas sobre Shopify, VTEX y WordPress; seguimiento con GA4 y reportes de KPIs.</li>
+        <li>Optimización de la experiencia de compra y pruebas A/B para mejorar conversión.</li>
+        <li>Apoyo en marketing digital y posicionamiento SEO.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Proyectos en producción</h2>
+  <div class="dos">
+    <div class="proyecto"><b>Uniremington</b><span>Migración de WordPress a Node.js, sin perder SEO.</span></div>
+    <div class="proyecto"><b>Scentual Bliss</b><span>Tienda en línea completa: catálogo, checkout y correos.</span></div>
+    <div class="proyecto"><b>RemiTransfer</b><span>Transferencia interna de archivos sin límite de tamaño.</span></div>
+    <div class="proyecto"><b>Remi</b><span>Asistente de orientación para estudiantes con la API de Claude.</span></div>
+  </div>
+
+  <h2>Stack</h2>
+  <div class="stack">
+    <p><b>Front-end</b> React · Next.js</p>
+    <p><b>Servidor</b> Node.js · PHP · Python · APIs e integraciones</p>
+    <p><b>Datos e IA</b> Supabase · API de Claude · agentes con herramientas propias</p>
+    <p><b>Analítica</b> Google Analytics 4 · Tag Manager · Semrush · SEO</p>
+  </div>
+
+  <div class="dos">
+    <div>
+      <h2>Formación</h2>
+      <div class="fila">
+        <div class="fecha">2018 — 2023</div>
+        <div>
+          <div class="puesto" style="font-size:10.2pt">Ingeniería de Sistemas</div>
+          <div class="donde">Universidad de Córdoba</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h2>Certificaciones</h2>
+      <div class="proyecto"><b>Master en Claude Code</b><span>Udemy · 10 horas · 2026</span></div>
+      <div class="proyecto"><b>Desarrollo de Aplicaciones Orientadas a la Nube</b><span>Universidad de Córdoba · Diplomado, 120 horas · 2022</span></div>
+    </div>
+  </div>
+
+  <div class="pie">Referencias disponibles a solicitud.</div>
+</div>

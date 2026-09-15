@@ -397,6 +397,37 @@
 
     /* Contact Form
     ---------------------------------------------------------- */
+    /* Si el envio falla, el visitante no deberia quedarse sin via: se le ofrece
+       un enlace que abre su cliente de correo con el mensaje ya escrito. */
+    var enlaceDeRespaldo = function ($form) {
+        var destino = $form.find("a[href^='mailto:']").attr("href") || "";
+        destino = destino.replace("mailto:", "").split("?")[0];
+        if (!destino) return null;
+        var salto = String.fromCharCode(10);
+        var cuerpo =
+            "Nombre: " + ($form.find("#name").val() || "") + salto +
+            "Correo: " + ($form.find("#email").val() || "") + salto + salto +
+            ($form.find("#message").val() || "");
+        return (
+            "mailto:" + destino +
+            "?subject=" + encodeURIComponent("Mensaje desde andres-contreras.dev") +
+            "&body=" + encodeURIComponent(cuerpo)
+        );
+    };
+
+    var avisoDeFallo = function ($form) {
+        var enlace = enlaceDeRespaldo($form);
+        var $aviso = $("<div />", { class: "flat-alert msg-error" }).text(
+            enlace ? "No se pudo enviar. " : "No se pudo enviar el mensaje. Escríbeme directamente por correo."
+        );
+        if (enlace) {
+            $aviso.append(
+                $("<a />", { href: enlace, class: "flat-alert__accion" }).text("Abrir en tu correo")
+            );
+        }
+        $form.prepend($aviso);
+    };
+
     var ajaxContactForm = function () {
         $("#contactform").each(function () {
             $(this).validate({
@@ -425,8 +456,8 @@
                                 result = "Mensaje enviado. Gracias por escribir, te respondo lo antes posible.";
                                 cls = "msg-success";
                             } else {
-                                result = "No se pudo enviar el mensaje. Escríbeme directamente por correo.";
-                                cls = "msg-error";
+                                avisoDeFallo($form);
+                                return;
                             }
                             $form.prepend(
                                 $("<div />", {
@@ -446,12 +477,7 @@
                         error: function () {
                             // Sin esto un fallo del envio era mudo: se quitaba el
                             // spinner y el usuario se quedaba sin saber que paso.
-                            $form.prepend(
-                                $("<div />", {
-                                    class: "flat-alert msg-error",
-                                    text: "No se pudo enviar el mensaje. Escríbeme directamente por correo.",
-                                }).append($('<a class="close" href="#"><i class="icon icon-close2"></i></a>'))
-                            );
+                            avisoDeFallo($form);
                         },
                         complete: function (xhr, status, error_thrown) {
                             $form.find(".loading").remove();
