@@ -676,12 +676,29 @@ const PortadaIsak = () => {
                                                 </p>
                                             <p className="timeline-desc text-body-3 text-black-56">
                                                 Trabajé por mi cuenta para agencias de Bogotá y clientes propios:
-                                                tiendas en línea a medida, integraciones y automatizaciones. De ahí
+                                                sitios de todo tipo, desde tiendas en línea hasta landings y webs
+                                                informativas, además de integraciones y automatizaciones. De ahí
                                                 salió Scentual Bliss, con más de 150 fragancias en producción.
                                             </p>
                                         </div>
                                     </div>
                                     {/* Item 3 */}
+                                    <div className="timeline-item effectFade fadeUp no-div">
+                                        <p className="timeline-date text-black-56">2023 - 2024</p>
+                                        <div className="timeline-dot"></div>
+                                        <div className="timeline-content">
+                                            <div className="icon">
+                                                <img className="image-switch" data-dark="assets/images/brand/smark7_dark.png" loading="lazy" width="96" height="22" src="/assets/images/brand/smark7.png" alt="Smark7" />
+                                            </div>
+                                            <p className="timeline-role fw-medium text-black-72">WebMaster en Smark7</p>
+                                            <p className="timeline-desc text-body-3 text-black-56">
+                                                Dos años en la agencia, en el área de comercio electrónico: gestión de
+                                                tiendas sobre WordPress, VTEX y Shopify, analítica con GA4 y reportes
+                                                de KPIs, y pruebas A/B para mejorar la conversión.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    {/* Item 4 */}
                                     <div className="timeline-item effectFade fadeUp no-div">
                                         <p className="timeline-date text-black-56">2018 - 2023</p>
                                         <div className="timeline-dot"></div>
