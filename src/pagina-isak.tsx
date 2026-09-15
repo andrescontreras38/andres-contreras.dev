@@ -633,6 +633,24 @@ const PortadaIsak = () => {
                                             Claude API
                                         </h6>
                                     </li>
+                                    <li className="award-item">
+                                        <div className="left">
+                                            <h6 className="award_name letter-space--2 text-black-72">Respuestas en redes</h6>
+                                            <p className="award_desc text-black-56">Contesta solo los comentarios de Facebook e Instagram</p>
+                                        </div>
+                                        <h6 className="award_year text-black-72">
+                                            Automatización
+                                        </h6>
+                                    </li>
+                                    <li className="award-item">
+                                        <div className="left">
+                                            <h6 className="award_name letter-space--2 text-black-72">Biblioteca Uniremington</h6>
+                                            <p className="award_desc text-black-56">Sistema de bibliotecas en su propio subdominio</p>
+                                        </div>
+                                        <h6 className="award_year text-black-72">
+                                            Node.js
+                                        </h6>
+                                    </li>
                                 </ul>
                             </div>
                             {/* /About */}
@@ -658,9 +676,11 @@ const PortadaIsak = () => {
                                             <p className="timeline-role fw-medium text-black-72">Desarrollador Full-Stack en
                                                 Uniremington</p>
                                             <p className="timeline-desc text-body-3 text-black-56">
-                                                Migré el sitio de WordPress a un stack propio en Node.js sin perder
-                                                contenido ni SEO, y construí herramientas internas para los equipos:
-                                                transferencia de archivos y un asistente con la API de Claude.
+                                                Migré el sitio institucional de WordPress a un stack propio en Node.js
+                                                sin perder contenido ni SEO, y levanté el sistema de bibliotecas en su
+                                                propio subdominio. Encima de eso: un asistente con IA que resuelve
+                                                dudas de los estudiantes, una app que contesta sola los comentarios de
+                                                Facebook e Instagram, y RemiTransfer para mover archivos entre sedes.
                                             </p>
                                         </div>
                                     </div>

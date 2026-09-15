@@ -6,141 +6,168 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: "Inter", "Segoe UI", system-ui, sans-serif;
-    color: #15181c;
-    font-size: 10.2pt;
+    color: #14181d;
+    font-size: 10pt;
     line-height: 1.5;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
-  .hoja { width: 210mm; height: 296mm; padding: 14mm 16mm; overflow: hidden; }
+  .hoja { width: 210mm; height: 296mm; overflow: hidden; display: flex; flex-direction: column; }
 
-  header { display: flex; align-items: flex-start; gap: 14px; padding-bottom: 13px; border-bottom: 2px solid #15181c; }
-  .marca { width: 34px; height: 34px; flex: none; margin-top: 2px; }
-  h1 { font-size: 21pt; letter-spacing: -0.5px; line-height: 1.1; }
-  .cargo { font-size: 10.5pt; color: #4b5563; margin-top: 2px; }
-  .contacto { margin-left: auto; text-align: right; font-size: 9pt; color: #4b5563; line-height: 1.7; }
-  .contacto a { color: #15181c; text-decoration: none; }
-  .contacto strong { color: #00a83d; }
+  /* Cabecera en banda oscura: da caracter y separa de un CV de plantilla. */
+  header {
+    background: #0e1114;
+    color: #fff;
+    padding: 13mm 14mm 11mm;
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+  }
+  .marca { width: 36px; height: 36px; flex: none; margin-top: 3px; }
+  h1 { font-size: 23pt; letter-spacing: -0.6px; line-height: 1.05; font-weight: 700; }
+  .cargo { font-size: 10.5pt; color: #00de51; margin-top: 3px; font-weight: 500; }
+  .lema { font-size: 9.6pt; color: rgba(255,255,255,.62); margin-top: 7px; max-width: 108mm; line-height: 1.45; }
+  .contacto { margin-left: auto; text-align: right; font-size: 8.8pt; color: rgba(255,255,255,.72); line-height: 1.85; }
+  .contacto a { color: #fff; text-decoration: none; }
+  .estado { color: #00de51; font-weight: 600; }
 
-  .resumen { margin: 13px 0 4px; font-size: 10.4pt; }
+  .cuerpo { flex: 1; display: grid; grid-template-columns: 1fr 62mm; gap: 0 9mm; padding: 10mm 14mm 8mm; }
 
   h2 {
-    font-size: 8.4pt; text-transform: uppercase; letter-spacing: 0.12em;
-    color: #00a83d; margin: 16px 0 8px; padding-bottom: 4px; border-bottom: 1px solid #e3e6ea;
+    font-size: 8pt; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700;
+    color: #14181d; margin: 0 0 7px;
+    padding-bottom: 4px; border-bottom: 2px solid #00de51;
   }
-  .fila { display: flex; gap: 16px; margin-bottom: 11px; }
-  .fecha { width: 74px; flex: none; font-size: 8.6pt; color: #6b7280; padding-top: 2px; }
-  .puesto { font-weight: 600; font-size: 10.6pt; }
-  .donde { color: #6b7280; font-size: 9.4pt; margin-bottom: 3px; }
-  ul { margin: 3px 0 0 15px; }
-  li { margin-bottom: 2px; }
+  section { margin-bottom: 15px; }
 
-  .dos { display: grid; grid-template-columns: 1fr 1fr; gap: 0 26px; }
-  .proyecto { margin-bottom: 9px; }
-  .proyecto b { font-size: 10.2pt; }
-  .proyecto span { display: block; color: #4b5563; font-size: 9.3pt; }
+  .puesto { font-weight: 650; font-size: 10.4pt; line-height: 1.25; }
+  .meta { color: #6f7680; font-size: 8.8pt; margin: 1px 0 4px; }
+  ul { margin: 0 0 0 13px; }
+  li { margin-bottom: 3px; }
 
-  .stack p { margin-bottom: 5px; }
-  .stack b { display: inline-block; min-width: 96px; }
-  .pie { margin-top: 18px; padding-top: 9px; border-top: 1px solid #e3e6ea; font-size: 8.4pt; color: #9aa1a9; }
+  .proy { display: flex; gap: 7px; margin-bottom: 5.5px; }
+  .proy b { font-weight: 650; white-space: nowrap; }
+  .proy span { color: #59606a; }
+
+  aside .bloque { margin-bottom: 17px; }
+  aside p { margin-bottom: 6px; }
+  .etq { font-weight: 650; display: block; font-size: 8.6pt; color: #14181d; }
+  .val { color: #59606a; font-size: 9.2pt; }
+  .cert b { display: block; font-size: 9.4pt; line-height: 1.3; }
+  .cert span { color: #6f7680; font-size: 8.6pt; }
+  .cert { margin-bottom: 9px; }
+
+  .pie { padding: 0 14mm 8mm; font-size: 8pt; color: #a2a8b0; }
 </style>
 
 <div class="hoja">
   <header>
     <svg class="marca" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M27 2L40 32L33.5 32L27 17L10.6 40L0 40Z" fill="#00a83d"/>
-      <path opacity="0.42" d="M13.1 21.56L20.18 26.59L18.68 28.71L11.6 23.68Z" fill="#fff"/>
-      <path opacity="0.42" d="M7.31 29.71L14.39 34.74L12.89 36.86L5.81 31.83Z" fill="#fff"/>
+      <path d="M27 2L40 32L33.5 32L27 17L10.6 40L0 40Z" fill="#00de51"/>
+      <path opacity="0.4" d="M13.1 21.56L20.18 26.59L18.68 28.71L11.6 23.68Z" fill="#fff"/>
+      <path opacity="0.4" d="M7.31 29.71L14.39 34.74L12.89 36.86L5.81 31.83Z" fill="#fff"/>
     </svg>
     <div>
       <h1>Andrés Contreras</h1>
       <div class="cargo">Desarrollador Full-Stack · IA aplicada</div>
+      <p class="lema">
+        Automatizo procesos, construyo agentes con IA y desarrollo el software que un negocio
+        necesita. No llego preguntando qué tecnología quiero usar, sino qué problema hay que
+        resolver. Todo lo que aparece aquí está en producción.
+      </p>
     </div>
     <div class="contacto">
       <div><a href="mailto:contreraslopezandresdavid@gmail.com">contreraslopezandresdavid@gmail.com</a></div>
       <div>Medellín, Colombia</div>
-      <div><strong>Disponible para trabajar</strong></div>
+      <div class="estado">Disponible para trabajar</div>
     </div>
   </header>
 
-  <p class="resumen">
-    Automatizo procesos, construyo agentes con IA y desarrollo el software que un negocio
-    necesita. No llego preguntando qué tecnología quiero usar: llego preguntando qué problema
-    hay que resolver. Todo lo que aparece aquí está en producción, con usuarios reales.
-  </p>
+  <div class="cuerpo">
+    <main>
+      <section>
+        <h2>Experiencia</h2>
 
-  <h2>Experiencia</h2>
+        <div style="margin-bottom:11px">
+          <div class="puesto">Desarrollador Full-Stack</div>
+          <div class="meta">Uniremington · Corporación Universitaria Remington · 2026 — hoy</div>
+          <ul>
+            <li>Migré el sitio institucional de WordPress a un stack propio en Node.js, sin perder contenido ni posicionamiento.</li>
+            <li>Levanté el sistema de bibliotecas en su propio subdominio.</li>
+            <li>Puse en el sitio un asistente con IA que resuelve dudas de los estudiantes, sobre la API de Claude.</li>
+            <li>Desarrollé una aplicación web que responde automáticamente los comentarios de Facebook e Instagram.</li>
+            <li>Construí RemiTransfer, para mover archivos sin límite de tamaño entre sedes.</li>
+          </ul>
+        </div>
 
-  <div class="fila">
-    <div class="fecha">2026 — hoy</div>
-    <div>
-      <div class="puesto">Desarrollador Full-Stack</div>
-      <div class="donde">Uniremington · Corporación Universitaria Remington</div>
-      <ul>
-        <li>Migré el sitio institucional de WordPress a un stack propio en Node.js sin perder contenido ni posicionamiento.</li>
-        <li>Construí herramientas internas para los equipos: transferencia de archivos sin límite de tamaño entre sedes.</li>
-        <li>Desarrollé un asistente de orientación para estudiantes sobre la API de Claude.</li>
-      </ul>
-    </div>
-  </div>
+        <div style="margin-bottom:11px">
+          <div class="puesto">Desarrollador independiente</div>
+          <div class="meta">Agencias de Bogotá y clientes propios · 2025 — 2026</div>
+          <ul>
+            <li>Sitios de todo tipo: tiendas en línea, landings y webs informativas.</li>
+            <li>Integraciones entre sistemas y automatizaciones a medida.</li>
+            <li>De ahí salió Scentual Bliss, con más de 150 fragancias en producción.</li>
+          </ul>
+        </div>
 
-  <div class="fila">
-    <div class="fecha">2025 — 2026</div>
-    <div>
-      <div class="puesto">Desarrollador independiente</div>
-      <div class="donde">Agencias de Bogotá y clientes propios</div>
-      <ul>
-        <li>Sitios de todo tipo: tiendas en línea, landings y webs informativas, además de integraciones y automatizaciones.</li>
-        <li>De ahí salió Scentual Bliss, una tienda con más de 150 fragancias en producción.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="fila">
-    <div class="fecha">2023 — 2024</div>
-    <div>
-      <div class="puesto">WebMaster · Analista eCommerce</div>
-      <div class="donde">Smark7 S.A.S. · Barranquilla · 2 años</div>
-      <ul>
-        <li>Gestión de tiendas sobre Shopify, VTEX y WordPress; seguimiento con GA4 y reportes de KPIs.</li>
-        <li>Optimización de la experiencia de compra y pruebas A/B para mejorar conversión.</li>
-        <li>Apoyo en marketing digital y posicionamiento SEO.</li>
-      </ul>
-    </div>
-  </div>
-
-  <h2>Proyectos en producción</h2>
-  <div class="dos">
-    <div class="proyecto"><b>Uniremington</b><span>Migración de WordPress a Node.js, sin perder SEO.</span></div>
-    <div class="proyecto"><b>Scentual Bliss</b><span>Tienda en línea completa: catálogo, checkout y correos.</span></div>
-    <div class="proyecto"><b>RemiTransfer</b><span>Transferencia interna de archivos sin límite de tamaño.</span></div>
-    <div class="proyecto"><b>Remi</b><span>Asistente de orientación para estudiantes con la API de Claude.</span></div>
-  </div>
-
-  <h2>Stack</h2>
-  <div class="stack">
-    <p><b>Front-end</b> React · Next.js</p>
-    <p><b>Servidor</b> Node.js · PHP · Python · APIs e integraciones</p>
-    <p><b>Datos e IA</b> Supabase · API de Claude · agentes con herramientas propias</p>
-    <p><b>Analítica</b> Google Analytics 4 · Tag Manager · Semrush · SEO</p>
-  </div>
-
-  <div class="dos">
-    <div>
-      <h2>Formación</h2>
-      <div class="fila">
-        <div class="fecha">2018 — 2023</div>
         <div>
-          <div class="puesto" style="font-size:10.2pt">Ingeniería de Sistemas</div>
-          <div class="donde">Universidad de Córdoba</div>
+          <div class="puesto">WebMaster · Analista eCommerce</div>
+          <div class="meta">Smark7 S.A.S. · Barranquilla · 2023 — 2024 (2 años)</div>
+          <ul>
+            <li>Gestión de tiendas sobre WordPress, VTEX y Shopify.</li>
+            <li>Analítica con GA4, reportes de KPIs y pruebas A/B para mejorar la conversión.</li>
+            <li>Apoyo en marketing digital y posicionamiento SEO.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Proyectos en producción</h2>
+        <div class="proy"><b>Uniremington</b><span>Sitio institucional migrado a Node.js, sin perder SEO.</span></div>
+        <div class="proy"><b>Biblioteca</b><span>Sistema de bibliotecas en subdominio propio.</span></div>
+        <div class="proy"><b>Remi</b><span>Asistente de dudas para estudiantes con la API de Claude.</span></div>
+        <div class="proy"><b>Redes</b><span>App que contesta sola los comentarios de Facebook e Instagram.</span></div>
+        <div class="proy"><b>RemiTransfer</b><span>Transferencia interna de archivos sin límite de tamaño.</span></div>
+        <div class="proy"><b>Scentual Bliss</b><span>Tienda completa: catálogo, checkout y correos transaccionales.</span></div>
+      </section>
+    </main>
+
+    <aside>
+      <div class="bloque">
+        <h2>Stack</h2>
+        <p><span class="etq">Front-end</span><span class="val">React · Next.js</span></p>
+        <p><span class="etq">Servidor</span><span class="val">Node.js · PHP · Python</span></p>
+        <p><span class="etq">Datos e IA</span><span class="val">Supabase · API de Claude · agentes con herramientas propias</span></p>
+        <p><span class="etq">Integraciones</span><span class="val">APIs de terceros · Meta · tareas programadas</span></p>
+        <p><span class="etq">Analítica</span><span class="val">GA4 · Tag Manager · Semrush · SEO</span></p>
+      </div>
+
+      <div class="bloque">
+        <h2>Formación</h2>
+        <div class="cert">
+          <b>Ingeniería de Sistemas</b>
+          <span>Universidad de Córdoba · 2018 — 2023</span>
         </div>
       </div>
-    </div>
-    <div>
-      <h2>Certificaciones</h2>
-      <div class="proyecto"><b>Master en Claude Code</b><span>Udemy · 10 horas · 2026</span></div>
-      <div class="proyecto"><b>Desarrollo de Aplicaciones Orientadas a la Nube</b><span>Universidad de Córdoba · Diplomado, 120 horas · 2022</span></div>
-    </div>
+
+      <div class="bloque">
+        <h2>Certificaciones</h2>
+        <div class="cert">
+          <b>Master en Claude Code</b>
+          <span>Udemy · 10 horas · 2026</span>
+        </div>
+        <div class="cert">
+          <b>Desarrollo de Aplicaciones Orientadas a la Nube</b>
+          <span>Universidad de Córdoba · Diplomado, 120 horas · 2022</span>
+        </div>
+      </div>
+
+      <div class="bloque">
+        <h2>Idiomas</h2>
+        <p><span class="val">Español — nativo</span></p>
+        <p><span class="val">Inglés — lectura técnica</span></p>
+      </div>
+    </aside>
   </div>
 
   <div class="pie">Referencias disponibles a solicitud.</div>
