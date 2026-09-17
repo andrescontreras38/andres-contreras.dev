@@ -808,7 +808,7 @@ const PortadaIsak = () => {
                                                         <div className="content-bottom">
                                                             <div className="br-line"></div>
                                                             <div className="group-action">
-                                                                <a href="#" className="tf-btn-action style-white">
+                                                                <a href="https://uniremington-oficial.vercel.app/" target="_blank" rel="noreferrer" className="tf-btn-action style-white">
                                                                     <span className="ic-wrap">
                                                                         <i className="icon icon-arrow-right-top"></i>
                                                                     </span>
