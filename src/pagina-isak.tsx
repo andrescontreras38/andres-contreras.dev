@@ -1233,9 +1233,33 @@ const PortadaIsak = () => {
                                     quieres lograr y para cuándo. <br className="d-none d-lg-block" />
                                     Entre más contexto, mejor te respondo
                                 </h4>
-                                <form className="form-contact" id="contactform" action="/api/contacto" method="post" noValidate>
-                                    {/* Trampa para robots: oculta, una persona no la rellena. */}
-                                    <input type="text" name="website" tabIndex={-1} autoComplete="off" className="visually-hidden" aria-hidden="true" />
+                                {/*
+                                    El envio sale del navegador del visitante, no del servidor.
+                                    FormSubmit esta detras de Cloudflare y responde un desafio
+                                    "Just a moment..." a las peticiones que vienen de un centro
+                                    de datos, asi que relevarlo desde la funcion de Vercel no
+                                    funciona. Desde un navegador real pasa sin problema.
+
+                                    Para dejar de depender de ellos: definir SMTP_USUARIO y
+                                    SMTP_CLAVE en el entorno y devolver este action a
+                                    "/api/contacto", que ya sabe enviar por SMTP propio.
+                                */}
+                                <form
+                                    className="form-contact"
+                                    id="contactform"
+                                    action={`https://formsubmit.co/ajax/${CORREO_CONTACTO}`}
+                                    method="post"
+                                    noValidate
+                                >
+                                    {/* Trampa para robots: oculta, una persona no la rellena.
+                                        Se llama _honey porque es el nombre que FormSubmit
+                                        reconoce y descarta por su cuenta. */}
+                                    <input type="text" name="_honey" tabIndex={-1} autoComplete="off" className="visually-hidden" aria-hidden="true" />
+                                    <input type="hidden" name="_subject" value="Nuevo mensaje desde andres-contreras.dev" />
+                                    <input type="hidden" name="_template" value="table" />
+                                    {/* Sin esto intercala una pagina de captcha y el envio por
+                                        AJAX se queda a medias. */}
+                                    <input type="hidden" name="_captcha" value="false" />
                                     <div className="form-content effectFade fadeUp no-div">
                                         <fieldset className="field-ip">
                                             <label htmlFor="name" className="field-label">Nombre <span className="req">*</span></label>
