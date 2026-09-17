@@ -21,6 +21,9 @@ const CORREO_VALIDO = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const unaLinea = (v, max) =>
   String(v ?? "").replace(/[\r\n]+/g, " ").trim().slice(0, max);
 
+/** Un nombre con comillas rompe el <nombre> <correo> de la cabecera. */
+const sinComillas = (v) => v.replace(/["\\]/g, "");
+
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST");
@@ -46,8 +49,11 @@ export default async function handler(req, res) {
     return res.status(400).json({ success: "false", message: "El correo no es valido" });
   }
 
-  const usuario = process.env.SMTP_USUARIO;
-  const clave = process.env.SMTP_CLAVE;
+  const usuario = process.env.SMTP_USUARIO?.trim();
+  // Google enseña la contraseña de aplicacion en grupos de cuatro ("abcd efgh
+  // ijkl mnop") y se copia con los espacios puestos. Gmail la rechaza asi, y el
+  // error que devuelve es de credenciales, que despista. Se quitan aqui.
+  const clave = process.env.SMTP_CLAVE?.replace(/\s+/g, "");
   if (!usuario || !clave) {
     console.error("[contacto] faltan SMTP_USUARIO o SMTP_CLAVE en el entorno");
     return res.status(500).json({ success: "false", message: "El envio no esta configurado" });
@@ -66,7 +72,7 @@ export default async function handler(req, res) {
       // visitante va en replyTo: asi responder desde la bandeja le escribe a el.
       from: `"Formulario andres-contreras.dev" <${usuario}>`,
       to: process.env.DESTINO || usuario,
-      replyTo: `"${nombre}" <${correo}>`,
+      replyTo: `"${sinComillas(nombre)}" <${correo}>`,
       subject: `Nuevo mensaje de ${nombre}`,
       text: [`Nombre: ${nombre}`, `Correo: ${correo}`, "", mensaje || "(sin mensaje)"].join("\n"),
     });
