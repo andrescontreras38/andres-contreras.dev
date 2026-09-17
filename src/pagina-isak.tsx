@@ -95,6 +95,49 @@ const PROBLEMAS = [
   "Mal SEO y GEO",
 ];
 
+/**
+ * Proyectos con su destino cuando lo tienen. Los internos de la universidad no
+ * llevan enlace a proposito: su codigo no debe quedar expuesto.
+ */
+const PROYECTOS = [
+  {
+    nombre: "Uniremington",
+    desc: "Migración de WordPress a un stack propio",
+    etiqueta: "Node.js",
+    url: "https://uniremington-oficial.vercel.app/",
+  },
+  {
+    nombre: "Scentual Bliss",
+    desc: "Tienda en línea con más de 150 fragancias",
+    etiqueta: "E-commerce",
+    url: "https://scentualbliss.com.co",
+  },
+  {
+    nombre: "Respuestas en redes",
+    desc: "Contesta solo los comentarios de Facebook e Instagram",
+    etiqueta: "Automatización",
+    url: "https://github.com/andrescontreras38/uniremington-social-inbox",
+  },
+  {
+    nombre: "RemiTransfer",
+    desc: "Transferencia de archivos sin límite de tamaño",
+    etiqueta: "Interno",
+    url: "https://github.com/andrescontreras38/remitranfer",
+  },
+  {
+    nombre: "Remi",
+    desc: "Asistente de orientación para estudiantes",
+    etiqueta: "Claude API",
+    url: null,
+  },
+  {
+    nombre: "Biblioteca Uniremington",
+    desc: "Sistema de bibliotecas en su propio subdominio",
+    etiqueta: "Node.js",
+    url: null,
+  },
+];
+
 const ZOOM_MIN = 1;
 const ZOOM_MAX = 4;
 const acotar = (v) => Math.min(ZOOM_MAX, Math.max(ZOOM_MIN, v));
@@ -597,60 +640,24 @@ const PortadaIsak = () => {
                                     esta lista está en producción, con usuarios reales usándolo.
                                 </p>
                                 <ul className="award-list">
-                                    <li className="award-item">
-                                        <div className="left">
-                                            <h6 className="award_name letter-space--2 text-black-72">Uniremington</h6>
-                                            <p className="award_desc text-black-56">Migración de WordPress a un stack propio</p>
-                                        </div>
-                                        <h6 className="award_year text-black-72">
-                                            Node.js
-                                        </h6>
-                                    </li>
-                                    <li className="award-item">
-                                        <div className="left">
-                                            <h6 className="award_name letter-space--2 text-black-72">Scentual Bliss</h6>
-                                            <p className="award_desc text-black-56">Tienda en línea con más de 150 fragancias</p>
-                                        </div>
-                                        <h6 className="award_year text-black-72">
-                                            E-commerce
-                                        </h6>
-                                    </li>
-                                    <li className="award-item">
-                                        <div className="left">
-                                            <h6 className="award_name letter-space--2 text-black-72">RemiTransfer</h6>
-                                            <p className="award_desc text-black-56">Transferencia de archivos sin límite de tamaño</p>
-                                        </div>
-                                        <h6 className="award_year text-black-72">
-                                            Interno
-                                        </h6>
-                                    </li>
-                                    <li className="award-item">
-                                        <div className="left">
-                                            <h6 className="award_name letter-space--2 text-black-72">Remi</h6>
-                                            <p className="award_desc text-black-56">Asistente de orientación para estudiantes</p>
-                                        </div>
-                                        <h6 className="award_year text-black-72">
-                                            Claude API
-                                        </h6>
-                                    </li>
-                                    <li className="award-item">
-                                        <div className="left">
-                                            <h6 className="award_name letter-space--2 text-black-72">Respuestas en redes</h6>
-                                            <p className="award_desc text-black-56">Contesta solo los comentarios de Facebook e Instagram</p>
-                                        </div>
-                                        <h6 className="award_year text-black-72">
-                                            Automatización
-                                        </h6>
-                                    </li>
-                                    <li className="award-item">
-                                        <div className="left">
-                                            <h6 className="award_name letter-space--2 text-black-72">Biblioteca Uniremington</h6>
-                                            <p className="award_desc text-black-56">Sistema de bibliotecas en su propio subdominio</p>
-                                        </div>
-                                        <h6 className="award_year text-black-72">
-                                            Node.js
-                                        </h6>
-                                    </li>
+                                    {PROYECTOS.map((p) => (
+                                        <li key={p.nombre} className="award-item">
+                                            <div className="left">
+                                                <h6 className="award_name letter-space--2 text-black-72">
+                                                    {p.url ? (
+                                                        <a href={p.url} target="_blank" rel="noreferrer" className="award_enlace">
+                                                            {p.nombre}
+                                                            <i className="icon icon-arrow-right-top" aria-hidden="true"></i>
+                                                        </a>
+                                                    ) : (
+                                                        p.nombre
+                                                    )}
+                                                </h6>
+                                                <p className="award_desc text-black-56">{p.desc}</p>
+                                            </div>
+                                            <h6 className="award_year text-black-72">{p.etiqueta}</h6>
+                                        </li>
+                                    ))}
                                 </ul>
                             </div>
                             {/* /About */}

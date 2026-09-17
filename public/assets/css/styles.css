@@ -7839,3 +7839,26 @@ button.animate-btn::after,
   text-decoration: underline;
   white-space: nowrap;
 }
+
+/* El nombre del proyecto es enlace cuando hay a donde ir; la flecha aparece al
+   pasar por encima para que se note que se puede pulsar. */
+.award_enlace {
+  color: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.award_enlace .icon {
+  font-size: 13px;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.award_enlace:hover {
+  color: var(--primary);
+}
+.award_enlace:hover .icon,
+.award_enlace:focus-visible .icon {
+  opacity: 1;
+  transform: translateX(0);
+}

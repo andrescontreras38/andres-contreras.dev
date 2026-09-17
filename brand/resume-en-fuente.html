@@ -1,0 +1,168 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Andrés Contreras — Resume</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+    color: #14181d;
+    font-size: 10pt;
+    line-height: 1.5;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .hoja { width: 210mm; height: 296mm; overflow: hidden; display: flex; flex-direction: column; }
+
+  header {
+    background: #0e1114; color: #fff; padding: 13mm 14mm 11mm;
+    display: flex; align-items: flex-start; gap: 13px;
+  }
+  .marca { width: 36px; height: 36px; flex: none; margin-top: 3px; }
+  h1 { font-size: 23pt; letter-spacing: -0.6px; line-height: 1.05; font-weight: 700; }
+  .cargo { font-size: 10.5pt; color: #00de51; margin-top: 3px; font-weight: 500; }
+  .lema { font-size: 9.6pt; color: rgba(255,255,255,.62); margin-top: 7px; max-width: 108mm; line-height: 1.45; }
+  .contacto { margin-left: auto; text-align: right; font-size: 8.8pt; color: rgba(255,255,255,.72); line-height: 1.85; }
+  .contacto a { color: #fff; text-decoration: none; }
+  .estado { color: #00de51; font-weight: 600; }
+
+  .cuerpo { flex: 1; display: grid; grid-template-columns: 1fr 62mm; gap: 0 9mm; padding: 10mm 14mm 8mm; }
+
+  h2 {
+    font-size: 8pt; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700;
+    color: #14181d; margin: 0 0 7px; padding-bottom: 4px; border-bottom: 2px solid #00de51;
+  }
+  section { margin-bottom: 15px; }
+  .puesto { font-weight: 650; font-size: 10.4pt; line-height: 1.25; }
+  .meta { color: #6f7680; font-size: 8.8pt; margin: 1px 0 4px; }
+  ul { margin: 0 0 0 13px; }
+  li { margin-bottom: 3px; }
+
+  .proy { display: flex; gap: 7px; margin-bottom: 5.5px; }
+  .proy b { font-weight: 650; white-space: nowrap; }
+  .proy span { color: #59606a; }
+
+  aside .bloque { margin-bottom: 17px; }
+  aside p { margin-bottom: 6px; }
+  .etq { font-weight: 650; display: block; font-size: 8.6pt; color: #14181d; }
+  .val { color: #59606a; font-size: 9.2pt; }
+  .cert b { display: block; font-size: 9.4pt; line-height: 1.3; }
+  .cert span { color: #6f7680; font-size: 8.6pt; }
+  .cert { margin-bottom: 9px; }
+
+  .pie { padding: 0 14mm 8mm; font-size: 8pt; color: #a2a8b0; }
+</style>
+
+<div class="hoja">
+  <header>
+    <svg class="marca" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M27 2L40 32L33.5 32L27 17L10.6 40L0 40Z" fill="#00de51"/>
+      <path opacity="0.4" d="M13.1 21.56L20.18 26.59L18.68 28.71L11.6 23.68Z" fill="#fff"/>
+      <path opacity="0.4" d="M7.31 29.71L14.39 34.74L12.89 36.86L5.81 31.83Z" fill="#fff"/>
+    </svg>
+    <div>
+      <h1>Andrés Contreras</h1>
+      <div class="cargo">Full-Stack Developer · Applied AI &amp; Automation</div>
+      <p class="lema">
+        I automate business processes, build AI agents and ship the software a company
+        actually needs. I don't start from the stack I'd like to use — I start from the
+        problem to solve. Everything listed here runs in production.
+      </p>
+    </div>
+    <div class="contacto">
+      <div><a href="mailto:contreraslopezandresdavid@gmail.com">contreraslopezandresdavid@gmail.com</a></div>
+      <div><a href="tel:+573053324345">+57 305 332 4345</a></div>
+      <div>Medellín, Colombia · UTC−5</div>
+      <div class="estado">Open to remote roles</div>
+    </div>
+  </header>
+
+  <div class="cuerpo">
+    <main>
+      <section>
+        <h2>Experience</h2>
+
+        <div style="margin-bottom:11px">
+          <div class="puesto">Full-Stack Developer</div>
+          <div class="meta">Uniremington · Remington University Corporation · 2026 — present</div>
+          <ul>
+            <li>Migrated the institutional website from WordPress to a custom Node.js stack with no loss of content or search rankings.</li>
+            <li>Built and launched the library system on its own subdomain.</li>
+            <li>Shipped an AI assistant on the main site that answers student questions, built on the Claude API.</li>
+            <li>Developed a web app that automatically replies to Facebook and Instagram comments.</li>
+            <li>Built RemiTransfer, an internal tool for moving files of any size between campuses.</li>
+          </ul>
+        </div>
+
+        <div style="margin-bottom:11px">
+          <div class="puesto">Independent Developer</div>
+          <div class="meta">Agencies in Bogotá and direct clients · 2025 — 2026</div>
+          <ul>
+            <li>Websites of every kind: online stores, landing pages and content sites.</li>
+            <li>System-to-system integrations and custom automation.</li>
+            <li>Built Scentual Bliss, a storefront running 150+ fragrances in production.</li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="puesto">WebMaster · eCommerce Analyst</div>
+          <div class="meta">Smark7 S.A.S. · Barranquilla · 2023 — 2024 (2 years)</div>
+          <ul>
+            <li>Ran storefronts on WordPress, VTEX and Shopify.</li>
+            <li>GA4 analytics, KPI reporting and A/B tests to lift conversion.</li>
+            <li>Supported digital marketing and SEO.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Production work</h2>
+        <div class="proy"><b>Uniremington</b><span>Institutional site migrated to Node.js, rankings intact.</span></div>
+        <div class="proy"><b>Library</b><span>Library system running on its own subdomain.</span></div>
+        <div class="proy"><b>Remi</b><span>Student-support assistant built on the Claude API.</span></div>
+        <div class="proy"><b>Social inbox</b><span>App that auto-replies to Facebook and Instagram comments.</span></div>
+        <div class="proy"><b>RemiTransfer</b><span>Internal file transfer with no size limit.</span></div>
+        <div class="proy"><b>Scentual Bliss</b><span>Full storefront: catalog, checkout and transactional email.</span></div>
+      </section>
+    </main>
+
+    <aside>
+      <div class="bloque">
+        <h2>Stack</h2>
+        <p><span class="etq">Front-end</span><span class="val">React · Next.js</span></p>
+        <p><span class="etq">Back-end</span><span class="val">Node.js · PHP · Python</span></p>
+        <p><span class="etq">Data &amp; AI</span><span class="val">Supabase · Claude API · agents with custom tools</span></p>
+        <p><span class="etq">Integrations</span><span class="val">Third-party APIs · Meta · scheduled jobs</span></p>
+        <p><span class="etq">Analytics</span><span class="val">GA4 · Tag Manager · Semrush · SEO</span></p>
+      </div>
+
+      <div class="bloque">
+        <h2>Education</h2>
+        <div class="cert">
+          <b>BSc, Systems Engineering</b>
+          <span>Universidad de Córdoba, Colombia · 2018 — 2023</span>
+        </div>
+      </div>
+
+      <div class="bloque">
+        <h2>Certifications</h2>
+        <div class="cert">
+          <b>Mastering Claude Code</b>
+          <span>Udemy · 10 hours · 2026</span>
+        </div>
+        <div class="cert">
+          <b>Cloud-Oriented Application Development</b>
+          <span>Universidad de Córdoba · 120-hour program · 2022</span>
+        </div>
+      </div>
+
+      <div class="bloque">
+        <h2>Languages</h2>
+        <p><span class="val">Spanish — native</span></p>
+        <p><span class="val">English — technical reading and writing; conversational in progress</span></p>
+      </div>
+    </aside>
+  </div>
+
+  <div class="pie">References available on request.</div>
+</div>
