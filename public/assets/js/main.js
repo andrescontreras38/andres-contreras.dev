@@ -449,9 +449,20 @@
                         },
                         success: function (msg) {
                             var result, cls;
-                            // FormSubmit responde un objeto JSON; la plantilla
-                            // original esperaba la cadena "Success".
-                            var ok = msg === "Success" || (msg && (msg.success === true || msg.success === "true"));
+                            // FormSubmit responde JSON pero lo anuncia como
+                            // text/html, asi que jQuery lo entrega sin parsear y
+                            // msg.success queda indefinido: el mensaje salia de
+                            // verdad y aun asi se avisaba de que habia fallado.
+                            var datos = msg;
+                            if (typeof datos === "string") {
+                                try {
+                                    datos = JSON.parse(datos);
+                                } catch (e) {
+                                    // La plantilla original contestaba "Success"
+                                    // a secas; se deja pasar tal cual.
+                                }
+                            }
+                            var ok = datos === "Success" || (datos && (datos.success === true || datos.success === "true"));
                             if (ok) {
                                 result = "Mensaje enviado. Gracias por escribir, te respondo lo antes posible.";
                                 cls = "msg-success";
