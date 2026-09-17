@@ -1,4 +1,5 @@
 import nodemailer from "nodemailer";
+import https from "node:https";
 
 /**
  * Envio del formulario de contacto.
@@ -51,29 +52,65 @@ async function porSmtp({ usuario, clave, destino, nombre, correo, mensaje }) {
   return { ok: true };
 }
 
+/**
+ * POST de toda la vida.
+ *
+ * No se usa fetch a proposito: la especificacion marca Referer y Origin como
+ * cabeceras prohibidas y el cliente las descarta en silencio, sin avisar. Como
+ * FormSubmit rechaza cualquier peticion que no venga referida por una pagina,
+ * el envio fallaba sin motivo aparente. El cliente de Node las manda tal cual.
+ */
+function postear(url, cuerpo, cabeceras) {
+  return new Promise((resolve, reject) => {
+    const datos = Buffer.from(JSON.stringify(cuerpo), "utf8");
+    const peticion = https.request(
+      url,
+      {
+        method: "POST",
+        headers: { ...cabeceras, "Content-Length": datos.length },
+        timeout: 10000,
+      },
+      (respuesta) => {
+        let texto = "";
+        respuesta.setEncoding("utf8");
+        respuesta.on("data", (trozo) => (texto += trozo));
+        respuesta.on("end", () => resolve(texto));
+      }
+    );
+    peticion.on("timeout", () => peticion.destroy(new Error("se agoto el tiempo")));
+    peticion.on("error", reject);
+    peticion.end(datos);
+  });
+}
+
 /** Camino 2: FormSubmit, sin cuenta. */
 async function porFormSubmit({ destino, nombre, correo, mensaje, origen }) {
-  const respuesta = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(destino)}`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-      // Sin una pagina que lo refiera, FormSubmit rechaza la peticion.
-      Referer: origen,
-      Origin: origen.replace(/\/$/, ""),
-    },
-    body: JSON.stringify({
+  const texto = await postear(
+    `https://formsubmit.co/ajax/${encodeURIComponent(destino)}`,
+    {
       name: nombre,
       email: correo,
       message: mensaje || "(sin mensaje)",
       _subject: `Nuevo mensaje de ${nombre}`,
       _template: "table",
       _captcha: "false",
-    }),
-  });
+    },
+    {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      // Sin una pagina que lo refiera, FormSubmit rechaza la peticion.
+      Referer: origen,
+      Origin: origen.replace(/\/$/, ""),
+    }
+  );
 
   // Responden siempre 200; lo que importa es el cuerpo.
-  const datos = await respuesta.json().catch(() => ({}));
+  let datos = {};
+  try {
+    datos = JSON.parse(texto);
+  } catch {
+    console.error("[contacto] FormSubmit no devolvio JSON:", texto.slice(0, 200));
+  }
   if (String(datos.success) === "true") return { ok: true };
 
   // El primer envio de todos dispara el correo de activacion. No es un fallo
@@ -90,7 +127,7 @@ async function porFormSubmit({ destino, nombre, correo, mensaje, origen }) {
   }
 
   console.error("[contacto] FormSubmit rechazo el envio:", aviso);
-  return { ok: false };
+  return { ok: false, detalle: aviso };
 }
 
 export default async function handler(req, res) {
@@ -137,7 +174,13 @@ export default async function handler(req, res) {
     if (resultado.ok) {
       return res.status(200).json({ success: "true", message: "Mensaje enviado" });
     }
-    return res.status(502).json({ success: "false", message: "No se pudo enviar el mensaje" });
+    // TEMPORAL: detalle del proveedor para diagnosticar. Quitar al terminar.
+    return res.status(502).json({
+      success: "false",
+      message: "No se pudo enviar el mensaje",
+      detalle: resultado.detalle ?? (resultado.pendienteDeActivacion ? "pendiente de activacion" : "sin detalle"),
+      origen,
+    });
   } catch (error) {
     console.error("[contacto] fallo el envio:", error?.message);
     return res.status(502).json({ success: "false", message: "No se pudo enviar el mensaje" });
