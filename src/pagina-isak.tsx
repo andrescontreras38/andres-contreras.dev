@@ -382,15 +382,15 @@ const PortadaIsak = () => {
                 <ul className="tf-social-icon-2 user-social d-grid">
                     <li><a href="#"><i className="icon icon-x"></i></a></li>
                     <li><a href="#"><i className="icon icon-linkin"></i></a></li>
-                    <li><a href="#">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g opacity="0.72">
-                                    <path opacity="0.2" d="M1.51502 11.2356L1.55752 4.87313C1.56502 3.72125 2.37065 2.73375 3.48252 2.51375L9.6269 1.29563C11.1031 1.00313 12.4738 2.15813 12.4638 3.6875L12.4213 10.0513C12.4131 11.2025 11.6075 12.1894 10.4956 12.41L4.35127 13.6281C2.87502 13.9206 1.50502 12.7656 1.51502 11.2356Z" fill="black" />
-                                    <path opacity="0.5" d="M4.52563 13.7744L4.56813 7.41062C4.575 6.25999 5.38125 5.27312 6.49313 5.05249L12.6375 3.83499C14.1138 3.54249 15.4844 4.69749 15.4744 6.22687L15.4319 12.5906C15.4244 13.7419 14.6188 14.7287 13.5069 14.9494L7.3625 16.1675C5.88625 16.46 4.51563 15.305 4.52563 13.7756V13.7744Z" fill="black" />
-                                    <path opacity="0.8" d="M7.53625 16.3125L7.57875 9.94875C7.58625 8.79687 8.39187 7.81062 9.50375 7.59L15.6481 6.37187C17.1244 6.07937 18.495 7.23437 18.485 8.76375L18.4425 15.1275C18.435 16.2794 17.6294 17.2662 16.5175 17.4862L10.3731 18.7044C8.89687 18.9969 7.52625 17.8419 7.53625 16.3125Z" fill="black" />
-                                </g>
+                    {/* El tercero era un dibujo generico de capas sin destino. Es
+                        GitHub: para un puesto tecnico es el enlace que mas pesa. */}
+                    <li>
+                        <a href="https://github.com/andrescontreras38" target="_blank" rel="noreferrer" aria-label="GitHub">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
                             </svg>
-                        </a></li>
+                        </a>
+                    </li>
                 </ul>
                 <div className="user-info">
                     <p className="avaiable-dot text-body-3 fw-medium d-sm-none">
@@ -890,7 +890,7 @@ const PortadaIsak = () => {
                                                         <div className="content-bottom">
                                                             <div className="br-line"></div>
                                                             <div className="group-action">
-                                                                <a href="#" className="tf-btn-action style-white">
+                                                                <a href="https://scentualbliss.com.co" target="_blank" rel="noreferrer" className="tf-btn-action style-white">
                                                                     <span className="ic-wrap">
                                                                         <i className="icon icon-arrow-right-top"></i>
                                                                     </span>
@@ -972,7 +972,7 @@ const PortadaIsak = () => {
                                                         <div className="content-bottom">
                                                             <div className="br-line"></div>
                                                             <div className="group-action">
-                                                                <a href="#" className="tf-btn-action style-white">
+                                                                <a href="https://github.com/andrescontreras38/remitranfer" target="_blank" rel="noreferrer" className="tf-btn-action style-white">
                                                                     <span className="ic-wrap">
                                                                         <i className="icon icon-arrow-right-top"></i>
                                                                     </span>
