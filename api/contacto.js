@@ -110,6 +110,7 @@ async function porFormSubmit({ destino, nombre, correo, mensaje, origen }) {
     datos = JSON.parse(texto);
   } catch {
     console.error("[contacto] FormSubmit no devolvio JSON:", texto.slice(0, 200));
+    return { ok: false, detalle: "no es JSON: " + texto.slice(0, 300) };
   }
   if (String(datos.success) === "true") return { ok: true };
 
